@@ -1,34 +1,36 @@
 module.exports = {
-    getCars: async(req, res) => {
+    getDrivers: async(req, res) => {
         const db = req.app.get('db')
         
         
         if(req.session.user){
+            console.log(req.session.user)
             const {admin_id} = req.session.user
-            let cars = await db.get_cars(admin_id)
-            let carList = cars.map( car => {
-                delete car.admin_password
-                return car
-            })
-            res.status(200).send(carList)
+            let drivers = await db.get_drivers(admin_id)
+            console.log(33333333, drivers)
+            // let driversList = drivers.map( driver => {
+            //     delete driver.admin_password
+            //     return driver
+            // })
+            res.status(200).send(drivers)
         }else{
             res.send("Please Log in")
         }
     },
-    getCar: async(req, res) => {
+    getDriver: async(req, res) => {
         const db = req.app.get('db')
         
         
         if(req.session.user){
             const {admin_id} = req.session.user
-            const {id: car_id} = req.params
-            console.log(car_id, admin_id)
-            let cars = await db.get_car_by_id(admin_id, car_id)
-            let carList = cars.map( car => {
-                delete car.admin_password
-                return car
+            const {id: driver_id} = req.params
+            console.log(driver_id, admin_id)
+            let drivers = await db.get_car_by_id(admin_id, driver_id)
+            let driverList = drivers.map( driver => {
+                delete driver.admin_password
+                return driver
             })
-            res.status(200).send(carList[0])
+            res.status(200).send(driverList[0])
         }else{
             res.send("Please Log in")
         }

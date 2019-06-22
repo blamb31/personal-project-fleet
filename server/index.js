@@ -7,6 +7,7 @@ const {SERVER_PORT, SESSION_SECRET, CONNECTION_STRING} = process.env
 
 const authCtrl = require('./controllers/auth')
 const carsCtrl = require('./controllers/cars')
+const driversCtrl = require('./controllers/drivers')
 
 massive(CONNECTION_STRING).then( db => {
     app.set('db', db)
@@ -37,5 +38,9 @@ app.get('/api/cars', carsCtrl.getCars)
 app.get('/api/cars/:id', carsCtrl.getCar)
 app.post('/api/cars/', carsCtrl.addCar)
 app.delete('/api/cars/:id', carsCtrl.deleteCar)
+
+app.get('/api/drivers', driversCtrl.getDrivers)
+app.get('/api/drivers/:id', driversCtrl.getDriver)
+
 
 // app.get('/api/cars', carsCtrl.getCars)
