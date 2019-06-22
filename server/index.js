@@ -35,5 +35,7 @@ app.get('/auth/currentUser', authCtrl.currentUser)
 
 app.get('/api/cars', carsCtrl.getCars)
 app.get('/api/cars/:id', carsCtrl.getCar)
+app.post('/api/cars/', carsCtrl.addCar)
+app.delete('/api/cars/:id', carsCtrl.deleteCar)
 
 // app.get('/api/cars', carsCtrl.getCars)

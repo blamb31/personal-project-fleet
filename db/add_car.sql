@@ -1,4 +1,6 @@
 INSERT INTO cars (driver_id, admin_id, car_make, car_model, car_year, car_color, car_mileage, car_img, car_address, car_zip_code, car_city, car_state, last_oil_change )
-VALUES ( ${driver_id}, ${admin_id}, ${car_make}, ${car_model}, ${car_year}, ${car_color}, ${car_mileage}, ${car_img}, ${car_address}, ${car_zip_code}, ${car_city}, ${car_state}, ${last_oil_change});
+VALUES ( $1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13);
 
-RETURNING *
+SELECT * FROM admins a
+JOIN cars c ON a.admin_id = c.admin_id
+WHERE a.admin_id = $2
