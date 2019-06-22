@@ -41,6 +41,10 @@ app.delete('/api/cars/:id', carsCtrl.deleteCar)
 
 app.get('/api/drivers', driversCtrl.getDrivers)
 app.get('/api/drivers/:id', driversCtrl.getDriver)
+app.post('/api/drivers/', driversCtrl.addDriver)
+app.delete('/api/drivers/:id', driversCtrl.deleteDriver)
+
+
 
 
 // app.get('/api/cars', carsCtrl.getCars)
