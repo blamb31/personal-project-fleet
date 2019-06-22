@@ -6,6 +6,7 @@ const massive = require('massive')
 const {SERVER_PORT, SESSION_SECRET, CONNECTION_STRING} = process.env
 
 const authCtrl = require('./controllers/auth')
+const carsCtrl = require('./controllers/cars')
 
 massive(CONNECTION_STRING).then( db => {
     app.set('db', db)
@@ -31,5 +32,8 @@ app.post('/auth/register', authCtrl.register)
 app.post('/auth/login', authCtrl.login)
 app.get('/auth/logout', authCtrl.logout)
 app.get('/auth/currentUser', authCtrl.currentUser)
+
+app.get('/api/cars', carsCtrl.getCars)
+app.get('/api/cars/:id', carsCtrl.getCar)
 
 // app.get('/api/cars', carsCtrl.getCars)
