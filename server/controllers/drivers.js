@@ -75,5 +75,47 @@ module.exports = {
         }else{
             res.status(404).send("Please Log in")
         }
+    },
+    updateDriver: async (req, res) => {
+        const db = req.app.get('db')
+
+        if(req.session.user) {
+            const {admin_id} = req.session.user
+            const {id: driver_id} = req.params
+            const {
+                driver_first_name,
+                driver_last_name,
+                driver_phone,
+                driver_img} = req.body
+                
+            let updatedDriverInfo = {
+                driver_first_name,
+                driver_last_name,
+                driver_phone,
+                driver_img,
+                driver_id,
+                admin_id
+            }
+            
+            let updatedDriverList = await db.update_driver(
+                driver_first_name,
+                driver_last_name,
+                driver_phone,
+                driver_img,
+                driver_id,
+                admin_id
+            )
+
+            let driverList = updatedDriverList.map( driver => {
+                delete driver.admin_password
+                return driver
+            })
+
+            res.status(200).send(driverList)
+
+
+        }else{
+            res.status(404).send("Please Log in")
+        }
     }
 }

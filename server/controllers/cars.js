@@ -38,7 +38,7 @@ module.exports = {
         
         if(req.session.user){
             const {admin_id} = req.session.user
-            const {driver_id, 
+            const {car_id, 
                 car_make, 
                 car_model, 
                 car_year, 
@@ -66,7 +66,7 @@ module.exports = {
                 car_state, 
                 last_oil_change)
 
-                let carList = newCarList.map( car => {
+            let carList = newCarList.map( car => {
                 delete car.admin_password
                 return car
             })
@@ -90,5 +90,74 @@ module.exports = {
         }else{
             res.status(404).send("Please Log in")
         }
+    },
+    
+    updateCar: async (req, res) => {
+        const db = req.app.get('db')
+
+        if(req.session.user) {
+            const {admin_id} = req.session.user
+            const {id: car_id} = req.params
+            const {
+                driver_id, 
+                car_make, 
+                car_model, 
+                car_year, 
+                car_color, 
+                car_mileage, 
+                car_img, 
+                car_address, 
+                car_zip_code, 
+                car_city, 
+                car_state, 
+                last_oil_change} = req.body
+                
+            let updatedCarInfo = {
+                driver_id, 
+                car_make, 
+                car_model, 
+                car_year, 
+                car_color, 
+                car_mileage, 
+                car_img, 
+                car_address, 
+                car_zip_code, 
+                car_city, 
+                car_state, 
+                last_oil_change,
+                car_id,
+                admin_id
+            }
+            
+            console.log(updatedCarInfo)
+            let updatedCarList = await db.update_car(
+                driver_id, 
+                car_make, 
+                car_model, 
+                car_year, 
+                car_color, 
+                car_mileage, 
+                car_img, 
+                car_address, 
+                car_zip_code, 
+                car_city, 
+                car_state, 
+                last_oil_change,
+                car_id,
+                admin_id
+            )
+
+            let carList = updatedCarList.map( car => {
+                delete car.admin_password
+                return car
+            })
+
+            res.status(200).send(carList)
+
+
+        }else{
+            res.status(404).send("Please Log in")
+        }
     }
 }
+

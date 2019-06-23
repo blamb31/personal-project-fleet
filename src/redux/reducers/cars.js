@@ -16,6 +16,10 @@ const DELETE_CAR = 'DELETE_CAR'
 const DELETE_CAR_FULFILLED = 'DELETE_CAR_FULFILLED'
 const DELETE_CAR_PENDING = 'DELETE_CAR_PENDING'
 
+const UPDATE_CAR = 'UPDATE_CAR'
+const UPDATE_CAR_FULFILLED = 'UPDATE_CAR_FULFILLED'
+const UPDATE_CAR_PENDING = 'UPDATE_CAR_PENDING'
+
 
 let initialState = {
     data: [],
@@ -76,6 +80,19 @@ export default function (state = initialState, action) {
                 data: payload.data,
                 loading: false
             }
+
+        case UPDATE_CAR_PENDING:
+            return {
+                ...state,
+                loading: true
+            }
+        case UPDATE_CAR_FULFILLED:
+            return {
+                ...state,
+                data: payload.data,
+                loading: false
+            }
+
         default: 
             return state
     }
@@ -101,9 +118,17 @@ export function addCar(newCarInfo) {
         payload: Axios.post('/api/cars', newCarInfo)
     }
 }
+
 export function deleteCar(id) {
     return{
         type: DELETE_CAR,
-        payload: Axios.delete(`/api/cars${id}`)
+        payload: Axios.delete(`/api/cars/${id}`)
+    }
+}
+
+export function updateCar(id) {
+    return{
+        type: UPDATE_CAR,
+        payload: Axios.delete(`/api/cars/${id}`)
     }
 }
