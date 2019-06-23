@@ -86,6 +86,7 @@ module.exports = {
                 driver_first_name,
                 driver_last_name,
                 driver_phone,
+                car_id,
                 driver_img} = req.body
                 
             let updatedDriverInfo = {

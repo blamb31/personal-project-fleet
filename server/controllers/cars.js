@@ -129,7 +129,6 @@ module.exports = {
                 admin_id
             }
             
-            console.log(updatedCarInfo)
             let updatedCarList = await db.update_car(
                 driver_id, 
                 car_make, 
