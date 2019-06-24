@@ -20,18 +20,17 @@ class Login extends Component {
         })
     }
 
-    handleLogin = () =>  {
+    handleLogin = async () =>  {
         let {username, password} = this.state
         if(username === '' || password === '') {
             return alert('Must enter a username and password')
         }
-        this.props.login({username, password})
+        await this.props.login({username, password})
         this.setState({
             username: '',
             password: ''
         })
-        console.log(777777, this.props.user)
-        
+        this.props.history.push('/auth/register')
     }
 
     render() {

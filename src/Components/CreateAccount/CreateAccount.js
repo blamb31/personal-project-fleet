@@ -26,7 +26,7 @@ class CreateAccount extends Component {
         })
     }
 
-    handleRegister = () => {
+    handleRegister = async() => {
         for( let key in this.state){
             console.log(111111111, this.state[key])
             if (this.state[key] === ''){
@@ -34,7 +34,7 @@ class CreateAccount extends Component {
                 return alert('All fields must be filled in')
             }
         }
-        this.props.register(this.state)
+        await this.props.register(this.state)
         this.setState({
             admin_first_name: '',
             admin_last_name: '',
@@ -43,6 +43,7 @@ class CreateAccount extends Component {
             admin_phone: '',
             admin_img: ''
         })
+        this.props.history.push('/auth/login')
     }
 
     render() {
@@ -87,7 +88,7 @@ class CreateAccount extends Component {
                     onChange={event => this.handleChange(event)} />
                 </div>
                 <div>
-                <Link to='/auth/login'><button onClick={this.handleRegister}>Create User</button></Link>
+                <button onClick={this.handleRegister}>Create User</button>
                     <Link to='/auth/login'><button>Login As Existing User</button></Link>
 
                 </div>

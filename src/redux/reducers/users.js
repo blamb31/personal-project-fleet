@@ -21,10 +21,12 @@ const LOGOUT_USER_FULFILLED= 'LOGOUT_USER_FULFILLED'
 const REGISTER_USER= 'REGISTER_USER'
 const REGISTER_USER_PENDING= 'REGISTER_USER_PENDING'
 const REGISTER_USER_FULFILLED= 'REGISTER_USER_FULFILLED'
+const REGISTER_USER_REJECTED= 'REGISTER_USER_REJECTED'
 
 export default function (state = initialState, action) {
     let {type, payload} = action
 
+    console.log(666666666666666, type)
     switch(type) {
         case GET_USER_PENDING:
             return {
@@ -77,6 +79,12 @@ export default function (state = initialState, action) {
             return {
                 ...state,
                 data: payload.data,
+                loading: false
+            }
+        case REGISTER_USER_REJECTED:
+            alert("Username is already in use. Please choose another username.")
+            return {
+                ...state,
                 loading: false
             }
         default:
