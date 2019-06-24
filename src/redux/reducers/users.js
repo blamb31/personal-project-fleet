@@ -12,6 +12,7 @@ const GET_USER_FULFILLED= 'GET_USER_FULFILLED'
 const LOGIN_USER= 'LOGIN_USER'
 const LOGIN_USER_PENDING= 'LOGIN_USER_PENDING'
 const LOGIN_USER_FULFILLED= 'LOGIN_USER_FULFILLED'
+const LOGIN_USER_REJECTED= 'LOGIN_USER_REJECTED'
 
 const LOGOUT_USER= 'LOGOUT_USER'
 const LOGOUT_USER_PENDING= 'LOGOUT_USER_PENDING'
@@ -46,6 +47,12 @@ export default function (state = initialState, action) {
             return {
                 ...state,
                 data: payload.data,
+                loading: false
+            }
+        case LOGIN_USER_REJECTED:
+            alert("Username or Password is Incorrect")
+            return {
+                ...state,
                 loading: false
             }
 

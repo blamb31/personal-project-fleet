@@ -1,5 +1,6 @@
 import React, {Component} from 'react'
 import { connect } from 'react-redux';
+import {Link} from 'react-router-dom'
 
 import {login} from '../../redux/reducers/users'
 
@@ -19,13 +20,18 @@ class Login extends Component {
         })
     }
 
-    handleSubmit = () =>  {
+    handleLogin = () =>  {
         let {username, password} = this.state
+        if(username === '' || password === '') {
+            return alert('Must enter a username and password')
+        }
         this.props.login({username, password})
         this.setState({
             username: '',
             password: ''
         })
+        console.log(777777, this.props.user)
+        
     }
 
     render() {
@@ -33,12 +39,18 @@ class Login extends Component {
             <div>
                 <input value={this.state.username} name='username' onChange={event => this.handleChange(event)} type='text' placeholder='Username' />
                 <input value={this.state.password} name='password' onChange={event => this.handleChange(event)} type='text' placeholder='Password' />
-                <button onClick={this.handleSubmit}>Login</button>
-                <button >Register</button>
+                <button onClick={this.handleLogin}>Login</button>
+                <Link to='/auth/register'><button >Register</button> </Link>
 
             </div>
         )
     }
 }
 
-export default connect(null, {login})(Login)
+let mapStateToProps = (state) =>{
+    return {
+        user: state.users.data
+    }
+}
+
+export default connect(mapStateToProps, {login})(Login)

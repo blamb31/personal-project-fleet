@@ -16,7 +16,7 @@ module.exports = {
             let user = users[0]
     
             if(user) {
-                return res.status(409).send('Email already in db')
+                return res.status(409).send('Username already in use')
             }
             
             const salt = bcrypt.genSaltSync(10)
