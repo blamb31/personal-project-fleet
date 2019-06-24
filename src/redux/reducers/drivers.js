@@ -16,9 +16,9 @@ const DELETE_DRIVER = 'DELETE_DRIVER'
 const DELETE_DRIVER_FULFILLED = 'DELETE_DRIVER_FULFILLED'
 const DELETE_DRIVER_PENDING = 'DELETE_DRIVER_PENDING'
 
-const UPDATE_CAR = 'UPDATE_CAR'
-const UPDATE_CAR_FULFILLED = 'UPDATE_CAR_FULFILLED'
-const UPDATE_CAR_PENDING = 'UPDATE_CAR_PENDING'
+const UPDATE_DRIVER = 'UPDATE_DRIVER'
+const UPDATE_DRIVER_FULFILLED = 'UPDATE_DRIVER_FULFILLED'
+const UPDATE_DRIVER_PENDING = 'UPDATE_DRIVER_PENDING'
 
 let initialState = {
     data: [],
@@ -82,12 +82,12 @@ export default function (state = initialState, action) {
 
             }
 
-        case UPDATE_CAR_PENDING:
+        case UPDATE_DRIVER_PENDING:
             return {
                 ...state,
                 loading: true
             }
-        case UPDATE_CAR_FULFILLED:
+        case UPDATE_DRIVER_FULFILLED:
             return {
                 ...state,
                 data: payload.data,

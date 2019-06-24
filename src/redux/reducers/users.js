@@ -17,6 +17,10 @@ const LOGOUT_USER= 'LOGOUT_USER'
 const LOGOUT_USER_PENDING= 'LOGOUT_USER_PENDING'
 const LOGOUT_USER_FULFILLED= 'LOGOUT_USER_FULFILLED'
 
+const REGISTER_USER= 'REGISTER_USER'
+const REGISTER_USER_PENDING= 'REGISTER_USER_PENDING'
+const REGISTER_USER_FULFILLED= 'REGISTER_USER_FULFILLED'
+
 export default function (state = initialState, action) {
     let {type, payload} = action
 
@@ -26,7 +30,7 @@ export default function (state = initialState, action) {
                 ...state,
                 loading: true
             }
-        case GET_USER_:
+        case GET_USER_FULFILLED:
             return {
                 ...state,
                 data: payload.data,
@@ -44,6 +48,7 @@ export default function (state = initialState, action) {
                 data: payload.data,
                 loading: false
             }
+
         case LOGOUT_USER_PENDING: 
             return {
                 ...state,
@@ -55,6 +60,20 @@ export default function (state = initialState, action) {
                 data: payload.data,
                 loading: false
             }
+        
+        case REGISTER_USER_PENDING: 
+            return {
+                ...state,
+                loading: true
+            }
+        case REGISTER_USER_FULFILLED:
+            return {
+                ...state,
+                data: payload.data,
+                loading: false
+            }
+        default:
+            return state
     }
 }
 
@@ -68,21 +87,21 @@ export function getUser(){
 
 export function login(loginInfo) {
     return{
-        action: LOGIN_USER,
+        type: LOGIN_USER,
         payload: Axios.post('/auth/login', loginInfo)
     }
 }
 
 export function logout() {
     return{
-        action: LOGIN_USER,
+        type: LOGOUT_USER,
         payload: Axios.get('/auth/logout')
     }
 }
 
 export function register(newUserInfo) {
     return{
-        action: REGISTER_USER,
+        type: REGISTER_USER,
         payload: Axios.post('/auth/register', newUserInfo)
     }
 }
