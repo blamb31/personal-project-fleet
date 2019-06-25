@@ -9,8 +9,8 @@ module.exports = {
         //store name email and hash into table
         try {
             const db = req.app.get('db')
-            const {admin_first_name, admin_last_name, admin_username, admin_password, admin_phone, admin_img} = req.body
-            
+            const {admin_first_name, admin_last_name, admin_username, admin_password, admin_phone, admin_img, admin_company_name} = req.body
+            console.log(3333333, admin_first_name, admin_last_name, admin_username, admin_password, admin_phone, admin_img, admin_company_name)
 
             let users = await db.get_admin_by_username(admin_username)
             let user = users[0]
@@ -28,7 +28,9 @@ module.exports = {
                 admin_username,
                 admin_phone,
                 admin_img, 
-                admin_password:hash})
+                admin_password:hash,
+                admin_company_name
+            })
             let newUser = response[0]
     
             delete newUser.admin_password

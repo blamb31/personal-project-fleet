@@ -37,6 +37,7 @@ class CreateAccount extends Component {
         this.setState({
             admin_first_name: '',
             admin_last_name: '',
+            admin_company_name: '',
             admin_username: '',
             admin_password: '',
             admin_phone: '',
@@ -60,6 +61,12 @@ class CreateAccount extends Component {
                     placeholder='Last Name' 
                     value={this.state.admin_last_name} 
                     name='admin_last_name'
+                    onChange={event => this.handleChange(event)} />
+                    <input 
+                    type='text' 
+                    placeholder='Company Name' 
+                    value={this.state.admin_company_name} 
+                    name='admin_company_name'
                     onChange={event => this.handleChange(event)} />
                     <input 
                     type='text' 
