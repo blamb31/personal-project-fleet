@@ -3,6 +3,7 @@ import Axios from 'axios'
 const GET_CARS = 'GET_CARS'
 const GET_CARS_FULFILLED = 'GET_CARS_FULFILLED'
 const GET_CARS_PENDING = 'GET_CARS_PENDING'
+const GET_CARS_REJECTED = 'GET_CARS_REJECTED'
 
 const GET_CAR = 'GET_CAR'
 const GET_CAR_FULFILLED = 'GET_CAR_FULFILLED'
@@ -29,6 +30,7 @@ let initialState = {
 
 export default function (state = initialState, action) {
     const {type, payload} = action
+    console.log(444444444, type)
 
     switch(type) {
         case GET_CARS_PENDING:
@@ -37,9 +39,19 @@ export default function (state = initialState, action) {
                 loading: true
             }
         case GET_CARS_FULFILLED:
+            console.log(5555555, type)
             return {
                 ...state,
                 data: payload.data,
+                loading: false
+
+            }
+        case GET_CARS_REJECTED:
+            console.log(6666666666, type)
+
+            return {
+                ...state,
+                data: [],
                 loading: false
 
             }

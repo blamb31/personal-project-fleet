@@ -45,6 +45,7 @@ export default function (state = initialState, action) {
                 loading: true
             }
         case LOGIN_USER_FULFILLED:
+            console.log(111111111, payload.data)
             return {
                 ...state,
                 data: payload.data,
@@ -65,7 +66,7 @@ export default function (state = initialState, action) {
         case LOGOUT_USER_FULFILLED:
             return {
                 ...state,
-                data: payload.data,
+                data: null,
                 loading: false
             }
         

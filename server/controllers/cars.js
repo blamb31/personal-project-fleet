@@ -12,7 +12,7 @@ module.exports = {
             })
             res.status(200).send(carList)
         }else{
-            res.send("Please Log in")
+            res.status(401).send("Please Log in")
         }
     },
     getCar: async(req, res) => {
@@ -30,7 +30,7 @@ module.exports = {
             })
             res.status(200).send(carList[0])
         }else{
-            res.send("Please Log in")
+            res.status(401)
         }
     },
     addCar: async (req, res) => {
@@ -38,7 +38,7 @@ module.exports = {
         
         if(req.session.user){
             const {admin_id} = req.session.user
-            const {car_id, 
+            const {driver_id, 
                 car_make, 
                 car_model, 
                 car_year, 
