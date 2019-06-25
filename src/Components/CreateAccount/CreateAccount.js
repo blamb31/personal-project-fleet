@@ -27,9 +27,7 @@ class CreateAccount extends Component {
 
     handleRegister = async() => {
         for( let key in this.state){
-            console.log(111111111, this.state[key])
             if (this.state[key] === ''){
-                console.log("hit '' ")
                 return alert('All fields must be filled in')
             }
         }

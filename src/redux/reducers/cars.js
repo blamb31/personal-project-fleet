@@ -30,7 +30,6 @@ let initialState = {
 
 export default function (state = initialState, action) {
     const {type, payload} = action
-    console.log(444444444, type)
 
     switch(type) {
         case GET_CARS_PENDING:
