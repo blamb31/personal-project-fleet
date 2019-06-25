@@ -30,7 +30,7 @@ class Login extends Component {
             username: '',
             password: ''
         })
-        this.props.history.push('/auth/register')
+        this.props.history.push('/user/admin/api/cars')
     }
 
     render() {

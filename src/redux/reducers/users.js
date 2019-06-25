@@ -26,7 +26,6 @@ const REGISTER_USER_REJECTED= 'REGISTER_USER_REJECTED'
 export default function (state = initialState, action) {
     let {type, payload} = action
 
-    console.log(666666666666666, type)
     switch(type) {
         case GET_USER_PENDING:
             return {

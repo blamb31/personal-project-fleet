@@ -42,7 +42,7 @@ class CreateAccount extends Component {
             admin_phone: '',
             admin_img: ''
         })
-        this.props.history.push('/auth/login')
+        this.props.history.push('/user/admin/api/cars')
     }
 
     render() {
