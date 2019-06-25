@@ -109,7 +109,7 @@ class Cars extends Component {
                     <div>
                         <p>Driver ID:</p>
                         <input 
-                        min={0}
+                        min={1}
                         type='number' 
                         placeholder='Driver ID' 
                         value={this.state.driver_id} 
