@@ -8,7 +8,6 @@ import {connect} from 'react-redux'
 class CreateAccount extends Component {
     constructor(props) {
         super(props)
-
         this.state = {
             admin_first_name: '',
             admin_last_name: '',
