@@ -72,7 +72,7 @@ class Cars extends Component {
         let driver;
         if(this.props.user){
             car = cars.sort((a, b) => {
-                return ((Number(a.car_mileage) -Number(a.last_oil_change)) - (Number(b.car_mileage) -Number(b.last_oil_change)))
+                return ((Number(b.car_mileage) -Number(b.last_oil_change)) - (Number(a.car_mileage) -Number(a.last_oil_change)))
             }).map( (car, index) =>{
                 if(index %2 ===0){
                     return(

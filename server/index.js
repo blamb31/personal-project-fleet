@@ -39,6 +39,7 @@ app.get('/api/cars/:id', carsCtrl.getCar)
 app.post('/api/cars/', carsCtrl.addCar)
 app.delete('/api/cars/:id', carsCtrl.deleteCar)
 app.put('/api/cars/edit/:id', carsCtrl.updateCar)
+app.put('/api/cars/oilChange/:id', carsCtrl.oilChange)
 app.put('/api/cars/:id', carsCtrl.addMiles)
 
 

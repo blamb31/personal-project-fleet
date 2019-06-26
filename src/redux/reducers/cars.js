@@ -27,6 +27,10 @@ const ADD_MILES = 'ADD_MILES'
 const ADD_MILES_FULFILLED = 'ADD_MILES_FULFILLED'
 const ADD_MILES_PENDING = 'ADD_MILES_PENDING'
 
+const GOT_OIL_CHANGE = 'GOT_OIL_CHANGE'
+const GOT_OIL_CHANGE_FULFILLED = 'GOT_OIL_CHANGE_FULFILLED'
+const GOT_OIL_CHANGE_PENDING = 'GOT_OIL_CHANGE_PENDING'
+
 
 
 let initialState = {
@@ -129,6 +133,18 @@ export default function (state = initialState, action) {
                 loading: false
             }
 
+        case GOT_OIL_CHANGE_PENDING:
+            return {
+                ...state,
+                loading: true
+            }
+        case GOT_OIL_CHANGE_FULFILLED:
+            return {
+                ...state,
+                selected: payload.data,
+                loading: false
+            }
+
         default: 
             return state
     }
@@ -170,9 +186,15 @@ export function updateCar(id) {
 }
 
 export function addMiles(id, miles) {
-    console.log(222222, id, miles)
     return{
         type: ADD_MILES,
         payload: Axios.put(`/api/cars/${id}`, {miles})
+    }
+}
+
+export function gotOilChange(id, miles) {
+    return{
+        type: GOT_OIL_CHANGE,
+        payload: Axios.put(`/api/cars/oilChange/${id}`, {miles})
     }
 }

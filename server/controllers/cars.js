@@ -165,6 +165,16 @@ module.exports = {
 
         const updatedCar = await db.add_miles(car_id, admin_id, miles)
         res.status(200).send(updatedCar[0])
+    },
+    oilChange: async (req, res) => {
+        const db = req.app.get('db')
+
+        const {id: car_id} = req.params
+        const {admin_id } = req.session.user
+        const {miles} = req.body
+
+        const updatedCar = await db.oil_change(car_id, admin_id, miles)
+        res.status(200).send(updatedCar[0])
     }
 }
 
