@@ -7,7 +7,6 @@ module.exports = {
             console.log(req.session.user)
             const {admin_id} = req.session.user
             let drivers = await db.get_drivers(admin_id)
-            console.log(33333333, drivers)
             let driversList = drivers.map( driver => {
                 delete driver.admin_password
                 return driver

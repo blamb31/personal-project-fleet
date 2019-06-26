@@ -22,7 +22,6 @@ module.exports = {
         if(req.session.user){
             const {admin_id} = req.session.user
             const {id: car_id} = req.params
-            console.log(car_id, admin_id)
             let cars = await db.get_car_by_id(admin_id, car_id)
             let carList = cars.map( car => {
                 delete car.admin_password
@@ -83,7 +82,6 @@ module.exports = {
             const {admin_id} = req.session.user
             const {id: car_id} = req.params
 
-            console.log(car_id, admin_id)
 
             carList = await db.delete_car_by_id(car_id, admin_id)
             res.status(200).send(carList)
@@ -157,6 +155,16 @@ module.exports = {
         }else{
             res.status(404).send("Please Log in")
         }
+    }, 
+    addMiles: async (req, res) => {
+        const db = req.app.get('db')
+
+        const {id: car_id} = req.params
+        const {admin_id } = req.session.user
+        const {miles} = req.body
+
+        const updatedCar = await db.add_miles(car_id, admin_id, miles)
+        res.status(200).send(updatedCar[0])
     }
 }
 

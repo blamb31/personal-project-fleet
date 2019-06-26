@@ -10,7 +10,6 @@ module.exports = {
         try {
             const db = req.app.get('db')
             const {admin_first_name, admin_last_name, admin_username, admin_password, admin_phone, admin_img, admin_company_name} = req.body
-            console.log(3333333, admin_first_name, admin_last_name, admin_username, admin_password, admin_phone, admin_img, admin_company_name)
 
             let users = await db.get_admin_by_username(admin_username)
             let user = users[0]
@@ -53,7 +52,6 @@ module.exports = {
         //if password doesnt match, send 401 status
         //if the match, add user to session
         try {
-            console.log("hit")
             const db = req.app.get('db')
             const {username: admin_username, password: admin_password} = req.body
             
@@ -72,7 +70,6 @@ module.exports = {
 
             delete user.admin_password
             req.session.user = user
-            console.log(5555555555555, req.session.user)
             res.send(req.session.user)
 
         }catch(error){

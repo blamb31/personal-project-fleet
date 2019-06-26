@@ -5,6 +5,8 @@ import NavBar from '../NavBar/NavBar'
 import Cars from '../Cars/Cars'
 import Drivers from '../Drivers/Drivers'
 import Maintenance from '../Maintenance/Maintenance'
+import Car from '../Car/Car'
+
 
 import {connect} from 'react-redux'
 
@@ -19,6 +21,7 @@ function Admin(props){
                         <Route path='/user/admin/api/cars' exact component={Cars} />
                         <Route path='/user/admin/api/drivers' exact component={Drivers} />
                         <Route path='/user/admin/api/maintenance' component={Maintenance} />
+                        <Route path='/user/admin/api/cars/:id' exact component={Car} />                        
                     </Switch>
                 </div>
 

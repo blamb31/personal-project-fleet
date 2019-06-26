@@ -8,6 +8,8 @@ const GET_CARS_REJECTED = 'GET_CARS_REJECTED'
 const GET_CAR = 'GET_CAR'
 const GET_CAR_FULFILLED = 'GET_CAR_FULFILLED'
 const GET_CAR_PENDING = 'GET_CAR_PENDING'
+const GET_CAR_REJECTED = 'GET_CAR_REJECTED'
+
 
 const ADD_CAR = 'ADD_CAR'
 const ADD_CAR_FULFILLED = 'ADD_CAR_FULFILLED'
@@ -21,6 +23,11 @@ const UPDATE_CAR = 'UPDATE_CAR'
 const UPDATE_CAR_FULFILLED = 'UPDATE_CAR_FULFILLED'
 const UPDATE_CAR_PENDING = 'UPDATE_CAR_PENDING'
 
+const ADD_MILES = 'ADD_MILES'
+const ADD_MILES_FULFILLED = 'ADD_MILES_FULFILLED'
+const ADD_MILES_PENDING = 'ADD_MILES_PENDING'
+
+
 
 let initialState = {
     data: [],
@@ -30,6 +37,7 @@ let initialState = {
 
 export default function (state = initialState, action) {
     const {type, payload} = action
+    console.log(555555555, action)
 
     switch(type) {
         case GET_CARS_PENDING:
@@ -38,7 +46,6 @@ export default function (state = initialState, action) {
                 loading: true
             }
         case GET_CARS_FULFILLED:
-            console.log(5555555, type)
             return {
                 ...state,
                 data: payload.data,
@@ -46,7 +53,6 @@ export default function (state = initialState, action) {
 
             }
         case GET_CARS_REJECTED:
-            console.log(6666666666, type)
 
             return {
                 ...state,
@@ -63,7 +69,14 @@ export default function (state = initialState, action) {
         case GET_CAR_FULFILLED:
             return {
                 ...state,
-                data: payload.data,
+                selected: payload.data,
+                loading: false
+            }
+        case GET_CAR_REJECTED:
+
+            return {
+                ...state,
+                data: [],
                 loading: false
 
             }
@@ -104,6 +117,18 @@ export default function (state = initialState, action) {
                 loading: false
             }
 
+        case ADD_MILES_PENDING:
+            return {
+                ...state,
+                loading: true
+            }
+        case ADD_MILES_FULFILLED:
+            return {
+                ...state,
+                selected: payload.data,
+                loading: false
+            }
+
         default: 
             return state
     }
@@ -141,5 +166,13 @@ export function updateCar(id) {
     return{
         type: UPDATE_CAR,
         payload: Axios.delete(`/api/cars/${id}`)
+    }
+}
+
+export function addMiles(id, miles) {
+    console.log(222222, id, miles)
+    return{
+        type: ADD_MILES,
+        payload: Axios.put(`/api/cars/${id}`, {miles})
     }
 }

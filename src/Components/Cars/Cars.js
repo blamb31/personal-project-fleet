@@ -67,12 +67,13 @@ class Cars extends Component {
 
     render() {
         
-        console.log(this.props)
         let {cars, drivers} = this.props
         let car;
         let driver;
         if(this.props.user){
-            car = cars.map( (car, index) =>{
+            car = cars.sort((a, b) => {
+                return ((Number(a.car_mileage) -Number(a.last_oil_change)) - (Number(b.car_mileage) -Number(b.last_oil_change)))
+            }).map( (car, index) =>{
                 if(index %2 ===0){
                     return(
                         <tr style={{background:'white'}} key={index}>
@@ -80,7 +81,7 @@ class Cars extends Component {
                             <td>{index + 1}</td>
                             <td>{car.car_id}</td>
                             <td>{`${car.car_year} ${car.car_make} ${car.car_model} (${car.car_color})`}</td>
-                            <td>{car.car_mileage}</td>
+                            <td>{Number(car.car_mileage) -Number(car.last_oil_change)}</td>
                             <td>{`${car.car_city}, ${car.car_state}`}</td>
                             <td>{car.driver_id}</td>
                             <td>{`${car.driver_first_name} ${car.driver_last_name}`}</td>
@@ -94,7 +95,7 @@ class Cars extends Component {
                             <td>{index + 1}</td>
                             <td>{car.car_id}</td>
                             <td>{`${car.car_year} ${car.car_make} ${car.car_model} (${car.car_color})`}</td>
-                            <td>{car.car_mileage}</td>
+                            <td>{Number(car.car_mileage) -Number(car.last_oil_change)}</td>
                             <td>{`${car.car_city}, ${car.car_state}`}</td>
                             <td>{car.driver_id}</td>
                             <td>{`${car.driver_first_name} ${car.driver_last_name}`}</td>
@@ -105,19 +106,21 @@ class Cars extends Component {
             })
         }
         if(this.props.user){
-            driver = drivers.map((driver, index) => {
+            driver = drivers.sort((a, b) => {
+                return a.driver_id - b.driver_id
+            }).map((driver, index) => {
                 if(index % 2 === 0){
                     return(
                         <tr style={{background:'white'}} key={index}>
                             <td>{driver.driver_id}</td>
-                            <td>{`${driver.driver_first_name} ${driver.driver_last_name}`}</td>
+                            <td><Link to={`/user/admin/api/drivers/${driver.driver_id}`}>{`${driver.driver_first_name} ${driver.driver_last_name}`}</Link></td>
                         </tr>
                     )
                 }else{
                     return(
                         <tr style={{background:'gray'}} key={index}>
                             <td>{driver.driver_id}</td>
-                            <td>{`${driver.driver_first_name} ${driver.driver_last_name}`}</td>
+                            <td><Link to={`/user/admin/api/drivers/${driver.driver_id}`}>{`${driver.driver_first_name} ${driver.driver_last_name}`}</Link></td>
                         </tr>
                     )
                 }
@@ -125,6 +128,22 @@ class Cars extends Component {
         }
         return(
             <div>
+                {(this.props.user) ?
+                    <div style={{display: 'flex',flexDirection: 'column', justifyContent:'center'}}>
+                        <div style={{display: 'flex',flexDirection: 'column', justifyContent:'center'}}>
+                        <h3>Drivers In The Fleet</h3>
+                            <table>
+                                <tr style={{background: 'gray'}}>
+                                    <th>Driver ID</th>
+                                    <th>Driver Name</th>
+                                </tr>
+                                {driver}
+                            </table>
+                        </div>
+                    </div>
+                :
+                    <Redirect to='/' />
+                }
                 
                 <div>
                     <div>
@@ -221,17 +240,7 @@ class Cars extends Component {
 
                 </div>
                 {(this.props.user) ?
-                    <div style={{display: 'flex',flexDirection: 'column', justifyContent:'center'}}>
-                        <div style={{display: 'flex',flexDirection: 'column', justifyContent:'center'}}>
-                        <h3>Drivers In The Fleet</h3>
-                            <table>
-                                <tr style={{background: 'gray'}}>
-                                    <th>Driver ID</th>
-                                    <th>Driver Name</th>
-                                </tr>
-                                {driver}
-                            </table>
-                        </div>
+                    
                         <div style={{display: 'flex',flexDirection: 'column', justifyContent:'center'}}>
                             <h3>Cars</h3>
                             <table>
@@ -240,7 +249,7 @@ class Cars extends Component {
                                     <th></th>
                                     <th>Car ID</th>
                                     <th>Car Info</th>
-                                    <th>Car Mileage</th>
+                                    <th>Miles Since Last Oil Change</th>
                                     <th>Car Location</th>
                                     <th>Driver ID</th>
                                     <th>Driver Info</th>
@@ -251,7 +260,7 @@ class Cars extends Component {
                             </table>
 
                         </div>
-                    </div>
+                
                 :
                     <Redirect to='/' />
                 }
@@ -261,7 +270,6 @@ class Cars extends Component {
 }
 
 let mapStateToProps = state => {
-    console.log(55555,)
     return {
         user: state.users.data,
         cars: state.cars.data,
