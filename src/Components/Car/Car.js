@@ -3,7 +3,7 @@ import React, {Component} from 'react'
 import {Link} from 'react-router-dom'
 import {connect} from 'react-redux'
 
-import {getCar, addMiles, gotOilChange} from '../../redux/reducers/cars'
+import {getCar, addMiles, gotOilChange,deleteCar} from '../../redux/reducers/cars'
 
 class Car extends Component {
     constructor(props) {
@@ -23,6 +23,10 @@ class Car extends Component {
         this.setState({
             [name]:value
         })
+    }
+
+    handleDeleteCar(id){
+        this.props.deleteCar(id)
     }
 
     handleAddMiles = (currentMiles) => {
@@ -79,7 +83,7 @@ class Car extends Component {
                         }
                         <Link to='/user/admin/api/cars'>Back</Link>
                         <Link to={`/user/admin/api/cars/edit/${car.car_id}`}>Edit</Link>
-                        <Link to='/user/admin/api/cars'><button>Delete Car</button></Link>
+                        <Link to='/user/admin/api/cars'><button onClick={() => this.handleDeleteCar(this.props.match.params.id)}>Delete Car</button></Link>
                     </div>
                 }
             </div>
@@ -93,4 +97,4 @@ let mapStateToProps = state => {
     }
 }
 
-export default connect(mapStateToProps, {getCar, addMiles, gotOilChange})(Car)
+export default connect(mapStateToProps, {getCar, addMiles, gotOilChange, deleteCar})(Car)
