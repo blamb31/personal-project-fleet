@@ -4,9 +4,24 @@ module.exports = {
         
         
         if(req.session.user){
-            console.log(req.session.user)
             const {admin_id} = req.session.user
             let drivers = await db.get_drivers(admin_id)
+            let driversList = drivers.map( driver => {
+                delete driver.admin_password
+                return driver
+            })
+            res.status(200).send(driversList)
+        }else{
+            res.status(401)
+        }
+    },
+    getDriversInfo: async(req, res) => {
+        const db = req.app.get('db')
+        
+        
+        if(req.session.user){
+            const {admin_id} = req.session.user
+            let drivers = await db.get_drivers_info(admin_id)
             let driversList = drivers.map( driver => {
                 delete driver.admin_password
                 return driver

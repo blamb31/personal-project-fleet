@@ -4,6 +4,10 @@ const GET_DRIVERS = 'GET_DRIVERS'
 const GET_DRIVERS_FULFILLED = 'GET_DRIVERS_FULFILLED'
 const GET_DRIVERS_PENDING = 'GET_DRIVERS_PENDING'
 
+const GET_DRIVERS_INFO = 'GET_DRIVERS_INFO'
+const GET_DRIVERS_INFO_FULFILLED = 'GET_DRIVERS_INFO_FULFILLED'
+const GET_DRIVERS_INFO_PENDING = 'GET_DRIVERS_INFO_PENDING'
+
 const GET_DRIVER = 'GET_DRIVER'
 const GET_DRIVER_FULFILLED = 'GET_DRIVER_FULFILLED'
 const GET_DRIVER_PENDING = 'GET_DRIVER_PENDING'
@@ -36,6 +40,19 @@ export default function (state = initialState, action) {
                 loading: true
             }
         case GET_DRIVERS_FULFILLED:
+            return {
+                ...state,
+                data: payload.data,
+                loading: false
+
+            }
+
+        case GET_DRIVERS_INFO_PENDING:
+            return {
+                ...state,
+                loading: true
+            }
+        case GET_DRIVERS_INFO_FULFILLED:
             return {
                 ...state,
                 data: payload.data,
@@ -111,6 +128,13 @@ export function getDriver(id) {
     return {
         type: GET_DRIVER,
         payload: Axios.get(`/api/drivers/${id}`)
+    }
+}
+
+export function getDriversInfo() {
+    return {
+        type: GET_DRIVERS_INFO,
+        payload: Axios.get(`/api/driversInfo`)
     }
 }
 

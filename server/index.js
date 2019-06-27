@@ -44,6 +44,7 @@ app.put('/api/cars/:id', carsCtrl.addMiles)
 
 
 app.get('/api/drivers', driversCtrl.getDrivers)
+app.get('/api/driversInfo', driversCtrl.getDriversInfo)
 app.get('/api/drivers/:id', driversCtrl.getDriver)
 app.post('/api/drivers/', driversCtrl.addDriver)
 app.delete('/api/drivers/:id', driversCtrl.deleteDriver)

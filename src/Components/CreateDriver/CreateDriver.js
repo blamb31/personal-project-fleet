@@ -81,8 +81,7 @@ class Drivers extends Component {
                         <tr style={{background:'white'}} key={index}>
                             <td>{index + 1}</td>
                             <td>{driver.driver_id}</td>
-                            <td><Link to={`/user/admin/api/drivers/${driver.driver_id}`}>{`${driver.driver_first_name} ${driver.driver_last_name}`}</Link></td>
-                            {/* <Link to={`/user/admin/api/cars/${driver.car_id}`}><td>{`${driver.car_year} ${driver.car_make} ${driver.car_model} (${driver.car_color})`}</td></Link> */}
+                            <td>{`${driver.driver_first_name} ${driver.driver_last_name}`}</td>
                         </tr>
                     )
                 }else{
@@ -90,8 +89,7 @@ class Drivers extends Component {
                         <tr style={{background:'gray'}} key={index}>
                             <td>{index + 1}</td>
                             <td>{driver.driver_id}</td>
-                            <td><Link to={`/user/admin/api/drivers/${driver.driver_id}`}>{`${driver.driver_first_name} ${driver.driver_last_name}`}</Link></td>
-                            {/* <Link to={`/user/admin/api/cars/${driver.car_id}`}><td>{`${driver.car_year} ${driver.car_make} ${driver.car_model} (${driver.car_color})`}</td></Link> */}
+                            <td>{`${driver.driver_first_name} ${driver.driver_last_name}`}</td>
                         </tr>
                     )
                 }
@@ -100,57 +98,58 @@ class Drivers extends Component {
         return(
             <div>
                 <div>
+                    <input 
+                    type='text' 
+                    placeholder='First Name' 
+                    value={this.state.driver_first_name} 
+                    name='driver_first_name' 
+                    onChange={event => this.handleChange(event)} />
+                    
+                    <input 
+                    type='text'
+                    placeholder='Last Name' 
+                    value={this.state.driver_last_name} 
+                    name='driver_last_name' 
+                    onChange={event => this.handleChange(event)} />
+                    
+                    <input 
+                    type='text'
+                    placeholder='Phone Number' 
+                    value={this.state.driver_phone} 
+                    name='driver_phone' 
+                    onChange={event => this.handleChange(event)} />
+                    
+                    <input 
+                    type='text'
+                    placeholder='Picture' 
+                    value={this.state.driver_img} 
+                    name='driver_img' 
+                    onChange={event => this.handleChange(event)} />
                     <div>
-                        <input 
-                        type='text' 
-                        placeholder='First Name' 
-                        value={this.state.driver_first_name} 
-                        name='driver_first_name' 
-                        onChange={event => this.handleChange(event)} />
-                        
-                        <input 
-                        type='text'
-                        placeholder='Last Name' 
-                        value={this.state.driver_last_name} 
-                        name='driver_last_name' 
-                        onChange={event => this.handleChange(event)} />
-                        
-                        <input 
-                        type='text'
-                        placeholder='Phone Number' 
-                        value={this.state.driver_phone} 
-                        name='driver_phone' 
-                        onChange={event => this.handleChange(event)} />
-                        
-                        <input 
-                        type='text'
-                        placeholder='Picture' 
-                        value={this.state.driver_img} 
-                        name='driver_img' 
-                        onChange={event => this.handleChange(event)} />
                         <button onClick={this.handleAddDriver} >Add Driver</button>
+                        <button onClick={() => window.history.back()}>Cancel</button>
                     </div>
                 </div>
-                {(this.props.user) ?
-                    <div>
-                        <div style={{display: 'flex',flexDirection: 'column', justifyContent:'center'}}>
-                            <h3>Drivers In The Fleet</h3>
-                            <table>
-                                <tr style={{background: 'gray'}}>
-                                    <th></th>
-                                    <th>Driver ID</th>
-                                    <th>Driver Name</th>
-                                    {/* <th>Car Information</th> */}
-                                </tr>
-                                {driver}
-                            </table>
+                <div>
+                    {(this.props.user) ?
+                        <div>
+                            <div style={{display: 'flex',flexDirection: 'column', justifyContent:'center'}}>
+                                <h3>Drivers In The Fleet</h3>
+                                <table>
+                                    <tr style={{background: 'gray'}}>
+                                        <th></th>
+                                        <th>Driver ID</th>
+                                        <th>Driver Name</th>
+                                    </tr>
+                                    {driver}
+                                </table>
+                            </div>
                         </div>
-                    </div>
-                :
-                    <Redirect to='/' />
-                }
-                
-            </div>
+                    :
+                        <Redirect to='/' />
+                    }
+                </div>
+            </div>    
         )
     }
 }

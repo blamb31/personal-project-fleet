@@ -4,7 +4,7 @@ import {connect} from 'react-redux'
 import {Redirect, Link} from 'react-router-dom'
 
 import {getCars, addCar, deleteCar} from '../../redux/reducers/cars'
-import {getDrivers} from '../../redux/reducers/drivers'
+import {getDriversInfo} from '../../redux/reducers/drivers'
 
 class Cars extends Component {
     constructor(props) {
@@ -28,7 +28,7 @@ class Cars extends Component {
 
     componentDidMount = async () => {
         await this.props.getCars()
-        await this.props.getDrivers()
+        await this.props.getDriversInfo()
     }
 
     handleChange(event){
@@ -49,6 +49,7 @@ class Cars extends Component {
             }
         }
         this.props.addCar(this.state)
+        this.props.getDrivers()
         this.setState({
             driver_id: 0, 
             car_make: '', 
@@ -156,6 +157,8 @@ class Cars extends Component {
                     <div style={{display: 'flex',flexDirection: 'column', justifyContent:'center'}}>
                         <div style={{display: 'flex',flexDirection: 'column', justifyContent:'center'}}>
                             <h3>Drivers In The Fleet</h3>
+                            <button onClick={() => this.props.history.push('/user/admin/api/createDriver')}>Add Driver</button>
+
                             <table>
                                 <tr style={{background: 'gray'}}>
                                     <th>Driver ID</th>
@@ -168,105 +171,12 @@ class Cars extends Component {
                 :
                     <Redirect to='/' />
                 }
-                
-                <div>
-                    <div>
-                        <p>Driver ID:</p>
-                        <input 
-                        type='number' 
-                        placeholder='Driver ID' 
-                        value={this.state.driver_id} 
-                        name='driver_id' 
-                        onChange={event => this.handleChange(event)} />
-                    </div>
-                    <div>
-                        <input 
-                        type='text' 
-                        placeholder='Car Make' 
-                        value={this.state.car_make} 
-                        name='car_make' 
-                        onChange={event => this.handleChange(event)} />
-                        
-                        <input 
-                        type='text'
-                        placeholder='Car Model' 
-                        value={this.state.car_model} 
-                        name='car_model' 
-                        onChange={event => this.handleChange(event)} />
-                        
-                        <input 
-                        type='text'
-                        placeholder='Car Year' 
-                        value={this.state.car_year} 
-                        name='car_year' 
-                        onChange={event => this.handleChange(event)} />
-                        
-                        <input 
-                        type='text'
-                        placeholder='Car Color' 
-                        value={this.state.car_color} 
-                        name='car_color' 
-                        onChange={event => this.handleChange(event)} />
-                        
-                        <input 
-                        type='text'
-                        placeholder='Car Mileage' 
-                        value={this.state.car_mileage} 
-                        name='car_mileage' 
-                        onChange={event => this.handleChange(event)} />
-                        
-                        <input 
-                        type='text'
-                        placeholder='Car Image' 
-                        value={this.state.car_img} 
-                        name='car_img' 
-                        onChange={event => this.handleChange(event)} />
-                    
-                        <input 
-                        type='text'
-                        placeholder='Car Address' 
-                        value={this.state.car_address} 
-                        name='car_address' 
-                        onChange={event => this.handleChange(event)} />
-                    
-                        <input 
-                        type='text'
-                        placeholder='Car Zip Code' 
-                        value={this.state.car_zip_code} 
-                        name='car_zip_code' 
-                        onChange={event => this.handleChange(event)} />
-                    
-                        <input 
-                        type='text'
-                        placeholder='Car City' 
-                        value={this.state.car_city} 
-                        name='car_city' 
-                        onChange={event => this.handleChange(event)} />
-                    
-                        <input 
-                        type='text'
-                        placeholder='Car State' 
-                        value={this.state.car_state} 
-                        name='car_state' 
-                        onChange={event => this.handleChange(event)} />
-                        <div>
-                            <p>Mileage At Last Oil Change: </p>
-                            <input 
-                            type='number'
-                            placeholder='Mileage At Last Oil Change' 
-                            value={this.state.last_oil_change} 
-                            name='last_oil_change' 
-                            onChange={event => this.handleChange(event)} />
-                        </div>
-                        <button onClick={this.handleAddCar}>Add New Car</button>
-                    </div>
 
-
-                </div>
                 {(this.props.user) ?
                     
                         <div style={{display: 'flex',flexDirection: 'column', justifyContent:'center'}}>
                             <h3>Cars</h3>
+                            <button onClick={() => this.props.history.push('/user/admin/api/createCar')}>Add New Car</button>
                             <table>
                                 <tr style={{background: 'gray'}}>
                                     <th></th>
@@ -301,4 +211,4 @@ let mapStateToProps = state => {
     }
 }
 
-export default connect(mapStateToProps, {getCars, addCar, deleteCar, getDrivers})(Cars)
+export default connect(mapStateToProps, {getCars, addCar, deleteCar, getDriversInfo})(Cars)
