@@ -59,7 +59,7 @@ class Maintenance extends Component {
         return(
             <div>
                 {(this.props.user) ?
-                    <div>
+                    <div style={{display: 'flex',flexDirection: 'column', justifyContent:'center'}}>
                         <h3>Cars</h3>
                         <table>
                             <tr style={{background: 'gray'}}>
