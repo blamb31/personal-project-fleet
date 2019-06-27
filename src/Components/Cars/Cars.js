@@ -106,9 +106,33 @@ class Cars extends Component {
             })
         }
         if(this.props.user){
-            driver = drivers.sort((a, b) => {
-                return a.driver_id - b.driver_id
-            }).map((driver, index) => {
+
+            function removeDuplicates(originalArray, prop) {
+                var newArray = [];
+                var lookupObject  = {};
+           
+                for(var i in originalArray) {
+                   lookupObject[originalArray[i][prop]] = originalArray[i];
+                }
+           
+                for(i in lookupObject) {
+                    newArray.push(lookupObject[i]);
+                }
+                 return newArray;
+            }
+           
+           let driversArray = removeDuplicates(drivers, "driver_id")
+
+            let listDriver = driversArray.sort((a, b) => {
+                if(a.driver_first_name.toLowerCase() < b.driver_first_name.toLowerCase()){
+                    return -1
+                }
+                if (a.driver_first_name.toLowerCase() > b.driver_first_name.toLowerCase()) {
+                    return 1
+                }
+            })
+
+            driver = listDriver.map((driver, index) => {
                 if(index % 2 === 0){
                     return(
                         <tr style={{background:'white'}} key={index}>
