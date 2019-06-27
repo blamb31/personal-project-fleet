@@ -7,6 +7,7 @@ import Drivers from '../Drivers/Drivers'
 import Maintenance from '../Maintenance/Maintenance'
 import Car from '../Car/Car'
 import EditCar from '../EditCar/EditCar'
+import Driver from '../Driver/Driver'
 
 
 import {connect} from 'react-redux'
@@ -24,7 +25,7 @@ function Admin(props){
                         <Route path='/user/admin/api/maintenance' component={Maintenance} />
                         <Route path='/user/admin/api/cars/:id' exact component={Car} />
                         <Route path='/user/admin/api/cars/edit/:id' exact component={EditCar} />
-
+                        <Route path='/user/admin/api/drivers/:id' exact component={Driver} />
                     </Switch>
                 </div>
 
@@ -37,7 +38,7 @@ function Admin(props){
                         <Route path='/user/admin/api/maintenance' component={Maintenance} />
                         <Route path='/user/admin/api/cars/:id' exact component={Car} />
                         <Route path='/user/admin/api/cars/edit/:id' exact component={EditCar} />
-
+                        <Route path='/user/admin/api/drivers/:id' exact component={Driver} />
                     </Switch>
                 </div>            
             }

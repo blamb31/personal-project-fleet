@@ -163,7 +163,7 @@ class EditCar extends Component {
                             onChange={event => this.handleChange(event)} />
                         </div>
                         <Link to='/user/admin/api/cars'><button onClick={this.handleEditCar}>Save Changes</button></Link>
-                        <Link to={`/user/admin/api/cars/${this.props.match.params.id}`}><button >Cancel Changes</button></Link>
+                        <button onClick={() => window.history.back()}>Cancel Changes</button>
 
                     </div>
 

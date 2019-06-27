@@ -27,6 +27,7 @@ class Car extends Component {
 
     handleDeleteCar(id){
         this.props.deleteCar(id)
+        this.props.history.push('/user/admin/api/cars')
     }
 
     handleAddMiles = (currentMiles) => {
@@ -81,9 +82,9 @@ class Car extends Component {
                         </div>
 
                         }
-                        <Link to='/user/admin/api/cars'>Back</Link>
-                        <Link to={`/user/admin/api/cars/edit/${car.car_id}`}>Edit</Link>
-                        <Link to='/user/admin/api/cars'><button onClick={() => this.handleDeleteCar(this.props.match.params.id)}>Delete Car</button></Link>
+                        <button onClick={() => window.history.back()}>Back</button>
+                        <button onClick={() => this.props.history.push(`/user/admin/api/cars/edit/${car.car_id}`)}>Edit</button>
+                        <button onClick={() => this.handleDeleteCar(this.props.match.params.id)}>Delete Car</button>
                     </div>
                 }
             </div>
