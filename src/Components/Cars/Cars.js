@@ -67,7 +67,7 @@ class Cars extends Component {
     }
 
     render() {
-        
+        console.log(7878787, this.props)
         let {cars, drivers} = this.props
         let car;
         let driver;

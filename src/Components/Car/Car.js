@@ -44,7 +44,7 @@ class Car extends Component {
 
     render() {
         let {car} = this.props
-        
+        console.log(4343434, this.props)
         return(
             <div>
                 Single Car View
