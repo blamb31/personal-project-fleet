@@ -19,6 +19,7 @@ const ADD_DRIVER_PENDING = 'ADD_DRIVER_PENDING'
 const DELETE_DRIVER = 'DELETE_DRIVER'
 const DELETE_DRIVER_FULFILLED = 'DELETE_DRIVER_FULFILLED'
 const DELETE_DRIVER_PENDING = 'DELETE_DRIVER_PENDING'
+const DELETE_DRIVER_REJECTED = 'DELETE_DRIVER_REJECTED'
 
 const UPDATE_DRIVER = 'UPDATE_DRIVER'
 const UPDATE_DRIVER_FULFILLED = 'UPDATE_DRIVER_FULFILLED'
@@ -68,7 +69,7 @@ export default function (state = initialState, action) {
         case GET_DRIVER_FULFILLED:
             return {
                 ...state,
-                data: payload.data,
+                selected: payload.data,
                 loading: false
 
             }
@@ -97,6 +98,12 @@ export default function (state = initialState, action) {
                 data: payload.data,
                 loading: false
 
+            }
+        case DELETE_DRIVER_REJECTED: 
+            return {
+                ...state,
+                data: [],
+                loading: false
             }
 
         case UPDATE_DRIVER_PENDING:
@@ -148,7 +155,7 @@ export function addDriver(newDriverInfo) {
 export function deleteDriver(id) {
     return{
         type: DELETE_DRIVER,
-        payload: Axios.delete(`/api/drivers${id}`)
+        payload: Axios.delete(`/api/drivers/${id}`)
     }
 }
 

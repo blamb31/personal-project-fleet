@@ -1,6 +1,5 @@
 import React, {Component} from 'react'
 
-import {Link} from 'react-router-dom'
 import {connect} from 'react-redux'
 
 import {getCar, addMiles, gotOilChange,deleteCar} from '../../redux/reducers/cars'
@@ -44,7 +43,6 @@ class Car extends Component {
     }
 
     render() {
-        console.log(this.props)
         let {car} = this.props
         
         return(

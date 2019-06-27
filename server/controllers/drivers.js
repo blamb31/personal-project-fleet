@@ -39,7 +39,7 @@ module.exports = {
             const {admin_id} = req.session.user
             const {id: driver_id} = req.params
             console.log(driver_id, admin_id)
-            let drivers = await db.get_car_by_id(admin_id, driver_id)
+            let drivers = await db.get_driver_by_id(admin_id, driver_id)
             let driverList = drivers.map( driver => {
                 delete driver.admin_password
                 return driver

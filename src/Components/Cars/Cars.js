@@ -186,7 +186,7 @@ class Cars extends Component {
                                     <th>Miles Since Last Oil Change</th>
                                     <th>Car Location</th>
                                     <th>Driver ID</th>
-                                    <th>Driver Info</th>
+                                    <th>Driver Name</th>
                                     <th></th>
                                 </tr>
                                 {car}
