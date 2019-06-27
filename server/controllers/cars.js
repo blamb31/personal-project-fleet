@@ -175,6 +175,51 @@ module.exports = {
 
         const updatedCar = await db.oil_change(car_id, admin_id, miles)
         res.status(200).send(updatedCar[0])
-    }
+    },
+    editCar: async(req, res) => {
+        const db = req.app.get('db')
+
+        const {
+            driver_id, 
+            car_make, 
+            car_model, 
+            car_year, 
+            car_color, 
+            car_mileage, 
+            car_img, 
+            car_address, 
+            car_zip_code, 
+            car_city, 
+            car_state, 
+            last_oil_change} = req.body        
+        
+        if(req.session.user){
+            const {admin_id} = req.session.user
+            const {id: car_id} = req.params
+            console.log(2, req.body, 3, admin_id, 4, car_id)
+            let cars = await db.edit_car(
+                driver_id, 
+                admin_id,
+                car_make, 
+                car_model, 
+                car_year, 
+                car_color, 
+                car_mileage, 
+                car_img, 
+                car_address, 
+                car_zip_code, 
+                car_city, 
+                car_state, 
+                last_oil_change,
+                car_id)
+            let carList = cars.map( car => {
+                delete car.admin_password
+                return car
+            })
+            res.status(200).send(carList[0])
+        }else{
+            res.status(401)
+        }
+    },
 }
 
