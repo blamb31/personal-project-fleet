@@ -1,5 +1,6 @@
 import React, {Component} from 'react'
 import {connect} from 'react-redux'
+import {Redirect} from 'react-router-dom'
 
 import {getUser, editUser} from '../../redux/reducers/users'
 
@@ -55,7 +56,7 @@ class EditUserInfo extends Component{
         let {user} = this.props
         return(
             <div>
-                {user &&
+                {user ?
                 <div>
                     Edit User Page
                     <img src={this.state.admin_img}/>
@@ -100,6 +101,9 @@ class EditUserInfo extends Component{
                     </div>
                 </div>
 
+                :
+
+                <Redirect to='/' />
                 }
             </div>
         )

@@ -53,7 +53,7 @@ class EditDriver extends Component {
         console.log(this.props)
         return(
             <div>
-                {this.props.user && 
+                {this.props.user ?
                 <div>
                     
                     <img src={this.state.driver_img} />
@@ -93,6 +93,8 @@ class EditDriver extends Component {
                     </div>
 
                 </div>
+                :
+                <Redirect to='/' />
                 }
             </div>
         )

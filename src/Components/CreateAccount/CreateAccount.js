@@ -1,6 +1,6 @@
 import React, {Component} from 'react'
 
-import {Link} from 'react-router-dom'
+import {Link, Redirect} from 'react-router-dom'
 import {register} from '../../redux/reducers/users'
 
 import {connect} from 'react-redux'
@@ -48,54 +48,58 @@ class CreateAccount extends Component {
         return(
             <div>
                 <div>
-                    <input 
-                    type='text' 
-                    placeholder='First Name' 
-                    value={this.state.admin_first_name} 
-                    name='admin_first_name'
-                    onChange={event => this.handleChange(event)} />
-                    <input 
-                    type='text' 
-                    placeholder='Last Name' 
-                    value={this.state.admin_last_name} 
-                    name='admin_last_name'
-                    onChange={event => this.handleChange(event)} />
-                    <input 
-                    type='text' 
-                    placeholder='Company Name' 
-                    value={this.state.admin_company_name} 
-                    name='admin_company_name'
-                    onChange={event => this.handleChange(event)} />
-                    <input 
-                    type='text' 
-                    placeholder='Username' 
-                    value={this.state.admin_username} 
-                    name='admin_username'
-                    onChange={event => this.handleChange(event)} />
-                    <input 
-                    type='text' 
-                    placeholder='Password' 
-                    value={this.state.admin_password} 
-                    name='admin_password'
-                    onChange={event => this.handleChange(event)} />
-                    <input 
-                    type='text' 
-                    placeholder='Phone Number' 
-                    value={this.state.admin_phone} 
-                    name='admin_phone'
-                    onChange={event => this.handleChange(event)} />
-                    <input 
-                    type='text' 
-                    placeholder='Profile Picture' 
-                    value={this.state.admin_img} 
-                    name='admin_img'
-                    onChange={event => this.handleChange(event)} />
-                </div>
-                <div>
-                <button onClick={this.handleRegister}>Create User</button>
-                    <Link to='/auth/login'><button>Login As Existing User</button></Link>
+                    <div>
+                        <input 
+                        type='text' 
+                        placeholder='First Name' 
+                        value={this.state.admin_first_name} 
+                        name='admin_first_name'
+                        onChange={event => this.handleChange(event)} />
+                        <input 
+                        type='text' 
+                        placeholder='Last Name' 
+                        value={this.state.admin_last_name} 
+                        name='admin_last_name'
+                        onChange={event => this.handleChange(event)} />
+                        <input 
+                        type='text' 
+                        placeholder='Company Name' 
+                        value={this.state.admin_company_name} 
+                        name='admin_company_name'
+                        onChange={event => this.handleChange(event)} />
+                        <input 
+                        type='text' 
+                        placeholder='Username' 
+                        value={this.state.admin_username} 
+                        name='admin_username'
+                        onChange={event => this.handleChange(event)} />
+                        <input 
+                        type='text' 
+                        placeholder='Password' 
+                        value={this.state.admin_password} 
+                        name='admin_password'
+                        onChange={event => this.handleChange(event)} />
+                        <input 
+                        type='text' 
+                        placeholder='Phone Number' 
+                        value={this.state.admin_phone} 
+                        name='admin_phone'
+                        onChange={event => this.handleChange(event)} />
+                        <input 
+                        type='text' 
+                        placeholder='Profile Picture' 
+                        value={this.state.admin_img} 
+                        name='admin_img'
+                        onChange={event => this.handleChange(event)} />
+                    </div>
+                    <div>
+                    <button onClick={this.handleRegister}>Create User</button>
+                        <Link to='/auth/login'><button>Login As Existing User</button></Link>
+
+                    </div>
 
                 </div>
+                
             </div>
         )
     }

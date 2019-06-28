@@ -75,105 +75,113 @@ class EditCar extends Component {
         
         return(
             <div>
-
-                <img src={this.state.car_img} />
-                             
+                {this.props.user ?
                 <div>
+                    <img src={this.state.car_img} />
+                                
                     <div>
-                        <p>Driver ID:</p>
-                        <input 
-                        type='number' 
-                        placeholder='Driver ID' 
-                        value={this.state.driver_id} 
-                        name='driver_id' 
-                        onChange={event => this.handleChange(event)} />
-                    </div>
-                    <div>
-                        <input 
-                        type='text' 
-                        placeholder='Car Make' 
-                        value={this.state.car_make} 
-                        name='car_make' 
-                        onChange={event => this.handleChange(event)} />
-                        
-                        <input 
-                        type='text'
-                        placeholder='Car Model' 
-                        value={this.state.car_model} 
-                        name='car_model' 
-                        onChange={event => this.handleChange(event)} />
-                        
-                        <input 
-                        type='text'
-                        placeholder='Car Year' 
-                        value={this.state.car_year} 
-                        name='car_year' 
-                        onChange={event => this.handleChange(event)} />
-                        
-                        <input 
-                        type='text'
-                        placeholder='Car Color' 
-                        value={this.state.car_color} 
-                        name='car_color' 
-                        onChange={event => this.handleChange(event)} />
-                        
-                        <input 
-                        type='text'
-                        placeholder='Car Mileage' 
-                        value={this.state.car_mileage} 
-                        name='car_mileage' 
-                        onChange={event => this.handleChange(event)} />
-                        
-                        <input 
-                        type='text'
-                        placeholder='Car Image' 
-                        value={this.state.car_img} 
-                        name='car_img' 
-                        onChange={event => this.handleChange(event)} />
-                    
-                        <input 
-                        type='text'
-                        placeholder='Car Address' 
-                        value={this.state.car_address} 
-                        name='car_address' 
-                        onChange={event => this.handleChange(event)} />
-                    
-                        <input 
-                        type='text'
-                        placeholder='Car Zip Code' 
-                        value={this.state.car_zip_code} 
-                        name='car_zip_code' 
-                        onChange={event => this.handleChange(event)} />
-                    
-                        <input 
-                        type='text'
-                        placeholder='Car City' 
-                        value={this.state.car_city} 
-                        name='car_city' 
-                        onChange={event => this.handleChange(event)} />
-                    
-                        <input 
-                        type='text'
-                        placeholder='Car State' 
-                        value={this.state.car_state} 
-                        name='car_state' 
-                        onChange={event => this.handleChange(event)} />
                         <div>
-                            <p>Mileage At Last Oil Change: </p>
+                            <p>Driver ID:</p>
                             <input 
-                            type='number'
-                            placeholder='Mileage At Last Oil Change' 
-                            value={this.state.last_oil_change} 
-                            name='last_oil_change' 
+                            type='number' 
+                            placeholder='Driver ID' 
+                            value={this.state.driver_id} 
+                            name='driver_id' 
                             onChange={event => this.handleChange(event)} />
                         </div>
-                        <Link to='/user/admin/api/cars'><button onClick={this.handleEditCar}>Save Changes</button></Link>
-                        <button onClick={() => window.history.back()}>Cancel Changes</button>
+                        <div>
+                            <input 
+                            type='text' 
+                            placeholder='Car Make' 
+                            value={this.state.car_make} 
+                            name='car_make' 
+                            onChange={event => this.handleChange(event)} />
+                            
+                            <input 
+                            type='text'
+                            placeholder='Car Model' 
+                            value={this.state.car_model} 
+                            name='car_model' 
+                            onChange={event => this.handleChange(event)} />
+                            
+                            <input 
+                            type='text'
+                            placeholder='Car Year' 
+                            value={this.state.car_year} 
+                            name='car_year' 
+                            onChange={event => this.handleChange(event)} />
+                            
+                            <input 
+                            type='text'
+                            placeholder='Car Color' 
+                            value={this.state.car_color} 
+                            name='car_color' 
+                            onChange={event => this.handleChange(event)} />
+                            
+                            <input 
+                            type='text'
+                            placeholder='Car Mileage' 
+                            value={this.state.car_mileage} 
+                            name='car_mileage' 
+                            onChange={event => this.handleChange(event)} />
+                            
+                            <input 
+                            type='text'
+                            placeholder='Car Image' 
+                            value={this.state.car_img} 
+                            name='car_img' 
+                            onChange={event => this.handleChange(event)} />
+                        
+                            <input 
+                            type='text'
+                            placeholder='Car Address' 
+                            value={this.state.car_address} 
+                            name='car_address' 
+                            onChange={event => this.handleChange(event)} />
+                        
+                            <input 
+                            type='text'
+                            placeholder='Car Zip Code' 
+                            value={this.state.car_zip_code} 
+                            name='car_zip_code' 
+                            onChange={event => this.handleChange(event)} />
+                        
+                            <input 
+                            type='text'
+                            placeholder='Car City' 
+                            value={this.state.car_city} 
+                            name='car_city' 
+                            onChange={event => this.handleChange(event)} />
+                        
+                            <input 
+                            type='text'
+                            placeholder='Car State' 
+                            value={this.state.car_state} 
+                            name='car_state' 
+                            onChange={event => this.handleChange(event)} />
+                            <div>
+                                <p>Mileage At Last Oil Change: </p>
+                                <input 
+                                type='number'
+                                placeholder='Mileage At Last Oil Change' 
+                                value={this.state.last_oil_change} 
+                                name='last_oil_change' 
+                                onChange={event => this.handleChange(event)} />
+                            </div>
+                            <div>
+                                <Link to='/user/admin/api/cars'><button onClick={this.handleEditCar}>Save Changes</button></Link>
+                                <button onClick={() => window.history.back()}>Cancel Changes</button>
+                            </div>
 
+                        </div>
                     </div>
-
-
                 </div>
+
+            :
+
+                <Redirect to='/' />
+            }
+
                 
             </div>
         )
