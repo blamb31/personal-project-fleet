@@ -9,6 +9,11 @@ const GET_USER= 'GET_USER'
 const GET_USER_PENDING= 'GET_USER_PENDING'
 const GET_USER_FULFILLED= 'GET_USER_FULFILLED'
 
+const EDIT_USER= 'EDIT_USER'
+const EDIT_USER_PENDING= 'EDIT_USER_PENDING'
+const EDIT_USER_FULFILLED= 'EDIT_USER_FULFILLED'
+const EDIT_USER_REJECTED= 'EDIT_USER_REJECTED'
+
 const LOGIN_USER= 'LOGIN_USER'
 const LOGIN_USER_PENDING= 'LOGIN_USER_PENDING'
 const LOGIN_USER_FULFILLED= 'LOGIN_USER_FULFILLED'
@@ -87,6 +92,24 @@ export default function (state = initialState, action) {
                 ...state,
                 loading: false
             }
+
+        case EDIT_USER_PENDING: 
+            return {
+                ...state,
+                loading: true
+            }
+        case EDIT_USER_FULFILLED:
+            return {
+                ...state,
+                data: payload.data,
+                loading: false
+            }
+        case EDIT_USER_REJECTED:
+            return {
+                ...state,
+                loading: false
+            }
+
         default:
             return state
     }
@@ -118,5 +141,12 @@ export function register(newUserInfo) {
     return{
         type: REGISTER_USER,
         payload: Axios.post('/auth/register', newUserInfo)
+    }
+}
+
+export function editUser(id, updatedUserInfo) {
+    return{
+        type: EDIT_USER,
+        payload: Axios.put(`/auth/editUser/${id}`, updatedUserInfo)
     }
 }

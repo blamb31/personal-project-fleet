@@ -33,6 +33,7 @@ app.post('/auth/register', authCtrl.register)
 app.post('/auth/login', authCtrl.login)
 app.get('/auth/logout', authCtrl.logout)
 app.get('/auth/currentUser', authCtrl.currentUser)
+app.put('/auth/editUser/:id', authCtrl.editUser)
 
 app.get('/api/cars', carsCtrl.getCars)
 app.get('/api/cars/:id', carsCtrl.getCar)
@@ -53,4 +54,3 @@ app.put('/api/drivers/:id', driversCtrl.editDriver)
 
 
 
-// app.get('/api/cars', carsCtrl.getCars)

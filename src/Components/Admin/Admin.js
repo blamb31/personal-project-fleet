@@ -11,6 +11,7 @@ import Car from '../Car/Car'
 import EditCar from '../EditCar/EditCar'
 import Driver from '../Driver/Driver'
 import EditDriver from '../EditDriver/EditDriver'
+import UserInfo from '../UserInfo/UserInfo'
 
 
 import {connect} from 'react-redux'
@@ -36,6 +37,7 @@ function Admin(props){
                 </div>
 
                 :
+                
                 <div>
                     <NavBar />
                     <Switch>

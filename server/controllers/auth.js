@@ -87,6 +87,30 @@ module.exports = {
         }else{
             res.status(404).send('No User is logged in')
         }
+    },
+    editUser: async (req, res) => {
+        try{
+            const db = req.app.get('db')
+            const{admin_first_name, admin_last_name, admin_phone, admin_img, admin_company_name} = req.body
+            const {id: admin_id} = req.params
+            
+            const updatedUser = await db.update_user(
+                admin_first_name,
+                admin_last_name,
+                admin_phone,
+                admin_img,
+                admin_company_name,
+                admin_id
+             )
+
+            const user = updatedUser[0]
+            delete user.admin_password
+            res.send(user)
+            
+        }catch(error){
+            console.log('There was an error', error)
+            res.status(500)
+        }
     }
 
 }
