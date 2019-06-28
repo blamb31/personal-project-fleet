@@ -75,6 +75,10 @@ class Cars extends Component {
             car = cars.sort((a, b) => {
                 return ((Number(b.car_mileage) -Number(b.last_oil_change)) - (Number(a.car_mileage) -Number(a.last_oil_change)))
             }).map( (car, index) =>{
+                if(car.driver_first_name === null && car.driver_last_name === null){
+                    car.driver_first_name = ''
+                    car.driver_last_name = ''
+                }
                 if(index %2 ===0){
                     return(
                         <tr style={{background:'white'}} key={index}>
