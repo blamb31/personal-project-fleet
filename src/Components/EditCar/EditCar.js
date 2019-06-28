@@ -49,17 +49,26 @@ class EditCar extends Component {
 
     handleChange(event){
         let {name, value} = event.target
-        this.setState({
-            [name]:value
-        })
+        if( name === 'driver_id' && (value === 0 || value === '')){
+            this.setState({
+            driver_id: null
+            })
+        
+        }else{
+            this.setState({
+                [name]:value
+            })
+        }
     }
 
     handleEditCar = () => {
         for( let key in this.state) {
-            if(!this.state[key]){
+            if(this.state[key] === '' && key !== 'driver_id'){
                 return alert('Please fill in all fields')
             }
         }
+
+        console.log(121212, this.state)
 
         this.props.editCar(this.props.match.params.id, this.state)
         
