@@ -27,7 +27,6 @@ class EditCar extends Component {
 
     componentDidMount = async () => {
         await this.props.getCar(this.props.match.params.id)
-        console.log(333333333, this.props)
         if(this.props.car){
             let {car} = this.props
             this.setState({
@@ -67,9 +66,6 @@ class EditCar extends Component {
                 return alert('Please fill in all fields')
             }
         }
-
-        console.log(121212, this.state)
-
         this.props.editCar(this.props.match.params.id, this.state)
         
     }

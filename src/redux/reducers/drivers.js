@@ -21,9 +21,9 @@ const DELETE_DRIVER_FULFILLED = 'DELETE_DRIVER_FULFILLED'
 const DELETE_DRIVER_PENDING = 'DELETE_DRIVER_PENDING'
 const DELETE_DRIVER_REJECTED = 'DELETE_DRIVER_REJECTED'
 
-const UPDATE_DRIVER = 'UPDATE_DRIVER'
-const UPDATE_DRIVER_FULFILLED = 'UPDATE_DRIVER_FULFILLED'
-const UPDATE_DRIVER_PENDING = 'UPDATE_DRIVER_PENDING'
+const EDIT_DRIVER = 'EDIT_DRIVER'
+const EDIT_DRIVER_FULFILLED = 'EDIT_DRIVER_FULFILLED'
+const EDIT_DRIVER_PENDING = 'EDIT_DRIVER_PENDING'
 
 let initialState = {
     data: [],
@@ -106,15 +106,15 @@ export default function (state = initialState, action) {
                 loading: false
             }
 
-        case UPDATE_DRIVER_PENDING:
+        case EDIT_DRIVER_PENDING:
             return {
                 ...state,
                 loading: true
             }
-        case UPDATE_DRIVER_FULFILLED:
+        case EDIT_DRIVER_FULFILLED:
             return {
                 ...state,
-                data: payload.data,
+                selected: payload.data,
                 loading: false
 
             }
@@ -159,9 +159,9 @@ export function deleteDriver(id) {
     }
 }
 
-export function updateDriver(id) {
+export function editDriver(id, updatedDriver) {
     return{
-        type: UPDATE_DRIVER,
-        payload: Axios.delete(`/api/drivers/${id}`)
+        type: EDIT_DRIVER,
+        payload: Axios.put(`/api/drivers/${id}`, updatedDriver)
     }
 }

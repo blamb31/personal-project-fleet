@@ -39,8 +39,8 @@ class Driver extends Component {
                 
                     <div>
                         <button onClick={() => this.handleDeleteDriver(this.props.match.params.id)} >{`Delete ${driver.driver_first_name}`}</button>
-                        <button onClick={ () => window.history.back()} >Back</button>
-                        <button>Edit</button>
+                        <button onClick={ () => this.props.history.push(`/user/admin/api/drivers/edit/${this.props.match.params.id}`)} >Edit</button>
+                        <button onClick={ () => this.props.history.push(`/user/admin/api/cars`)} >Back</button>
                     </div>
                 </div>
                 }

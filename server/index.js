@@ -48,7 +48,7 @@ app.get('/api/driversInfo', driversCtrl.getDriversInfo)
 app.get('/api/drivers/:id', driversCtrl.getDriver)
 app.post('/api/drivers', driversCtrl.addDriver)
 app.delete('/api/drivers/:id', driversCtrl.deleteDriver)
-app.put('/api/drivers/:id', driversCtrl.updateDriver)
+app.put('/api/drivers/:id', driversCtrl.editDriver)
 
 
 

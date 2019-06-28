@@ -141,6 +141,7 @@ class Cars extends Component {
                 if(index % 2 === 0){
                     return(
                         <tr style={{background:'white'}} key={index}>
+                            <td>{index +1}</td>
                             <td>{driver.driver_id}</td>
                             <td><Link to={`/user/admin/api/drivers/${driver.driver_id}`}>{`${driver.driver_first_name} ${driver.driver_last_name}`}</Link></td>
                         </tr>
@@ -148,6 +149,7 @@ class Cars extends Component {
                 }else{
                     return(
                         <tr style={{background:'gray'}} key={index}>
+                            <td>{index +1}</td>
                             <td>{driver.driver_id}</td>
                             <td><Link to={`/user/admin/api/drivers/${driver.driver_id}`}>{`${driver.driver_first_name} ${driver.driver_last_name}`}</Link></td>
                         </tr>
@@ -165,6 +167,7 @@ class Cars extends Component {
 
                             <table>
                                 <tr style={{background: 'gray'}}>
+                                    <th></th>
                                     <th>Driver ID</th>
                                     <th>Driver Name</th>
                                 </tr>

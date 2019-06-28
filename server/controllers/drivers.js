@@ -38,14 +38,13 @@ module.exports = {
         if(req.session.user){
             const {admin_id} = req.session.user
             const {id: driver_id} = req.params
-            console.log(driver_id, admin_id)
             let drivers = await db.get_driver_by_id(admin_id, driver_id)
             let driverList = drivers.map( driver => {
                 delete driver.admin_password
                 return driver
             })
             res.status(200).send(driverList[0])
-        }else{
+        }else {
             res.send("Please Log in")
         }
     },
@@ -90,7 +89,7 @@ module.exports = {
             res.status(404).send("Please Log in")
         }
     },
-    updateDriver: async (req, res) => {
+    editDriver: async (req, res) => {
         const db = req.app.get('db')
 
         if(req.session.user) {
@@ -100,7 +99,6 @@ module.exports = {
                 driver_first_name,
                 driver_last_name,
                 driver_phone,
-                car_id,
                 driver_img} = req.body
                 
             let updatedDriverInfo = {
@@ -112,7 +110,7 @@ module.exports = {
                 admin_id
             }
             
-            let updatedDriverList = await db.update_driver(
+            let updatedDriverList = await db.edit_driver(
                 driver_first_name,
                 driver_last_name,
                 driver_phone,
@@ -126,7 +124,7 @@ module.exports = {
                 return driver
             })
 
-            res.status(200).send(driverList)
+            res.status(200).send(driverList[0])
 
 
         }else{
