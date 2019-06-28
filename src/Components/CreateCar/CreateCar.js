@@ -45,7 +45,7 @@ class CreateCar extends Component {
             }
         }
         this.props.addCar(this.state)
-        this.props.getDrivers()
+        this.props.getDriversInfo()
         this.setState({
             driver_id: 0, 
             car_make: '', 
@@ -60,6 +60,7 @@ class CreateCar extends Component {
             car_state: '', 
             last_oil_change: 0
         })
+        this.props.history.push('/user/admin/api/cars')
     }
     
     render() {

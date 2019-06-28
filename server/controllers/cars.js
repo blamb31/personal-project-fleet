@@ -6,6 +6,7 @@ module.exports = {
         if(req.session.user){
             const {admin_id} = req.session.user
             let cars = await db.get_cars(admin_id)
+            console.log(474747, admin_id)
             let carList = cars.map( car => {
                 delete car.admin_password
                 return car
