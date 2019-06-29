@@ -45,9 +45,10 @@ class Car extends Component {
 
     render() {
         let {car} = this.props
+        console.log(232332, this.props)
         return(
             <div>
-                {this.props.usser ?
+                {this.props.user ?
                     <div>
                     {this.props.car && 
                         <div>
@@ -98,6 +99,7 @@ class Car extends Component {
 
 let mapStateToProps = state => {
     return {
+        user: state.users.data,
         car: state.cars.selected
     }
 }

@@ -174,11 +174,11 @@ class Cars extends Component {
                             </table>
                         </div>
                     </div>
-                :
-                    <Redirect to='/' />
-                }
-
-                {(this.props.user) ?
+                : 
+                     <Redirect to='/' />
+                 } 
+                
+                {(this.props.user) ? 
                     
                         <div style={{display: 'flex',flexDirection: 'column', justifyContent:'center'}}>
                             <h3>Cars</h3>
