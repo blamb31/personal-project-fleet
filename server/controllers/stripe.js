@@ -1,28 +1,30 @@
 const stripe = require('stripe')(process.env.STRIPE_SECRET)
+const uuid = require('uuid/v4')
+
 
 module.exports = {
-    pay: (req, res) => {
+    pay: async (req, res) => {
         // const db = req.app.get('db')
-        const {token: id, amount } = req.body
-        console.log(id, amount)
-        stripe.charges.create(
-            {
-                amount,
-                currencty: 'usd',
-                source: id,
-                description: 'Test Charge'
-            },
-            (err, charge) =>{
-                if(err){
-                    console.log(err)
-                    return res.status(500).send(err)
-                }
-                else{
-                    console.log('Successfule Payment", charge')
-                    //db call goes here
-                    return res.status(200).send(charge)
-                }
+        
+        console.log("Request:", req.body)
+        
+        const {product, token:{id}}  = req.body
+            
+        const charge = await stripe.charges.create({
+            amount: product.price * 100,
+            currency: 'usd',
+            source: id,
+            description: `Purchased ${product.name}`,
+        },
+        (error, charge) => {
+            if (error) {
+                console.error("The Error: ", error)
+                return res.send(error)
+            }else{
+                console.log('Charge:' , charge)
+                res.send(charge)
             }
-        )
-    },
+        })
+
+}
 }
