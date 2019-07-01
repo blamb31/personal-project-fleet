@@ -8,6 +8,7 @@ const {SERVER_PORT, SESSION_SECRET, CONNECTION_STRING} = process.env
 const authCtrl = require('./controllers/auth')
 const carsCtrl = require('./controllers/cars')
 const driversCtrl = require('./controllers/drivers')
+const stripeCtrl = require('./controllers/stripe')
 
 massive(CONNECTION_STRING).then( db => {
     app.set('db', db)
@@ -43,6 +44,7 @@ app.put('/api/cars/edit/:id', carsCtrl.editCar)
 app.put('/api/cars/oilChange/:id', carsCtrl.oilChange)
 app.put('/api/cars/:id', carsCtrl.addMiles)
 
+app.post('/api/payment', stripeCtrl.pay)
 
 app.get('/api/drivers', driversCtrl.getDrivers)
 app.get('/api/driversInfo', driversCtrl.getDriversInfo)

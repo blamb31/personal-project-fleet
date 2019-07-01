@@ -9,6 +9,7 @@ import LandingPage from './Components/LandingPage/LandingPage'
 import User from './Components/User/User'
 import UserInfo from './Components/UserInfo/UserInfo'
 import EditUserInfo from './Components/EditUserInfo/EditUserInfo'
+import Stripe from './Components/Stripe/Stripe'
 
 
 
@@ -24,6 +25,7 @@ function App() {
           <Route path='/user/admin' component={User}/>
           <Route path='/userInfo' exact component={UserInfo} />
           <Route path='/userInfo/edit/:id' exact component={EditUserInfo} />
+          <Route path='/api/payment' exact component={Stripe} />
 
         </Switch>
        

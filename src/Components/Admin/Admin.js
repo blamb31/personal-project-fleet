@@ -11,7 +11,7 @@ import Car from '../Car/Car'
 import EditCar from '../EditCar/EditCar'
 import Driver from '../Driver/Driver'
 import EditDriver from '../EditDriver/EditDriver'
-import UserInfo from '../UserInfo/UserInfo'
+import Stripe from '../Stripe/Stripe'
 
 
 import {connect} from 'react-redux'
@@ -32,12 +32,14 @@ function Admin(props){
                         <Route path='/user/admin/api/drivers/edit/:id' exact component={EditDriver} />                        
                         <Route path='/user/admin/api/drivers/:id' exact component={Driver} />
                         <Route path='/user/admin/api/createCar' exact component={CreateCar} />
+                        <Route path='/api/payment' exact component={Stripe} />
+
                         
                     </Switch>
                 </div>
 
                 :
-                
+
                 <div>
                     <NavBar />
                     <Switch>
@@ -49,6 +51,8 @@ function Admin(props){
                         <Route path='/user/admin/api/drivers/edit/:id' exact component={EditDriver} />                        
                         <Route path='/user/admin/api/drivers/:id' exact component={Driver} />
                         <Route path='/user/admin/api/createCar' exact component={CreateCar} />
+                        <Route path='/api/payment' exact component={Stripe} />
+
                         
                     </Switch>
                 </div>            
