@@ -3,6 +3,8 @@ import {connect} from 'react-redux'
 import {Redirect} from 'react-router-dom'
 
 import {getUser, editUser} from '../../redux/reducers/users'
+import S3Bucket from '../S3Bucket/S3Bucket'
+
 
 class EditUserInfo extends Component{
     constructor(props){
@@ -89,13 +91,16 @@ class EditUserInfo extends Component{
                         name='admin_phone' 
                         onChange={event => this.handleChange(event)} />
 
-                        <input 
+                        {/* <input 
                         type='text'
                         placeholder='Profile Picture URL' 
                         value={this.state.admin_img} 
                         name='admin_img' 
-                        onChange={event => this.handleChange(event)} />
+                        onChange={event => this.handleChange(event)} /> */}
+                        <S3Bucket />
                     </div>
+
+                    
                     <div>
                         <button onClick={() => this.handleEditUser()} >Save Changes</button>
                     </div>

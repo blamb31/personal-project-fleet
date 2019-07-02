@@ -2,6 +2,7 @@ import React from 'react'
 
 import {connect} from 'react-redux'
 
+
 function UserInfo(props) {
     console.log(292929, props)
     let {user} = props

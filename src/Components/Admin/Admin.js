@@ -12,6 +12,7 @@ import EditCar from '../EditCar/EditCar'
 import Driver from '../Driver/Driver'
 import EditDriver from '../EditDriver/EditDriver'
 import Stripe from '../Stripe/Stripe'
+import S3Bucket from '../S3Bucket/S3Bucket'
 
 
 import {connect} from 'react-redux'
@@ -33,6 +34,8 @@ function Admin(props){
                         <Route path='/user/admin/api/drivers/:id' exact component={Driver} />
                         <Route path='/user/admin/api/createCar' exact component={CreateCar} />
                         <Route path='/api/payment' exact component={Stripe} />
+                        <Route pats3h='/api/s3' exact component={S3Bucket} />
+
 
                         
                     </Switch>
@@ -52,6 +55,8 @@ function Admin(props){
                         <Route path='/user/admin/api/drivers/:id' exact component={Driver} />
                         <Route path='/user/admin/api/createCar' exact component={CreateCar} />
                         <Route path='/api/payment' exact component={Stripe} />
+                        <Route path='/api/s3' exact component={S3Bucket} />
+
 
                         
                     </Switch>

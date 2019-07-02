@@ -10,6 +10,8 @@ import User from './Components/User/User'
 import UserInfo from './Components/UserInfo/UserInfo'
 import EditUserInfo from './Components/EditUserInfo/EditUserInfo'
 import Stripe from './Components/Stripe/Stripe'
+import S3Bucket from './Components/S3Bucket/S3Bucket'
+
 
 
 
@@ -26,6 +28,7 @@ function App() {
           <Route path='/userInfo' exact component={UserInfo} />
           <Route path='/userInfo/edit/:id' exact component={EditUserInfo} />
           <Route path='/api/payment' exact component={Stripe} />
+          <Route pats3h='/api/s3' exact component={S3Bucket} />          
 
         </Switch>
        
