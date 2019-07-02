@@ -69,13 +69,12 @@ class S3Bucket extends Component {
 
     render() {
         return (
-            <div style={{width: 400, height: 400, border: '1px solid black'}}>
-                Bucket
+            <div style={{ border: '1px solid black'}}>
                 <input type='file' id='real' onChange={this.handlePhoto} />
                 <button onClick={this.sendPhoto}>Upload</button>
-                <div>
+                {/* <div>
                     <img width={300} src={this.state.img} alt='none' />
-                </div>
+                </div> */}
             </div>
         )
     }

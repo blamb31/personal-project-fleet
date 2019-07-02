@@ -114,6 +114,12 @@ class CreateAccount extends Component {
                         <S3Bucket setUserPic={this.setUserPic}/>
                     </div>
                     <div>
+                    {this.state.admin_img &&
+                        <img src={this.state.admin_img} />
+
+                    }
+                    </div>
+                    <div>
                         {!this.state.filled ?
                             <button onClick={this.handleRegister}>Create Account</button>
                         :

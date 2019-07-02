@@ -32,6 +32,7 @@ class Header extends Component {
                         :
             
                         <div>
+                            <img src={this.props.admin_img} width={75}/>
                             <Link to='/userInfo'><p>{this.props.admin_username} </p></Link>
                             {<Link to='/'><button onClick={this.handleLogout}> Logout </button></Link>}
                         </div>
