@@ -1,6 +1,7 @@
 import React from 'react'
 
 import {connect} from 'react-redux'
+import {Redirect} from 'react-router-dom'
 
 
 function UserInfo(props) {
@@ -9,7 +10,7 @@ function UserInfo(props) {
     return(
         <div>
             User Info Page
-            {props.user &&
+            {props.user ?
             <div>
 
                 <div>
@@ -24,6 +25,8 @@ function UserInfo(props) {
                     <button onClick={ () => props.history.push('/user/admin/api/cars')} >Back</button>
                 </div>
             </div>
+            :
+            <Redirect to='/' />
             }
         </div>
     )

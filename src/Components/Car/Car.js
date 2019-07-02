@@ -69,9 +69,13 @@ class Car extends Component {
                             type='number'
                             onChange={event => this.handleChange(event)} />
                             <button onClick={() => this.handleAddMiles(car.car_mileage)}>Add Miles</button>
-                            <h3>{`Driver: ${car.driver_first_name} ${car.driver_last_name}`}</h3>
-                            <img width={200} src={`${car.driver_img}`} />
-                            <p>{`Driver ID: ${car.driver_id}`}</p>
+                            {car.driver_id &&
+                            <div>
+                                <h3>{`Driver: ${car.driver_first_name} ${car.driver_last_name}`}</h3>
+                                <img width={200} src={`${car.driver_img}`} />
+                                <p>{`Driver ID: ${car.driver_id}`}</p>
+                            </div>
+                            }
                             {(car.car_mileage - car.last_oil_change >= 5000) &&
                             <div>
                                 <h3>Mainenance Needed:</h3>

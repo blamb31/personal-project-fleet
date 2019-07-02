@@ -41,7 +41,7 @@ class CreateCar extends Component {
 
     handleAddCar = () => {
         for( let key in this.state) {
-            if(!this.state[key]){
+            if(this.state[key] === '' || !this.state.last_oil_change){
                 return alert('Please fill in all fields')
             }
         }
