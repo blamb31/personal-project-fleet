@@ -1,6 +1,24 @@
 const bcrypt = require('bcryptjs')
 
 module.exports = {
+    checkUser: async (req, res, next) => {
+        try {
+            const db = req.app.get('db')
+            const {admin_username} = req.body.userInfo
+
+            let users = await db.get_admin_by_username(admin_username)
+            let user = users[0]
+    
+            if(user) {
+                return res.status(409).send('Username already in use')
+            }
+            next()
+            
+        }catch(error){
+            console.log('there was an error', error)
+            res.status(500).send(error)
+        }
+    },
     register: async (req, res) => {
         //user inputs data: name, email, password
         //Check if email is in db, send 409 status
@@ -9,7 +27,7 @@ module.exports = {
         //store name email and hash into table
         try {
             const db = req.app.get('db')
-            const {admin_first_name, admin_last_name, admin_username, admin_password, admin_phone, admin_img, admin_company_name} = req.body
+            const {admin_first_name, admin_last_name, admin_username, admin_password, admin_phone, admin_img, admin_company_name} = req.body.userInfo
 
             let users = await db.get_admin_by_username(admin_username)
             let user = users[0]

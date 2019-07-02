@@ -1,9 +1,11 @@
 import React, {Component} from 'react'
 
-import {Link, Redirect} from 'react-router-dom'
+import {Link} from 'react-router-dom'
 import {register} from '../../redux/reducers/users'
 
 import {connect} from 'react-redux'
+
+import StripeCheckout from '../Stripe/Stripe'
 
 class CreateAccount extends Component {
     constructor(props) {
@@ -14,7 +16,8 @@ class CreateAccount extends Component {
             admin_username: '',
             admin_password: '',
             admin_phone: '',
-            admin_img: ''
+            admin_img: '',
+            filled: false,
         }
     }
 
@@ -23,9 +26,19 @@ class CreateAccount extends Component {
         this.setState({
             [name]: value
         })
+        for( let key in this.state){
+            if (this.state[key] === ''){
+                console.log("empty")
+                return
+            }
+        }
+        this.setState({
+            filled: true
+        })
     }
 
     handleRegister = async() => {
+        console.log("New Props: ", this.props)
         for( let key in this.state){
             if (this.state[key] === ''){
                 return alert('All fields must be filled in')
@@ -93,8 +106,13 @@ class CreateAccount extends Component {
                         onChange={event => this.handleChange(event)} />
                     </div>
                     <div>
-                    <button onClick={this.handleRegister}>Create User</button>
-                        <Link to='/auth/login'><button>Login As Existing User</button></Link>
+                        {!this.state.filled ?
+                            <button onClick={this.handleRegister}>Create Account</button>
+                        :
+                        
+                            <StripeCheckout userInfo={this.state} handleRegister={this.handleRegister} />
+                        }
+                    <Link to='/auth/login'><button>Login As Existing User</button></Link>
 
                     </div>
 

@@ -47,7 +47,6 @@ class Drivers extends Component {
     render() {
         let {drivers} = this.props
         let driver;
-        console.log(this.props)
         if(this.props.user){
 
             function removeDuplicates(originalArray, prop) {

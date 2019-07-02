@@ -30,9 +30,8 @@ app.use(session({
 })
 )
 
-app.post('/api/payment', stripeCtrl.pay)
 
-app.post('/auth/register', authCtrl.register)
+app.post('/auth/register', authCtrl.checkUser, stripeCtrl.pay, authCtrl.register)
 app.post('/auth/login', authCtrl.login)
 app.get('/auth/logout', authCtrl.logout)
 app.get('/auth/currentUser', authCtrl.currentUser)

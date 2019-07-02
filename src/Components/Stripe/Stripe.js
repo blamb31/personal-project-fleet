@@ -1,11 +1,13 @@
 import React, {Component} from 'react'
 import Axios from 'axios';
 import StripeCheckout from 'react-stripe-checkout'
-import {toast} from 'react-toastify'
+import {withRouter} from 'react-router-dom'
+
+import {firstLogin} from '../../redux/reducers/users'
+import {connect} from 'react-redux'
 
 
-toast.configure()
-export default class Stripe extends Component {
+class Stripe extends Component {
 
   constructor(props) {
     super(props)
@@ -17,16 +19,19 @@ export default class Stripe extends Component {
 
   handleToken = async (token) =>  {
     console.log(token)
-    const response = await Axios.post('/api/payment', {
-      token, 
-      product: this.state
-    })
-    const {status} = response.data
-    if (status === 'succeeded'){
-      alert('Success!')
-    }else{
-      alert('Something went wrong!')
-      
+    try{
+      let {userInfo} = this.props
+      const response = await Axios.post('/auth/register', {
+        token, 
+        product: this.state,
+        userInfo
+      })
+      await this.props.firstLogin(response.data)
+      console.log(this.props)
+      this.props.history.push('/user/admin/api/cars')
+
+    }catch(error){
+      alert('Username is already in use. Payment Cancelled')
     }
   }
 
@@ -40,11 +45,20 @@ export default class Stripe extends Component {
           // shippingAddress
           amount={this.state.price * 100} 
           name={this.state.name}
-          label='Create Account'/>
+          label='Create Account'
+          />
       </div>
     )
   }
 }
+
+let mapStateToProps = state => {
+  return {
+    user: state.users.data
+  }
+}
+
+export default connect(mapStateToProps, {firstLogin})(withRouter(Stripe))
 
 // export default class Stripe extends Component{    
 

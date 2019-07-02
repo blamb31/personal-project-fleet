@@ -19,6 +19,8 @@ const LOGIN_USER_PENDING= 'LOGIN_USER_PENDING'
 const LOGIN_USER_FULFILLED= 'LOGIN_USER_FULFILLED'
 const LOGIN_USER_REJECTED= 'LOGIN_USER_REJECTED'
 
+const FIRST_LOGIN= 'FIRST_LOGIN'
+
 const LOGOUT_USER= 'LOGOUT_USER'
 const LOGOUT_USER_PENDING= 'LOGOUT_USER_PENDING'
 const LOGOUT_USER_FULFILLED= 'LOGOUT_USER_FULFILLED'
@@ -84,13 +86,13 @@ export default function (state = initialState, action) {
             return {
                 ...state,
                 data: payload.data,
-                loading: false
+                loading: false,
             }
         case REGISTER_USER_REJECTED:
             alert("Username is already in use. Please choose another username.")
             return {
                 ...state,
-                loading: false
+                loading: false,
             }
 
         case EDIT_USER_PENDING: 
@@ -110,6 +112,12 @@ export default function (state = initialState, action) {
                 loading: false
             }
 
+        case FIRST_LOGIN: 
+            return {
+                ...state,
+                data: payload
+            }
+
         default:
             return state
     }
@@ -127,6 +135,13 @@ export function login(loginInfo) {
     return{
         type: LOGIN_USER,
         payload: Axios.post('/auth/login', loginInfo)
+    }
+}
+
+export function firstLogin(user) {
+    return{
+        type: FIRST_LOGIN,
+        payload: user
     }
 }
 

@@ -3,7 +3,7 @@ const uuid = require('uuid/v4')
 
 
 module.exports = {
-    pay: async (req, res) => {
+    pay: async (req, res, next) => {
         // const db = req.app.get('db')
         
         console.log("Request:", req.body)
@@ -19,10 +19,10 @@ module.exports = {
         (error, charge) => {
             if (error) {
                 console.error("The Error: ", error)
-                return res.send(error)
+                return res.status(500).send(error)
             }else{
                 console.log('Charge:' , charge)
-                res.send(charge)
+                next()
             }
         })
 
