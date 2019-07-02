@@ -54,6 +54,12 @@ class EditUserInfo extends Component{
         window.history.back()
     }
 
+    updateUserPic = (url) => {
+        this.setState({
+            admin_img: url
+        })
+    }
+
     render() {
         let {user} = this.props
         return(
@@ -97,7 +103,7 @@ class EditUserInfo extends Component{
                         value={this.state.admin_img} 
                         name='admin_img' 
                         onChange={event => this.handleChange(event)} /> */}
-                        <S3Bucket />
+                        <S3Bucket updateUserPic={this.updateUserPic} />
                     </div>
 
                     

@@ -4,6 +4,7 @@ import {connect} from 'react-redux'
 import {Redirect, Link} from 'react-router-dom'
 
 import {getDriversInfo, addDriver} from '../../redux/reducers/drivers'
+import S3Bucket from '../S3Bucket/S3Bucket';
 
 
 class Drivers extends Component {
@@ -41,6 +42,13 @@ class Drivers extends Component {
             driver_last_name: '', 
             driver_phone: '', 
             driver_img: '',
+        })
+        this.props.history.push('/user/admin/api/cars')
+    }
+
+    setDriverPic = (url) => {
+        this.setState({
+            driver_img: url
         })
     }
     
@@ -119,15 +127,16 @@ class Drivers extends Component {
                     name='driver_phone' 
                     onChange={event => this.handleChange(event)} />
                     
-                    <input 
+                    {/* <input 
                     type='text'
                     placeholder='Picture' 
                     value={this.state.driver_img} 
                     name='driver_img' 
-                    onChange={event => this.handleChange(event)} />
+                    onChange={event => this.handleChange(event)} /> */}
+                    <S3Bucket setDriverPic={this.setDriverPic}/>
                     <div>
                         <button onClick={this.handleAddDriver} >Add Driver</button>
-                        <button onClick={() => window.history.back()}>Cancel</button>
+                        {/* <button onClick={() => window.history.back()}>Cancel</button> */}
                         <button onClick={() => window.history.back()}>Back To Cars</button>
                     </div>
                 </div>

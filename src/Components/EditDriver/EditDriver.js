@@ -3,7 +3,7 @@ import React, {Component} from 'react'
 import {connect} from 'react-redux'
 import {Link, Redirect} from 'react-router-dom'
 import {getDriver, editDriver} from '../../redux/reducers/drivers'
-import { stat } from 'fs';
+import S3Bucket from '../S3Bucket/S3Bucket';
 
 class EditDriver extends Component {
     constructor(props) {
@@ -49,6 +49,12 @@ class EditDriver extends Component {
         this.props.history.push(`/user/admin/api/drivers/${this.props.match.params.id}`)
     }
 
+    updateDriverPic = (url) => {
+        this.setState({
+            driver_img: url
+        })
+    }
+
     render(){
         console.log(this.props)
         return(
@@ -80,12 +86,14 @@ class EditDriver extends Component {
                         name='driver_phone' 
                         onChange={event => this.handleChange(event)} />
                         
-                        <input 
+                        {/* <input 
                         type='text'
                         placeholder='Picture' 
                         value={this.state.driver_img} 
                         name='driver_img' 
-                        onChange={event => this.handleChange(event)} />
+                        onChange={event => this.handleChange(event)} /> */}
+
+                        <S3Bucket updateDriverPic={this.updateDriverPic} />
                         <div>
                             <button onClick={ () => window.history.back()} >Back</button>
                             <button onClick={() => this.handleEditDriver()} >Submit</button>

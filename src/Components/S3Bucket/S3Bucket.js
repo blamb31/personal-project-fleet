@@ -1,5 +1,6 @@
 import React, {Component} from 'react' 
 import Axios from 'axios'
+import {connect} from 'react-redux'
 
 class S3Bucket extends Component {
     constructor(props) {
@@ -34,8 +35,29 @@ class S3Bucket extends Component {
 
     sendPhoto() {
         return Axios.post('/api/s3', this.state).then(res => {
-            if(this.props.userInfo)
             //take this res.data.Location and set it to the database as the image
+            console.log(909090, this.props)
+            if(this.props.updateUserPic){
+                console.log("UPDATE USER PICTURE")
+                this.props.updateUserPic(res.data.Location)
+            }else if(this.props.setUserPic){
+                console.log("SET USER PICTURE")
+                this.props.setUserPic(res.data.Location)
+            }else if(this.props.updateCarPic){
+                console.log("UPDATE CAR PICTURE")
+                this.props.updateCarPic(res.data.Location)
+            }else if(this.props.setCarPic){
+                console.log("SET CAR PICTURE")
+                this.props.setCarPic(res.data.Location)
+            }else if(this.props.updateDriverPic){
+                console.log("UPDATE DRIVER PICTURE")
+                this.props.updateDriverPic(res.data.Location)
+            }else if(this.props.setDriverPic){
+                console.log("SET DRIVER PICTURE")
+                this.props.setDriverPic(res.data.Location)
+            }else{
+                console.log('No Pic')
+            }
             console.log(4444, res.data)
             this.setState({
                 img: res.data.Location
@@ -47,12 +69,12 @@ class S3Bucket extends Component {
 
     render() {
         return (
-            <div>
+            <div style={{width: 400, height: 400, border: '1px solid black'}}>
                 Bucket
                 <input type='file' id='real' onChange={this.handlePhoto} />
                 <button onClick={this.sendPhoto}>Upload</button>
                 <div>
-                    <img src={this.state.img} alt='none' />
+                    <img width={300} src={this.state.img} alt='none' />
                 </div>
             </div>
         )

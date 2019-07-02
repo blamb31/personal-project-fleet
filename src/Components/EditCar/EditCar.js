@@ -3,6 +3,7 @@ import React, {Component} from 'react'
 import {connect} from 'react-redux'
 import {Link, Redirect} from 'react-router-dom'
 import {getCar, editCar} from '../../redux/reducers/cars'
+import S3Bucket from '../S3Bucket/S3Bucket';
 
 class EditCar extends Component {
             
@@ -70,6 +71,12 @@ class EditCar extends Component {
         
     }
 
+    updateCarPic = (url) => {
+        this.setState({
+            car_img: url
+        })
+    }
+
     render() {
         
         
@@ -125,12 +132,12 @@ class EditCar extends Component {
                             name='car_mileage' 
                             onChange={event => this.handleChange(event)} />
                             
-                            <input 
+                            {/* <input 
                             type='text'
                             placeholder='Car Image' 
                             value={this.state.car_img} 
                             name='car_img' 
-                            onChange={event => this.handleChange(event)} />
+                            onChange={event => this.handleChange(event)} /> */}
                         
                             <input 
                             type='text'
@@ -168,6 +175,7 @@ class EditCar extends Component {
                                 name='last_oil_change' 
                                 onChange={event => this.handleChange(event)} />
                             </div>
+                            <S3Bucket updateCarPic={this.updateCarPic} />
                             <div>
                                 <Link to='/user/admin/api/cars'><button onClick={this.handleEditCar}>Save Changes</button></Link>
                                 <button onClick={() => window.history.back()}>Cancel Changes</button>

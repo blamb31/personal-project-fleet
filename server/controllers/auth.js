@@ -129,6 +129,5 @@ module.exports = {
             console.log('There was an error', error)
             res.status(500)
         }
-    }
-
+    },
 }

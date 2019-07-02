@@ -6,6 +6,7 @@ import {register} from '../../redux/reducers/users'
 import {connect} from 'react-redux'
 
 import StripeCheckout from '../Stripe/Stripe'
+import S3Bucket from '../S3Bucket/S3Bucket'
 
 class CreateAccount extends Component {
     constructor(props) {
@@ -57,6 +58,12 @@ class CreateAccount extends Component {
         this.props.history.push('/user/admin/api/cars')
     }
 
+    setUserPic = (url) => {
+        this.setState({
+            admin_img: url
+        })
+    }
+
     render() {
         return(
             <div>
@@ -98,12 +105,13 @@ class CreateAccount extends Component {
                         value={this.state.admin_phone} 
                         name='admin_phone'
                         onChange={event => this.handleChange(event)} />
-                        <input 
+                        {/* <input 
                         type='text' 
                         placeholder='Profile Picture' 
                         value={this.state.admin_img} 
                         name='admin_img'
-                        onChange={event => this.handleChange(event)} />
+                        onChange={event => this.handleChange(event)} /> */}
+                        <S3Bucket setUserPic={this.setUserPic}/>
                     </div>
                     <div>
                         {!this.state.filled ?
