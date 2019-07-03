@@ -7,10 +7,12 @@ const {SERVER_PORT, SESSION_SECRET, CONNECTION_STRING, STRIPE_SECRET, AWS_ACCESS
 const stripe = require('stripe')(STRIPE_SECRET)
 const AWS = require('aws-sdk')
 
+
 const authCtrl = require('./controllers/auth')
 const carsCtrl = require('./controllers/cars')
 const driversCtrl = require('./controllers/drivers')
 const stripeCtrl = require('./controllers/stripe')
+const twilioCtrl = require('./controllers/twilio')
 
 AWS.config.update({
     accessKeyId: AWS_ACCESS_KEY_PUBLIC,
@@ -82,7 +84,7 @@ app.put('/api/cars/edit/:id', carsCtrl.editCar)
 app.put('/api/cars/oilChange/:id', carsCtrl.oilChange)
 app.put('/api/cars/:id', carsCtrl.addMiles)
 
-// app.post('/api/payment', stripeCtrl.pay)
+app.post('/api/sendSMS', twilioCtrl.sendSMS )
 
 app.get('/api/drivers', driversCtrl.getDrivers)
 app.get('/api/driversInfo', driversCtrl.getDriversInfo)

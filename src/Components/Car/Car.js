@@ -3,6 +3,8 @@ import React, {Component} from 'react'
 import {connect } from 'react-redux'
 import {Redirect} from 'react-router-dom'
 
+import Axios from 'axios'
+
 import {getCar, addMiles, gotOilChange,deleteCar} from '../../redux/reducers/cars'
 
 class Car extends Component {
@@ -30,12 +32,27 @@ class Car extends Component {
         this.props.history.push('/user/admin/api/cars')
     }
 
-    handleAddMiles = (currentMiles) => {
+    handleAddMiles = (currentMiles, last_oil_change, car) => {
         let updatedMiles = (Number(currentMiles) + Number(this.state.addMiles))
         this.props.addMiles(this.props.match.params.id, updatedMiles)
         this.setState({
             addMiles: 0
         })
+
+        if(updatedMiles - last_oil_change >= 5000){
+            async function send() {
+                let name = `${car.driver_first_name} ${car.driver_last_name}`
+                let adminName = `${car.admin_first_name} ${car.admin_last_name}`
+                console.log("Miles: ", updatedMiles - last_oil_change, "Car", car, "Admin Name", adminName)
+                let message = `Hello, ${name}. Your car, ${car.car_color} ${car.car_year} ${car.car_make} ${car.car_model}, is now at ${updatedMiles} miles (${updatedMiles - last_oil_change} miles since the oil was last changed). Please get the oil changed and the tires rotated and then contact your fleet administrator, ${adminName}`
+                let res = Axios.post('/api/sendSMS', { adminName, message })
+                await alert(`Message has been sent to notify ${name} of the needed maintenance`)
+                console.log(res)
+                // setName('')
+                // setMessage('')
+              }
+            send()
+        }
     }
 
     handleGotOilChange = (currentMiles) => {
@@ -68,7 +85,7 @@ class Car extends Component {
                             value={this.state.addMiles}
                             type='number'
                             onChange={event => this.handleChange(event)} />
-                            <button onClick={() => this.handleAddMiles(car.car_mileage)}>Add Miles</button>
+                            <button onClick={() => this.handleAddMiles(car.car_mileage, car.last_oil_change, car)}>Add Miles</button>
                             {car.driver_id &&
                             <div>
                                 <h3>{`Driver: ${car.driver_first_name} ${car.driver_last_name}`}</h3>
