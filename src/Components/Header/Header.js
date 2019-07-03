@@ -1,8 +1,9 @@
 import React, {Component} from 'react'
 import {connect} from 'react-redux'
-import {Link, Redirect} from 'react-router-dom'
+import {Link} from 'react-router-dom'
 import {logout, getUser} from '../../redux/reducers/users'
 
+import './header.scss'
 
 
 class Header extends Component {
