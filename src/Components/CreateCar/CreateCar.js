@@ -32,11 +32,18 @@ class CreateCar extends Component {
         await this.props.getDriversInfo()
     }
 
-    handleChange(event){
+    handleChange = async (event) => {
         let {name, value} = event.target
-        this.setState({
+        await this.setState({
             [name]:value
         })
+        if(name === 'driver_id' && this.state.driver_id === '') {
+            console.log('hit driver_id')
+            this.setState({
+                driver_id: null
+            })
+        }
+        
     }
 
     handleAddCar = () => {
@@ -48,7 +55,7 @@ class CreateCar extends Component {
         this.props.addCar(this.state)
         this.props.getDriversInfo()
         this.setState({
-            driver_id: 0, 
+            driver_id: null, 
             car_make: '', 
             car_model: '', 
             car_year: '', 
