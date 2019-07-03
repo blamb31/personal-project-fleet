@@ -62,6 +62,13 @@ class S3Bucket extends Component {
             this.setState({
                 img: res.data.Location
             })
+        }).catch( res => {
+            console.log( res)
+            if(res = 'Request failed with status code 413' ){
+                alert("File Size is too large")
+            }else {
+                alert("Something went wrong, try again")
+            }
         })
     }
 

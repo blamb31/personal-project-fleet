@@ -55,7 +55,6 @@ class Drivers extends Component {
     render() {
         let {drivers} = this.props
         let driver;
-        console.log(this.props)
         if(this.props.user){
 
             function removeDuplicates(originalArray, prop) {
@@ -126,7 +125,13 @@ class Drivers extends Component {
                     value={this.state.driver_phone} 
                     name='driver_phone' 
                     onChange={event => this.handleChange(event)} />
-                    
+                    {this.state.driver_img && 
+                    <div>
+                        <img src={this.state.driver_img} />
+
+                    </div>
+
+                    }
                     {/* <input 
                     type='text'
                     placeholder='Picture' 

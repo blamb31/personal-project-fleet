@@ -111,6 +111,13 @@ class CreateAccount extends Component {
                         value={this.state.admin_img} 
                         name='admin_img'
                         onChange={event => this.handleChange(event)} /> */}
+                        {this.state.driver_img && 
+                        <div>
+                            <img src={this.state.driver_img} />
+
+                        </div>
+
+                        }
                         <S3Bucket setUserPic={this.setUserPic}/>
                     </div>
                     <div>

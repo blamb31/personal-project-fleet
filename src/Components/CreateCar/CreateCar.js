@@ -208,6 +208,12 @@ class CreateCar extends Component {
                             name='last_oil_change' 
                             onChange={event => this.handleChange(event)} />
                         </div>
+                        {this.state.car_img && 
+                        <div>
+                            <img src={this.state.car_img} />
+                        </div>
+
+                        }
                         <S3Bucket setCarPic={this.setCarPic} />
                         <div>
                             <button onClick={this.handleAddCar}>Add New Car</button>
