@@ -8,6 +8,9 @@ import {connect} from 'react-redux'
 import StripeCheckout from '../Stripe/Stripe'
 import S3Bucket from '../S3Bucket/S3Bucket'
 
+import './createAccount.css'
+import emptyImage from '../Logo/emptyImage.jpg'
+
 class CreateAccount extends Component {
     constructor(props) {
         super(props)
@@ -57,87 +60,112 @@ class CreateAccount extends Component {
         })
         this.props.history.push('/user/admin/api/cars')
     }
-
+    
     setUserPic = (url) => {
         this.setState({
             admin_img: url
         })
     }
-
+    
     render() {
         return(
-            <div>
-                <div>
-                    <div>
-                        <input 
-                        type='text' 
-                        placeholder='First Name' 
-                        value={this.state.admin_first_name} 
-                        name='admin_first_name'
-                        onChange={event => this.handleChange(event)} />
-                        <input 
-                        type='text' 
-                        placeholder='Last Name' 
-                        value={this.state.admin_last_name} 
-                        name='admin_last_name'
-                        onChange={event => this.handleChange(event)} />
-                        <input 
-                        type='text' 
-                        placeholder='Company Name' 
-                        value={this.state.admin_company_name} 
-                        name='admin_company_name'
-                        onChange={event => this.handleChange(event)} />
-                        <input 
-                        type='text' 
-                        placeholder='Username' 
-                        value={this.state.admin_username} 
-                        name='admin_username'
-                        onChange={event => this.handleChange(event)} />
-                        <input 
-                        type='text' 
-                        placeholder='Password' 
-                        value={this.state.admin_password} 
-                        name='admin_password'
-                        onChange={event => this.handleChange(event)} />
-                        <input 
-                        type='text' 
-                        placeholder='Phone Number' 
-                        value={this.state.admin_phone} 
-                        name='admin_phone'
-                        onChange={event => this.handleChange(event)} />
-                        {/* <input 
-                        type='text' 
-                        placeholder='Profile Picture' 
-                        value={this.state.admin_img} 
-                        name='admin_img'
-                        onChange={event => this.handleChange(event)} /> */}
-                        {this.state.driver_img && 
-                        <div>
-                            <img src={this.state.driver_img} />
-
+            <div className='createAccount'>
+                
+                    <div id='createInputsDiv'>
+                        {this.state.admin_img === '' ?
+                        <div className='cAdminImgDiv'>
+                            <img id='adminImg' style={{width: 200}} src={emptyImage} />
+                    
                         </div>
 
+                        :
+
+                        <div className='cAdminImgDiv'>
+                            <img id='adminImg' style={{width: 200}} src={this.state.admin_img} />                            
+                        </div>
+                    
                         }
                         <S3Bucket setUserPic={this.setUserPic}/>
-                    </div>
-                    <div>
-                    {this.state.admin_img &&
-                        <img src={this.state.admin_img} />
+                        <div className='cAdminInputDivs'>
+                            <p>First Name: </p>
+                                <input 
+                                type='text' 
+                                placeholder='First Name' 
+                                value={this.state.admin_first_name} 
+                                name='admin_first_name'
+                                onChange={event => this.handleChange(event)}
+                                className='cAdminInputs' />
+                        </div>
+                        <div className='cAdminInputDivs'>
+                            <p>Last Name: </p>
+                            <input 
+                            type='text' 
+                            placeholder='Last Name' 
+                            value={this.state.admin_last_name} 
+                            name='admin_last_name'
+                            onChange={event => this.handleChange(event)}
+                            className='cAdminInputs' />
 
-                    }
+                        </div>
+                        <div className='cAdminInputDivs'>
+                            <p>Company Name: </p>
+                            <input 
+                            type='text' 
+                            placeholder='Company Name' 
+                            value={this.state.admin_company_name} 
+                            name='admin_company_name'
+                            onChange={event => this.handleChange(event)}
+                            className='cAdminInputs' />
+
+                        </div>
+                        <div className='cAdminInputDivs'>
+                            <p>Phone Number: </p>
+                            <input 
+                            type='text' 
+                            placeholder='Phone Number' 
+                            value={this.state.admin_phone} 
+                            name='admin_phone'
+                            onChange={event => this.handleChange(event)}
+                            className='cAdminInputs' />
+
+                        </div>
+                        <div className='cAdminInputDivs'>
+                            <p>Username: </p>
+                            <input 
+                            type='text' 
+                            placeholder='Username' 
+                            value={this.state.admin_username} 
+                            name='admin_username'
+                            onChange={event => this.handleChange(event)}
+                            className='cAdminInputs' />
+
+                        </div>
+                        <div className='cAdminInputDivs'>
+                            <p>Password: </p>
+                            <input 
+                            type='text' 
+                            placeholder='Password' 
+                            value={this.state.admin_password} 
+                            name='admin_password'
+                            onChange={event => this.handleChange(event)}
+                            className='cAdminInputs' />
+
+                        </div>
+                        
                     </div>
-                    <div>
+                    
+                    <div className='createButtons'>
                         {!this.state.filled ?
                             <button onClick={this.handleRegister}>Create Account</button>
                         :
                         
                             <StripeCheckout userInfo={this.state} handleRegister={this.handleRegister} />
                         }
-                    <Link to='/auth/login'><button>Login As Existing User</button></Link>
+                    <button onClick={() => this.props.history.push('/auth/login')}>Login As Existing User</button>
 
                     </div>
 
-                </div>
+                
                 
             </div>
         )

@@ -2,6 +2,8 @@ import React, {Component} from 'react'
 import Axios from 'axios'
 import {connect} from 'react-redux'
 
+import './s3Bucket.css'
+
 class S3Bucket extends Component {
     constructor(props) {
         super(props)
@@ -76,12 +78,11 @@ class S3Bucket extends Component {
 
     render() {
         return (
-            <div style={{ border: '1px solid black'}}>
-                <input type='file' id='real' onChange={this.handlePhoto} />
-                <button onClick={this.sendPhoto}>Upload</button>
-                {/* <div>
-                    <img width={300} src={this.state.img} alt='none' />
-                </div> */}
+            <div className='s3Bucket'>
+                {/* <p>{'Choose Profile Picture: '}</p> */}
+                <input type='file' id='file' className='inputfile' onChange={this.handlePhoto} />
+                <label for='file'>Choose File</label>
+                <button className='uploadButton' onClick={this.sendPhoto}>Upload</button>
             </div>
         )
     }
