@@ -143,7 +143,7 @@ class CreateAccount extends Component {
                         <div className='cAdminInputDivs'>
                             <p>Password: </p>
                             <input 
-                            type='text' 
+                            type='password' 
                             placeholder='Password' 
                             value={this.state.admin_password} 
                             name='admin_password'
