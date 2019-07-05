@@ -16,13 +16,13 @@
 
 input {
     background: white;
-    border: 1px solid rgb(219, 219, 219);
+    border: 1px solid #e7e7e7;
     border-radius: 15px;
     padding: .5%;
 }
 
 input:focus {
-    background: #e7e7e7;
+    background: #f6f6f6;
     outline: none;
 }
 
@@ -42,10 +42,11 @@ button {
 
 button:focus {
     outline: none;
+    background: #5057d8;
 }
 
 button:active{
-    background: rgb(212, 207, 210)
+    background: #5057d8;
 }
 
 button:hover, img:hover {

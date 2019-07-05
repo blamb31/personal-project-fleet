@@ -1,0 +1,44 @@
+.loginPage {
+    width: 100%;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    background: #faf8d3;
+    padding: 10% 5%;
+    align-items: center;
+
+}
+
+.loginInputs {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+
+}
+
+.loginInput{
+    width: 100%;
+    margin: 2% 0;
+}
+
+.loginButtons {
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    margin: 5% 0 ;
+}
+
+
+.loginButton {
+    width: 33%;
+}
+
+@media screen and (min-width: 415px) {
+    .loginInput{
+        height: 35px;
+    }
+    .loginButton {
+        font-size: 1em;
+        
+    }
+}

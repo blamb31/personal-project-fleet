@@ -2,6 +2,8 @@ import React, {Component} from 'react'
 import { connect } from 'react-redux';
 import {Link} from 'react-router-dom'
 
+import './login.css'
+
 import {login} from '../../redux/reducers/users'
 
 class Login extends Component {
@@ -35,11 +37,15 @@ class Login extends Component {
 
     render() {
         return(
-            <div>
-                <input value={this.state.username} name='username' onChange={event => this.handleChange(event)} type='text' placeholder='Username' />
-                <input value={this.state.password} name='password' onChange={event => this.handleChange(event)} type='text' placeholder='Password' />
-                <button onClick={this.handleLogin}>Login</button>
-                <Link to='/auth/register'><button >Register</button> </Link>
+            <div className='loginPage'>
+                <div className='loginInputs'>
+                    <input className='loginInput' value={this.state.username} name='username' onChange={event => this.handleChange(event)} type='text' placeholder='Username' />
+                    <input className='loginInput' value={this.state.password} name='password' onChange={event => this.handleChange(event)} type='password' placeholder='Password' />
+                </div>
+                <div className='loginButtons'>
+                    <button className='loginButton' onClick={this.handleLogin}>Login</button>
+                    <button onClick={() => this.props.history.push('/auth/register')} className='loginButton' >Register</button> 
+                </div>
 
             </div>
         )
