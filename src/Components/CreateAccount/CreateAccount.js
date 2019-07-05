@@ -74,14 +74,14 @@ class CreateAccount extends Component {
                     <div id='createInputsDiv'>
                         {this.state.admin_img === '' ?
                         <div className='cAdminImgDiv'>
-                            <img id='adminImg' style={{width: 200}} src={emptyImage} />
+                            <img id='adminImg'  src={emptyImage} />
                     
                         </div>
 
                         :
 
                         <div className='cAdminImgDiv'>
-                            <img id='adminImg' style={{width: 200}} src={this.state.admin_img} />                            
+                            <img id='adminImgHolder'  src={this.state.admin_img} />                            
                         </div>
                     
                         }

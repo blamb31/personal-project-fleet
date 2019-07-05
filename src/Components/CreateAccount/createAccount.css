@@ -39,15 +39,30 @@
     
 }
 
-@media screen and (min-width: 415px) {
+@media screen and (min-width: 1040px) {
+    * {
+        font-size: 25px;
+    }
+    .createButtons{
+        margin: 3%;
+    }
+    img {
+        width: 33%;
+    }
+}
+
+@media screen and (min-width: 415px) and (max-width: 1039px){
     * {
         font-size: 36px;
     }
     .createButtons {
-        margin: 8% 0 0 0;
+        margin: 4% 0 0 0;
     }
     button {
         font-size: 25px;
+    }
+    img {
+        width: 43%;
     }
     
    
@@ -61,9 +76,8 @@
     .createAccount {
         padding: 10% 5% 0 5%;
     }
-    #adminImg {
-        width: 200px;
-        max-height: 133.9px;
+    img {
+        width: 63%;
         
     }
 }
