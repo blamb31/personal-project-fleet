@@ -2,9 +2,9 @@ import React, {Component} from 'react'
 import {connect} from 'react-redux'
 import {Link} from 'react-router-dom'
 import {logout, getUser} from '../../redux/reducers/users'
-import logo from '../Logo/fleetnannyLogo.png'
+import logo from '../Logo/fleetnannyLogoNew.JPG'
 
-import './header.scss'
+import './header.css'
 
 
 class Header extends Component {
@@ -24,7 +24,7 @@ class Header extends Component {
         return (
            <div className='headerDiv'>
                         <div className='logoOnly'>
-                            <img src={logo}/>
+                            <img id='logo' src={logo}/>
                         </div>
                         {!this.props.admin_username ? 
                         <div>

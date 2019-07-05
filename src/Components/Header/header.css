@@ -1,0 +1,31 @@
+.headerDiv {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.logoOnly{
+    width: 100%;
+    display: flex;
+
+}
+
+#logo{
+    width: 100%;
+}
+
+@media screen and (min-width: 1040px){
+    #logo{
+        width: 35%;
+    }
+}
+
+@media screen and (min-width: 415px) and (max-width: 1039px){
+    #logo{
+        width: 50%;
+    }
+
+
+
+}
