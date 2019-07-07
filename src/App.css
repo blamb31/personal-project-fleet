@@ -12,6 +12,7 @@
     padding: 2%;
     background: #fffdef;
     display: flex;
+    flex-grow: 1;
     flex-direction: column;
 }
 

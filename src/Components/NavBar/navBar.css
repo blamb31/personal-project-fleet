@@ -1,0 +1,13 @@
+.navBarDiv {
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    margin: 3% 0;
+
+}
+
+.navBarLinks {
+    color: black;
+    margin: 0 5%;
+}
+

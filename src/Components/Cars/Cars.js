@@ -3,6 +3,8 @@ import React, {Component} from 'react'
 import {connect} from 'react-redux'
 import {Redirect, Link} from 'react-router-dom'
 
+import './cars.css'
+
 import {getCars, addCar, deleteCar} from '../../redux/reducers/cars'
 import {getDriversInfo} from '../../redux/reducers/drivers'
 
@@ -160,7 +162,7 @@ class Cars extends Component {
         //     })
         // }
         return(
-            <div>
+            <div className='outerCarsDiv'>
                 {/* {(this.props.user) ?
                     <div style={{display: 'flex',flexDirection: 'column', justifyContent:'center'}}>
                         <div style={{display: 'flex',flexDirection: 'column', justifyContent:'center'}}>
@@ -183,7 +185,7 @@ class Cars extends Component {
                 
                 {(this.props.user) ? 
                     
-                        <div style={{display: 'flex',flexDirection: 'column', justifyContent:'center'}}>
+                        <div className='carsDiv' >
                             <h3>Cars</h3>
                             <button onClick={() => this.props.history.push('/user/admin/api/createCar')}>Add New Car</button>
                             <table>

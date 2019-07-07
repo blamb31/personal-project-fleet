@@ -14,14 +14,15 @@ import EditDriver from '../EditDriver/EditDriver'
 import Stripe from '../Stripe/Stripe'
 import S3Bucket from '../S3Bucket/S3Bucket'
 
+import './admin.css'
 
 import {connect} from 'react-redux'
 
 function Admin(props){
     return(
-        <div>
+        <div className='adminDiv'>
             {props.user ?
-                <div>
+                <div className='adminContent'>
                     <h1>{`${props.user.admin_company_name}'s Fleet`}</h1>
                     <NavBar />
                     <Switch>
