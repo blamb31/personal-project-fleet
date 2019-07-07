@@ -3,7 +3,7 @@
     background: #faf8d3;
     flex-grow: 1;
     display: flex;
-    padding: 10% 3%;
+    /* padding: 10% 3%; */
 
 }
 
@@ -11,5 +11,21 @@
     width: 100%;
     display: flex;
     flex-direction: column;
+    align-items: center;
+    
+}
 
+#addCarButton {
+    width: 25%;
+    margin-bottom: 3%;
+}
+
+td, th {
+    font-size: 12px;
+    height: 20px;
+}
+
+table {
+    width: 90%;
+    
 }

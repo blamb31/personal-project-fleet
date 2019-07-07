@@ -40,15 +40,16 @@ button {
     display: flex;
     justify-content: center;
     text-decoration: none;
+    font-size: 12px;
 }
 
 button:focus {
     outline: none;
-    background: #5057d8;
+    background: #6067ea;
 }
 
 button:active{
-    background: #5057d8;
+    background: #6067ea;
 }
 
 button:hover, img:hover {
