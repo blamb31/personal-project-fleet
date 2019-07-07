@@ -1,8 +1,10 @@
 .headerDiv {
     width: 100%;
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
+    background: #faf8d3;
 }
 
 .logoOnly{
@@ -15,17 +17,132 @@
     width: 100%;
 }
 
-@media screen and (min-width: 1040px){
+.loggedInHeader {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    margin: 5% 0 0 0;
+    justify-content: space-between;
+}
+.noLogoHeader {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    /* justify-content: left; */
+}
+.loggedInLinks{
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+}
+
+
+
+.loggedInLogoDiv{
+    margin-bottom: 1%;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+#loggedInLogo{
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    margin-right: 5%;
+}
+
+#usernameLink{
+    color: black;
+}
+
+.loggedInLinks {
+    /* width: 100%; */
+    display: flex;
+    justify-content: right;
+}
+
+#logoutLink{
+    margin-right: 5%;
+}
+
+
+
+@media screen and (min-width: 2px) {
+    .headerDiv{
+        flex-direction: row;
+        background: #fffdef;
+    }
+    .logoOnly {
+        width: 50%;
+    }
+    
     #logo{
-        width: 35%;
+        width: 100%;
+    }
+    
+    .loggedInHeader{
+        display: flex;
+        width: 50%;
+        flex-direction: row;
+        align-items: top;
+        justify-content: top;
+        margin: 0;
+    }
+    .noLogoHeader{
+        display: flex;
+        flex-direction: column;
+        
+    }
+    .loggedInLogoDiv{
+        /* width: 250px; */
+        display: flex;
+        flex-direction: row;
+        justify-content: flex-end;
+    }
+    .loggedInLinks{
+        display: flex;
+        flex-direction: row-reverse;
+        justify-content: flex-start;
+        
+    }
+    #loggedInLogo {
+        justify-items: end;
+
+        /* margin-left: 55px; */
+        width: 60px;
+        height: 60px;
+    }
+    /* 
+    #loggedInLogo {
+        display: flex;
+        justify-content: right;
+    } */
+}
+
+@media screen and (min-width: 1022px) and (max-width: 1025px) {
+    #loggedInLogo {
+        justify-items: end;
     }
 }
 
-@media screen and (min-width: 415px) and (max-width: 1039px){
-    #logo{
-        width: 50%;
+@media screen and (min-width: 1045px) {
+    #loggedInLogo {
+        justify-items: end;
+
+        /* margin-left: 445px; */
     }
+    #logo{
+        width: 35%;
 
+    }
+}
 
-
+@media screen and (max-width: 415px) {
+    #loggedInLogo {
+        width: 33px;
+        height: 30px;
+    }
 }

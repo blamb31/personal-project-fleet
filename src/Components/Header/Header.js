@@ -33,12 +33,14 @@ class Header extends Component {
                         :
             
                         <div className='loggedInHeader'>
-                            <div className='loggedInLogoDiv'>
-                                <img id='loggedInLogo' src={this.props.admin_img}/>
-                            </div>
-                            <div className='loggedInLinks'>
-                                <Link to='/userInfo'><p>{this.props.admin_username} </p></Link>
-                                {<Link to='/'><button onClick={this.handleLogout}> Logout </button></Link>}
+                            <div className='noLogoHeader'>
+                                <div className='loggedInLogoDiv'>
+                                    <img id='loggedInLogo' src={this.props.admin_img}/>
+                                    <Link id='usernameLink' to='/userInfo'><p>{this.props.admin_username} </p></Link>
+                                </div>
+                                <div className='loggedInLinks'>
+                                    {<Link id='logoutLink' to='/'><button onClick={this.handleLogout}> Logout </button></Link>}
+                                </div>
                             </div>
                         </div>
                         }

@@ -68,7 +68,7 @@ class EditCar extends Component {
             }
         }
         this.props.editCar(this.props.match.params.id, this.state)
-        
+        window.history.back()
     }
 
     updateCarPic = (url) => {
@@ -177,7 +177,7 @@ class EditCar extends Component {
                             </div>
                             <S3Bucket updateCarPic={this.updateCarPic} />
                             <div>
-                                <Link to='/user/admin/api/cars'><button onClick={this.handleEditCar}>Save Changes</button></Link>
+                                <button onClick={this.handleEditCar}>Save Changes</button>
                                 <button onClick={() => window.history.back()}>Cancel Changes</button>
                             </div>
 
