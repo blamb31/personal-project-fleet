@@ -23,26 +23,33 @@ class Header extends Component {
     render(){
         return (
            <div className='headerDiv'>
-                        <div className='logoOnly'>
-                            <img id='logo' src={logo}/>
-                        </div>
                         {!this.props.admin_username ? 
-                        <div>
+                        <div className='noLoggedInLogo'>
+                            <img id='onlyLogo' src={logo}/>
                         </div>
+                        
             
                         :
-            
-                        <div className='loggedInHeader'>
-                            <div className='noLogoHeader'>
-                                <div className='loggedInLogoDiv'>
-                                    <img id='loggedInLogo' src={this.props.admin_img}/>
-                                    <Link id='usernameLink' to='/userInfo'><p>{this.props.admin_username} </p></Link>
-                                </div>
-                                <div className='loggedInLinks'>
-                                    {<Link id='logoutLink' to='/'><button onClick={this.handleLogout}> Logout </button></Link>}
+                        <div className='loggedInOuterHeader'>
+                            <div className='logoOnly'>
+                                <img id='logo' src={logo}/>
+                            </div>
+                            
+                
+                            <div className='loggedInHeader'>
+                                <div className='noLogoHeader'>
+                                    <div className='loggedInLogoDiv'>
+                                        <img id='loggedInLogo' src={this.props.admin_img}/>
+                                        <Link id='usernameLink' to='/userInfo'><p>{this.props.admin_username} </p></Link>
+                                    </div>
+                                    <div className='loggedInLinks'>
+                                        {<Link id='logoutLink' to='/'><button onClick={this.handleLogout}> Logout </button></Link>}
+                                    </div>
                                 </div>
                             </div>
+
                         </div>
+
                         }
            </div>
        )
