@@ -5,6 +5,8 @@ import {Redirect, Link} from 'react-router-dom'
 
 import {getCars} from '../../redux/reducers/cars'
 
+import './maintenance.css'
+
 
 class Maintenance extends Component {
     constructor(props) {
@@ -32,28 +34,28 @@ class Maintenance extends Component {
                 }
                 if(index %2 ===0){
                     return(
-                        <tr style={{background:'white'}} key={index}>
-                            <td>{index + 1}</td>
+                        <tr style={{background:'#ebe461'}} key={index}>
+                            {/* <td>{index + 1}</td> */}
                             <td>{car.car_id}</td>
-                            <td>{`${car.car_year} ${car.car_make} ${car.car_model} (${car.car_color})`}</td>
+                            <td onClick={() => this.props.history.push(`/user/admin/api/cars/${car.car_id}`)}>{`${car.car_year} ${car.car_make} ${car.car_model} (${car.car_color})`}</td>
                             <td>{Number(car.car_mileage) -Number(car.last_oil_change)}</td>
-                            <td>{`${car.car_city}, ${car.car_state}`}</td>
-                            <td>{car.driver_id}</td>
+                            {/* <td>{`${car.car_city}, ${car.car_state}`}</td> */}
+                            {/* <td>{car.driver_id}</td> */}
                             <td>{`${car.driver_first_name} ${car.driver_last_name}`}</td>
-                            <td><Link to={`/user/admin/api/cars/${car.car_id}`}>View Details</Link></td>
+                            {/* <td><Link to={`/user/admin/api/cars/${car.car_id}`}>View Details</Link></td> */}
                         </tr>
                     )
                 }else{
                     return(
-                        <tr style={{background:'gray'}} key={index}>
-                            <td>{index + 1}</td>
+                        <tr style={{background:'#6067ea'}} key={index}>
+                            {/* <td>{index + 1}</td> */}
                             <td>{car.car_id}</td>
-                            <td>{`${car.car_year} ${car.car_make} ${car.car_model} (${car.car_color})`}</td>
+                            <td onClick={() => this.props.history.push(`/user/admin/api/cars/${car.car_id}`)}>{`${car.car_year} ${car.car_make} ${car.car_model} (${car.car_color})`}</td>
                             <td>{Number(car.car_mileage) -Number(car.last_oil_change)}</td>
-                            <td>{`${car.car_city}, ${car.car_state}`}</td>
-                            <td>{car.driver_id}</td>
+                            {/* <td>{`${car.car_city}, ${car.car_state}`}</td> */}
+                            {/* <td>{car.driver_id}</td> */}
                             <td>{`${car.driver_first_name} ${car.driver_last_name}`}</td>
-                            <td><Link to={`/user/admin/api/cars/${car.car_id}`}>View Details</Link></td>
+                            {/* <td><Link to={`/user/admin/api/cars/${car.car_id}`}>View Details</Link></td> */}
                         </tr>
                     )
                 }
@@ -61,28 +63,27 @@ class Maintenance extends Component {
         }
 
         return(
-            <div>
-                {(this.props.user) ?
-                    <div style={{display: 'flex',flexDirection: 'column', justifyContent:'center'}}>
-                        <h3>Cars</h3>
+            <div className='outerMaintenanceDiv'>
+                {/* {(this.props.user) ? */}
+                    <div className='maintenanceTable'>
                         <table>
-                            <tr style={{background: 'gray'}}>
-                                <th></th>
+                            <tr style={{background: '#6067ea'}}>
+                                {/* <th></th> */}
                                 <th>Car ID</th>
                                 <th>Car Info</th>
                                 <th>Miles Since Last Oil Change</th>
-                                <th>Car Location</th>
-                                <th>Driver ID</th>
+                                {/* <th>Car Location</th> */}
+                                {/* <th>Driver ID</th> */}
                                 <th>Driver Name</th>
-                                <th></th>
+                                {/* <th></th> */}
                             </tr>
                             {car}
 
                         </table>
                     </div>
-                :
-                    <Redirect to='/' />
-                }
+                {/* // : */}
+                    {/* // <Redirect to='/' /> */}
+                {/* // } */}
             </div>
         )
     }

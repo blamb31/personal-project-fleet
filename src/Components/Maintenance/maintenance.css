@@ -1,0 +1,25 @@
+.outerMaintenanceDiv {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    flex-grow: 1;
+    margin: 5% 0 ;
+    background: #faf8d3;
+
+}
+
+.maintenanceTable {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+table {
+    width: 90%;
+}
+
+td, th {
+    font-size: 12px;
+    height: 20px;
+}
+
