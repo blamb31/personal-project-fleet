@@ -1,0 +1,115 @@
+.singleCarOuterDiv {
+    width: 100%;
+    display: flex;
+    margin: 5% 0;
+    justify-content: center;
+}
+
+.outerCarViewDiv {
+    width: 100%;
+}
+
+.carViewDiv {
+    width: 100%;
+    display: flex; 
+    flex-direction: column;
+    align-items: center;
+}
+
+#indCarTitle {
+    font-size: 19px;
+}
+
+#indCarPic {
+    width: 80%;
+    margin: 5% 0;
+}
+
+#indCarAddress {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 5%;
+}
+
+#indCarMileageInfo{
+    width: 80%;
+    display: flex;
+    flex-direction: column;
+
+}
+
+#indCarOilChangeInfo {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 3px;
+}
+
+#middleRow {
+    margin-top: 3px;
+}
+
+.inputMilesDiv {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.indCarDriverDiv {
+    widows: 80%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 5%;
+}
+
+.indCarDriverInfo {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 3%;
+}
+
+.indCarMaintenenceDiv {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 3%;
+}
+
+.indCarButtons {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.indCarMiddleButton {
+    margin: 0 5%;
+}
+
+.indCarButtonMarg{
+    margin: 0 
+}
+
+@media screen and (max-width: 325px ) {
+    .shrinkText {
+        font-size: 12px;
+    }
+
+}
+
+@media screen and ( min-width: 415px){
+    .inputMilesDiv{
+        justify-content:flex-start;
+    }
+    #indCarOilChangeInfo {
+        justify-content: flex-start;
+    }
+    .indCarButtonMarg{
+        margin: 0 2%;
+    }
+    
+
+}
