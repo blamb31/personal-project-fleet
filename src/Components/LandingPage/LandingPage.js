@@ -6,8 +6,8 @@ export default function LandingPage(props){
     return(
         <div className='landingPage'>
             <div className='lpContent'>
-                <h1>Welcome To fleetnanny</h1>
-                <h3>Please log in or create an account</h3>
+                <h1 id='landingWelcome'>Welcome To fleetnanny</h1>
+                <h3 id='landingPlease'>Please log in or create an account</h3>
             </div>
             <div className='lpLinks'>
                 <Link className='lpLink' to='/auth/login'><button className='lpButton'>Login</button></Link>

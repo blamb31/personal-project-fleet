@@ -156,12 +156,12 @@ class CreateAccount extends Component {
                     
                     <div className='createButtons'>
                         {!this.state.filled ?
-                            <button onClick={this.handleRegister}>Create Account</button>
+                            <button className='createAccountButtons' onClick={this.handleRegister}>Create Account</button>
                         :
                         
                             <StripeCheckout userInfo={this.state} handleRegister={this.handleRegister} />
                         }
-                    <button onClick={() => this.props.history.push('/auth/login')}>Login As Existing User</button>
+                    <button className='createAccountButtons' onClick={() => this.props.history.push('/auth/login')}>Login As Existing User</button>
 
                     </div>
 

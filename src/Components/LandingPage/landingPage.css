@@ -41,30 +41,44 @@
 
 
 @media screen and (min-width: 375px) and (max-width: 414px){
-    h1{
+    #landingWelcome{
         font-size: 34px;
     }
 }
 
-@media screen and (min-width: 415px) {   
+@media screen and (min-width: 415px) and (max-width: 1024px){
+    #landingWelcome{
+        font-size: 60px;
+     }
+     #landingPlease{
+     font-size: 34px;
+     }
+     .lpButton{
+     font-size: 25px;
+     width: 75%;
+     }
+}
 
-    h1{
-       font-size: 50px;
+@media screen and (max-width: 1025px) {   
+
+    #landingWelcome{
+       font-size: 34px;
     }
-    h3{
-    font-size: 32px;
+    #landingPlease{
+    font-size: 20px;
     }
-    button{
-    font-size: 25px;
+    .lpButton{
+    font-size: 13px;
+    width: 60%;
     }
 }
 
 @media screen and (max-width: 375px){
-    h1{
+    #landingWelcome{
         /* font-size: 1.6em; */
         font-size: 27px;
     }
-    h3{
+    #landingPlease{
         font-size: 16px;
     }
 }

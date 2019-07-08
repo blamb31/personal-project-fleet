@@ -1,7 +1,7 @@
 .s3Bucket {
     width: 100%;
     display: flex;
-    justify-content: space-around;
+    justify-content: center;
     align-items: center;
     margin: 3% 0;
 }
@@ -12,6 +12,7 @@
 
 .uploadButton {
     width: 18%;
+    margin: 0 4%;
 }
 
 .inputfile + label {
@@ -41,7 +42,7 @@
 
 @media screen and (min-width: 415px) {
     .inputfile + label {
-        font-size: 25px;
+        font-size: 12px;
     }
 }
 
