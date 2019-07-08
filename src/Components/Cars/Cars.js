@@ -186,8 +186,9 @@ class Cars extends Component {
                 {(this.props.user) ? 
                     
                         <div className='carsDiv' >
-                            <button id='addCarButton' onClick={() => this.props.history.push('/user/admin/api/createCar')}>Add New Car</button>
-                            <table>
+                            <h3 className='carsTitle'>Cars In The Fleet</h3>
+                            <button id='addCarButton' onClick={() => this.props.history.push('/user/admin/api/createCar')}>Add Car</button>
+                            <table className='carsTable'>
                                 <tr style={{background: '#6067ea'}}>
                                     {/* <th></th>
                                     <th></th> */}

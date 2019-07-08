@@ -12,7 +12,7 @@ export default function NavBar(props) {
             <hr />
             <Link className='navBarLinks' to='/user/admin/api/maintenance'>Maintenance</Link>
             <hr />
-            <Link className='navBarLinks' to='/user/admin/api/createDriver'>Drivers</Link>
+            <Link className='navBarLinks' to='/user/admin/api/drivers'>Drivers</Link>
             <hr />
         </div>
     )

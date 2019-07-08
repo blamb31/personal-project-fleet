@@ -13,6 +13,8 @@ import Driver from '../Driver/Driver'
 import EditDriver from '../EditDriver/EditDriver'
 import Stripe from '../Stripe/Stripe'
 import S3Bucket from '../S3Bucket/S3Bucket'
+import Drivers from '../Drivers/Drivers'
+
 
 import './admin.css'
 
@@ -23,10 +25,11 @@ function Admin(props){
         <div className='adminDiv'>
             {props.user ?
                 <div className='adminContent'>
-                    <h1>{`${props.user.admin_company_name}'s Fleet`}</h1>
+                    <h1 className='companyTitle'>{`${props.user.admin_company_name}'s Fleet`}</h1>
                     <NavBar />
                     <Switch>
                         <Route path='/user/admin/api/cars' exact component={Cars} />
+                        <Route path='/user/admin/api/drivers' exact component={Drivers} />
                         <Route path='/user/admin/api/createDriver' exact component={CreateDriver} />
                         <Route path='/user/admin/api/maintenance' component={Maintenance} />
                         <Route path='/user/admin/api/cars/:id' exact component={Car} />

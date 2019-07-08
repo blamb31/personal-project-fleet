@@ -2,12 +2,12 @@
     display: flex;
     width: 100%;
     justify-content: center;
-    margin: 3% 0;
+    margin-top: 5% ;
 
 }
 
 .navBarLinks {
     color: black;
-    margin: 0 5%;
+    margin: 0 3%;
 }
 

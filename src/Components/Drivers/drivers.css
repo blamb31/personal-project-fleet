@@ -1,0 +1,30 @@
+.mainDriversDiv{
+    width: 100%;
+    background: faf8d3;
+    flex-grow: 1;
+    display: flex;
+    margin: 5% 0;
+}
+
+.outerDriversDiv {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.driversTitle {
+    /* margin-bottom: 5%; */
+}
+
+.addDriverButton {
+    margin: 5% 0;
+}
+
+.driversTable {
+    width: 90%;
+}
+
+.driverName {
+    color: black;
+}

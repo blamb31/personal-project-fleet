@@ -1,21 +1,29 @@
 .outerMaintenanceDiv {
     width: 100%;
-    display: flex;
-    justify-content: center;
     flex-grow: 1;
     margin: 5% 0 ;
     background: #faf8d3;
+    
+}
 
+.maintenanceTableDiv{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 .maintenanceTable {
     width: 100%;
-    display: flex;
-    justify-content: center;
+    
 }
 
-table {
+.maintenanceTable {
     width: 90%;
+}
+
+.maintenanceTitle {
+    margin-bottom: 5%;
 }
 
 td, th {

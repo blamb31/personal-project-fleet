@@ -5,6 +5,8 @@ import {Redirect, Link} from 'react-router-dom'
 
 import {getDriversInfo, addDriver} from '../../redux/reducers/drivers'
 
+import './drivers.css'
+
 
 class Drivers extends Component {
     constructor(props) {
@@ -77,19 +79,19 @@ class Drivers extends Component {
             driver = listDriver.map((driver, index) => {
                 if(index % 2 === 0){
                     return(
-                        <tr style={{background:'white'}} key={index}>
-                            <td>{index + 1}</td>
+                        <tr style={{background:'#ebe461'}} key={index}>
+                            {/* <td>{index + 1}</td> */}
                             <td>{driver.driver_id}</td>
-                            <td><Link to={`/user/admin/api/drivers/${driver.driver_id}`}>{`${driver.driver_first_name} ${driver.driver_last_name}`}</Link></td>
+                            <td className='driverName' onClick={() => this.props.history.push(`/user/admin/api/drivers/${driver.driver_id}`)}>{`${driver.driver_first_name} ${driver.driver_last_name}`}</td>
                             {/* <Link to={`/user/admin/api/cars/${driver.car_id}`}><td>{`${driver.car_year} ${driver.car_make} ${driver.car_model} (${driver.car_color})`}</td></Link> */}
                         </tr>
                     )
                 }else{
                     return(
-                        <tr style={{background:'gray'}} key={index}>
-                            <td>{index + 1}</td>
+                        <tr style={{background:'#6067ea'}} key={index}>
+                            {/* <td>{index + 1}</td> */}
                             <td>{driver.driver_id}</td>
-                            <td><Link to={`/user/admin/api/drivers/${driver.driver_id}`}>{`${driver.driver_first_name} ${driver.driver_last_name}`}</Link></td>
+                            <td className='driverName' onClick={() => this.props.history.push(`/user/admin/api/drivers/${driver.driver_id}`)}>{`${driver.driver_first_name} ${driver.driver_last_name}`}</td>
                             {/* <Link to={`/user/admin/api/cars/${driver.car_id}`}><td>{`${driver.car_year} ${driver.car_make} ${driver.car_model} (${driver.car_color})`}</td></Link> */}
                         </tr>
                     )
@@ -97,8 +99,8 @@ class Drivers extends Component {
             })
         }
         return(
-            <div>
-                <div>
+            <div className='mainDriversDiv'>
+                {/* <div>
                     <div>
                         <input 
                         type='text' 
@@ -129,21 +131,20 @@ class Drivers extends Component {
                         onChange={event => this.handleChange(event)} />
                         <button onClick={this.handleAddDriver} >Add Driver</button>
                     </div>
-                </div>
+                </div> */}
                 {(this.props.user) ?
-                    <div>
-                        <div style={{display: 'flex',flexDirection: 'column', justifyContent:'center'}}>
-                            <h3>Drivers In The Fleet</h3>
-                            <table>
-                                <tr style={{background: 'gray'}}>
-                                    <th></th>
+                    <div className='outerDriversDiv'>
+                            <h3 className='driversTitle'>Drivers In The Fleet</h3>
+                            <button className='addDriverButton' onClick={() => this.props.history.push('/user/admin/api/createDriver')}>Add Driver</button>
+                            <table className='driversTable'>
+                                <tr style={{background: '#6067ea'}}>
+                                    {/* <th></th> */}
                                     <th>Driver ID</th>
                                     <th>Driver Name</th>
                                     {/* <th>Car Information</th> */}
                                 </tr>
                                 {driver}
                             </table>
-                        </div>
                     </div>
                 :
                     <Redirect to='/' />

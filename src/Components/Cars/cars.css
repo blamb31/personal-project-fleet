@@ -3,6 +3,8 @@
     background: #faf8d3;
     flex-grow: 1;
     display: flex;
+    margin: 5% 0 ;
+
     /* padding: 10% 3%; */
 
 }
@@ -17,7 +19,7 @@
 
 #addCarButton {
     width: 25%;
-    margin-bottom: 3%;
+    margin: 5% 0;
 }
 
 td, th {
@@ -25,7 +27,11 @@ td, th {
     height: 20px;
 }
 
-table {
+.carsTable {
     width: 90%;
     
+}
+
+.carsTitle{
+    /* margin: 5% 0; */
 }

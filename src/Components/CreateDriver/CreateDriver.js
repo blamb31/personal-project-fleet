@@ -43,7 +43,7 @@ class Drivers extends Component {
             driver_phone: '', 
             driver_img: '',
         })
-        this.props.history.push('/user/admin/api/cars')
+        this.props.history.push('/user/admin/api/drivers')
     }
 
     setDriverPic = (url) => {
@@ -142,7 +142,7 @@ class Drivers extends Component {
                     <div>
                         <button onClick={this.handleAddDriver} >Add Driver</button>
                         {/* <button onClick={() => window.history.back()}>Cancel</button> */}
-                        <button onClick={() => window.history.back()}>Back To Cars</button>
+                        <button onClick={() => window.history.back()}>Back To Drivers</button>
                     </div>
                 </div>
                 <div>

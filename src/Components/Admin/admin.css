@@ -14,3 +14,13 @@
     align-items: center;
     margin: 5% 0;
 }
+
+.companyTitle {
+    font-size: 30px;
+}
+
+@media screen and (min-width: 765px) {
+    .companyTitle{
+        font-size: 45px;
+    }
+}

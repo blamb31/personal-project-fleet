@@ -64,9 +64,10 @@ class Maintenance extends Component {
 
         return(
             <div className='outerMaintenanceDiv'>
-                {/* {(this.props.user) ? */}
-                    <div className='maintenanceTable'>
-                        <table>
+                {(this.props.user) ?
+                    <div className='maintenanceTableDiv'>
+                        <h3 className='maintenanceTitle'>Car Needing Maintenance</h3>
+                        <table className='maintenanceTable'>
                             <tr style={{background: '#6067ea'}}>
                                 {/* <th></th> */}
                                 <th>Car ID</th>
@@ -81,9 +82,9 @@ class Maintenance extends Component {
 
                         </table>
                     </div>
-                {/* // : */}
-                    {/* // <Redirect to='/' /> */}
-                {/* // } */}
+                : 
+                    <Redirect to='/' /> 
+                } 
             </div>
         )
     }
