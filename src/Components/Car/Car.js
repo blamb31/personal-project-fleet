@@ -69,7 +69,7 @@ class Car extends Component {
                 
                     <div className='outerCarViewDiv'>
                         {this.props.car && 
-                        <div>
+                        <div className='carDiv'>
                             <div className='carViewDiv'>
                                 
                                 <h3 id='indCarTitle'>{`${car.car_year} ${car.car_make} ${car.car_model} (${car.car_color})`}</h3>
@@ -101,7 +101,7 @@ class Car extends Component {
                             <div className='indCarDriverDiv'>
                                 {car.driver_id &&
                                     <div className='indCarDriverInfo'>
-                                        <h3>{`Driver: ${car.driver_first_name} ${car.driver_last_name}`}</h3>
+                                        <h3 id='indDriverName'>{`Driver: ${car.driver_first_name} ${car.driver_last_name}`}</h3>
                                         <img width={200} src={`${car.driver_img}`} />
                                         <p>{`Driver ID: ${car.driver_id}`}</p>
                                     </div>
