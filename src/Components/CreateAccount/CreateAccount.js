@@ -70,8 +70,9 @@ class CreateAccount extends Component {
     render() {
         return(
             <div className='createAccount'>
-                
+                <div className='pageWrapper'>
                     <div id='createInputsDiv'>
+                        <h1 className='welcomeCreate'>Welcome! Please Create An Account</h1>
                         {this.state.admin_img === '' ?
                         <div className='cAdminImgDiv'>
                             <img id='adminImg'  src={emptyImage} />
@@ -165,7 +166,7 @@ class CreateAccount extends Component {
 
                     </div>
 
-                
+                </div>
                 
             </div>
         )

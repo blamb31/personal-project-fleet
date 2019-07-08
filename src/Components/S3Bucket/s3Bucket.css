@@ -18,7 +18,7 @@
 .inputfile + label {
     font-size: 15px;
     background: #6067ed;
-    border-radius: 15px;
+    border-radius: 7px;
     border: none;
     padding: 5px 10px;
     display: flex;

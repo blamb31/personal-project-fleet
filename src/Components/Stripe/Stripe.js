@@ -6,6 +6,7 @@ import {withRouter} from 'react-router-dom'
 import {firstLogin} from '../../redux/reducers/users'
 import {connect} from 'react-redux'
 
+import './stripe.css'
 
 class Stripe extends Component {
 

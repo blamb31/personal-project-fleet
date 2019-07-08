@@ -38,13 +38,17 @@ class Login extends Component {
     render() {
         return(
             <div className='loginPage'>
-                <div className='loginInputs'>
-                    <input className='loginInput' value={this.state.username} name='username' onChange={event => this.handleChange(event)} type='text' placeholder='Username' />
-                    <input className='loginInput' value={this.state.password} name='password' onChange={event => this.handleChange(event)} type='password' placeholder='Password' />
-                </div>
-                <div className='loginButtons'>
-                    <button className='loginButton' onClick={this.handleLogin}>Login</button>
-                    <button onClick={() => this.props.history.push('/auth/register')} className='loginButton' >Register</button> 
+                <div className='loginArea'>
+                    <h1>Welcome! Please Login</h1>
+                    <div className='loginInputs'>
+                        <input className='loginInput' value={this.state.username} name='username' onChange={event => this.handleChange(event)} type='text' placeholder='Username' />
+                        <input className='loginInput' value={this.state.password} name='password' onChange={event => this.handleChange(event)} type='password' placeholder='Password' />
+                    </div>
+                    <div className='loginButtons'>
+                        <button className='loginButton' onClick={this.handleLogin}>Login</button>
+                        <button onClick={() => this.props.history.push('/auth/register')} className='loginButton' >Register</button> 
+                    </div>
+
                 </div>
 
             </div>

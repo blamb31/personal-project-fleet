@@ -9,21 +9,33 @@
 
 }
 
+.loginArea{
+    width: 80%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background: #ebe461;
+    border-radius: 15px;
+    justify-content: center;
+    padding: 2%;
+}
+
 .loginInputs {
     width: 100%;
     display: flex;
     flex-direction: column;
-
+    align-items: center;
+    margin-top: 2%;
 }
 
 .loginInput{
-    width: 100%;
+    width: 50%;
     margin: 2% 0;
 }
 
 .loginButtons {
     display: flex;
-    width: 100%;
+    width: 75%;
     justify-content: space-around;
     margin: 5% 0 ;
 }
