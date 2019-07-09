@@ -1,0 +1,44 @@
+.outerDriverDiv {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.innerDriverDiv {
+    width: 90%;
+    display: flex;
+    justify-content: center;
+    background: #ebe461;
+    border-radius: 7px;
+    margin: 5% 0;
+    padding: 5%;
+}
+
+.driverDiv {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.driverDivDriverInfo {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.driverDivButtons {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    margin: 5% 0 0 0;
+}
+
+.driverDivButton {
+    margin: 0 4%;
+}
+
+.driverDivImg {
+    margin : 5% 0;
+    width: 90%;
+}

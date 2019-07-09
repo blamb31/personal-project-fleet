@@ -4,6 +4,8 @@ import {Redirect} from 'react-router-dom'
 
 import {getDriver, deleteDriver} from '../../redux/reducers/drivers'
 
+import './driver.css'
+
 class Driver extends Component {
     constructor(props){
         super(props)
@@ -26,31 +28,30 @@ class Driver extends Component {
     }
 
     render(){
-        console.log(44444444444, this.props)
         let {driver} = this.props
         return(
-            <div>
-                {this.props.user ?
-                <div>
+            <div className='outerDriverDiv'>
+                 {this.props.user ?
+                <div className='innerDriverDiv'>
                     {this.props.driver &&
-                    <div>
-                        <div>
+                    <div className='DriverDiv'>
+                        <div className='driverDivDriverInfo'>
                             <h1>{`${driver.driver_id} - ${driver.driver_first_name} ${driver.driver_last_name}`}</h1>
-                            <img width={200} src={driver.driver_img} />
+                            <img className='driverDivImg' src={driver.driver_img} />
                             <h3>{`Phone Number: ${driver.driver_phone}`}</h3>
                         </div>
                     
-                        <div>
-                            <button onClick={() => this.handleDeleteDriver(this.props.match.params.id)} >{`Delete ${driver.driver_first_name}`}</button>
-                            <button onClick={ () => this.props.history.push(`/user/admin/api/drivers/edit/${this.props.match.params.id}`)} >Edit</button>
-                            <button onClick={ () => window.history.back()} >Back</button>
+                        <div className='driverDivButtons'>
+                            <button className='driverDivButton' onClick={() => this.handleDeleteDriver(this.props.match.params.id)} >{`Delete ${driver.driver_first_name}`}</button>
+                            <button className='driverDivButton' onClick={ () => this.props.history.push(`/user/admin/api/drivers/edit/${this.props.match.params.id}`)} >Edit</button>
+                            <button className='driverDivButton' onClick={ () => window.history.back()} >Back</button>
                         </div>
                     </div>
                     }
                 </div>
                 :
                     <Redirect to='/' />
-                }
+                 }
             </div>
         )
     }
