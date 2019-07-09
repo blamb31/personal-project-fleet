@@ -96,7 +96,7 @@ class Drivers extends Component {
                     )
                 }else{
                     return(
-                        <tr style={{background:'#6067ed'}} key={index}>
+                        <tr style={{background:'#6067ed', color: '#fffdee'}} key={index}>
                             {/* <td>{index + 1}</td> */}
                             <td>{driver.driver_id}</td>
                             <td>{`${driver.driver_first_name} ${driver.driver_last_name}`}</td>
@@ -167,7 +167,7 @@ class Drivers extends Component {
                             <div className='tableDiv' >
                                 <h3 className='driversTableText'>Drivers In The Fleet</h3>
                                 <table className='createDriverTable'>
-                                    <tr style={{background: '#6067ed'}}>
+                                    <tr style={{background: '#6067ed', color: '#fffdee'}}>
                                         {/* <th></th> */}
                                         <th>Driver ID</th>
                                         <th>Driver Name</th>

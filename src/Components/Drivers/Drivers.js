@@ -81,17 +81,17 @@ class Drivers extends Component {
                     return(
                         <tr style={{background:'#ebe461'}} key={index}>
                             {/* <td>{index + 1}</td> */}
-                            <td>{driver.driver_id}</td>
-                            <td className='driverName' onClick={() => this.props.history.push(`/user/admin/api/drivers/${driver.driver_id}`)}>{`${driver.driver_first_name} ${driver.driver_last_name}`}</td>
+                            <td className='center'>{driver.driver_id}</td>
+                            <td className='tableDriverName' onClick={() => this.props.history.push(`/user/admin/api/drivers/${driver.driver_id}`)}>{`${driver.driver_first_name} ${driver.driver_last_name}`}</td>
                             {/* <Link to={`/user/admin/api/cars/${driver.car_id}`}><td>{`${driver.car_year} ${driver.car_make} ${driver.car_model} (${driver.car_color})`}</td></Link> */}
                         </tr>
                     )
                 }else{
                     return(
-                        <tr style={{background:'#6067ea'}} key={index}>
+                        <tr style={{background:'#6067ea', color: '#fffdee'}} key={index}>
                             {/* <td>{index + 1}</td> */}
-                            <td>{driver.driver_id}</td>
-                            <td className='driverName' onClick={() => this.props.history.push(`/user/admin/api/drivers/${driver.driver_id}`)}>{`${driver.driver_first_name} ${driver.driver_last_name}`}</td>
+                            <td className='center'>{driver.driver_id}</td>
+                            <td className='tableDriverName' onClick={() => this.props.history.push(`/user/admin/api/drivers/${driver.driver_id}`)}>{`${driver.driver_first_name} ${driver.driver_last_name}`}</td>
                             {/* <Link to={`/user/admin/api/cars/${driver.car_id}`}><td>{`${driver.car_year} ${driver.car_make} ${driver.car_model} (${driver.car_color})`}</td></Link> */}
                         </tr>
                     )
@@ -137,7 +137,7 @@ class Drivers extends Component {
                             <h3 className='driversTitle'>Drivers In The Fleet</h3>
                             <button className='addDriverButton' onClick={() => this.props.history.push('/user/admin/api/createDriver')}>Add Driver</button>
                             <table className='driversTable'>
-                                <tr style={{background: '#6067ea'}}>
+                                <tr style={{background: '#6067ea', color: '#fffdee'}}>
                                     {/* <th></th> */}
                                     <th>Driver ID</th>
                                     <th>Driver Name</th>

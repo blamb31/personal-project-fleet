@@ -121,7 +121,7 @@ class CreateCar extends Component {
                     )
                 }else{
                     return(
-                        <tr style={{background:'#6067ed'}} key={index}>
+                        <tr style={{background:'#6067ed', color: '#fffdee'}} key={index}>
                             <td>{driver.driver_id}</td>
                             <td onClick={() => this.props.history.push(`/user/admin/api/drivers/${driver.driver_id}`)}>{`${driver.driver_first_name} ${driver.driver_last_name}`}</td>
                         </tr>
@@ -249,7 +249,7 @@ class CreateCar extends Component {
                                 <div className='createCarTableDiv'>
                                     <h3>Drivers</h3>
                                     <table className='createCarTable'>
-                                        <tr style={{background: '#6067ed'}}>
+                                        <tr style={{background: '#6067ed', color: '#fffdee'}}>
                                             <th>Driver ID</th>
                                             <th>Driver Info</th>
                                         </tr>

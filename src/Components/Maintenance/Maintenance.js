@@ -36,18 +36,18 @@ class Maintenance extends Component {
                     return(
                         <tr style={{background:'#ebe461'}} key={index}>
                             {/* <td>{index + 1}</td> */}
-                            <td>{car.car_id}</td>
-                            <td onClick={() => this.props.history.push(`/user/admin/api/cars/${car.car_id}`)}>{`${car.car_year} ${car.car_make} ${car.car_model} (${car.car_color})`}</td>
-                            <td>{Number(car.car_mileage) -Number(car.last_oil_change)}</td>
+                            <td className='center'>{car.car_id}</td>
+                            <td className='center' onClick={() => this.props.history.push(`/user/admin/api/cars/${car.car_id}`)}>{`${car.car_year} ${car.car_make} ${car.car_model} (${car.car_color})`}</td>
+                            <td className='center'>{Number(car.car_mileage) -Number(car.last_oil_change)}</td>
                             {/* <td>{`${car.car_city}, ${car.car_state}`}</td> */}
                             {/* <td>{car.driver_id}</td> */}
-                            <td>{`${car.driver_first_name} ${car.driver_last_name}`}</td>
+                            <td className='center'>{`${car.driver_first_name} ${car.driver_last_name}`}</td>
                             {/* <td><Link to={`/user/admin/api/cars/${car.car_id}`}>View Details</Link></td> */}
                         </tr>
                     )
                 }else{
                     return(
-                        <tr style={{background:'#6067ea'}} key={index}>
+                        <tr style={{background:'#6067ea', color: '#fffdee'}} key={index}>
                             {/* <td>{index + 1}</td> */}
                             <td>{car.car_id}</td>
                             <td onClick={() => this.props.history.push(`/user/admin/api/cars/${car.car_id}`)}>{`${car.car_year} ${car.car_make} ${car.car_model} (${car.car_color})`}</td>
@@ -68,14 +68,14 @@ class Maintenance extends Component {
                     <div className='maintenanceTableDiv'>
                         <h3 className='maintenanceTitle'>Car Needing Maintenance</h3>
                         <table className='maintenanceTable'>
-                            <tr style={{background: '#6067ea'}}>
+                            <tr style={{background: '#6067ea', color: '#fffdee'}}>
                                 {/* <th></th> */}
-                                <th>Car ID</th>
-                                <th>Car Info</th>
-                                <th>Miles Since Last Oil Change</th>
+                                <th className='center'>Car ID</th>
+                                <th className='center'>Car Info</th>
+                                <th className='center'>Miles Since Last Oil Change</th>
                                 {/* <th>Car Location</th> */}
                                 {/* <th>Driver ID</th> */}
-                                <th>Driver Name</th>
+                                <th className='center'>Driver Name</th>
                                 {/* <th></th> */}
                             </tr>
                             {car}
