@@ -84,6 +84,16 @@
 
 
 
+@media screen and (min-width: 415px) {
+    #noLoggedInLogo {
+        width: 33px;
+        height: 30px;
+    }
+    #onlyLogo {
+        width: 35%;
+    }
+}
+
 @media screen and (min-width: 2px) {
     .headerDiv{
         flex-direction: row;
@@ -151,12 +161,5 @@
     #logo{
         width: 35%;
 
-    }
-}
-
-@media screen and (max-width: 415px) {
-    #loggedInLogo {
-        width: 33px;
-        height: 30px;
     }
 }
