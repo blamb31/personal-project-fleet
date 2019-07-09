@@ -84,8 +84,7 @@ class EditCar extends Component {
         
         return(
             <div className='editCarOuterDiv'>
-                {/* {this.props.user ? */}
-                {this.props ?
+                {this.props.user ?
                 <div className='editCarInnerDiv'>
                     <h3 className='editCarTitleText'>Edit Car</h3>
                     <img className='editCarImage' src={this.state.car_img} />

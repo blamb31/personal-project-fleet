@@ -1,0 +1,76 @@
+.outerEditDriverDiv {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    margin: 5% 0;
+}
+
+.innerEditDriverDiv {
+    width: 90%;
+    display: flex;
+    flex-direction: column;
+    padding: 5%;
+    background: #ebe461;
+    border-radius: 7px;
+    align-items: center
+    
+}
+
+.editDriverTitleText {
+    margin-bottom: 5%;
+    font-size: 20px;
+}
+
+.editDriverPicture {
+    width: 90%;
+}
+
+.editDriverInfoDiv{
+    width: 100%;
+
+}
+.editDriverPictureDiv {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 5%;
+}
+
+.editDriverP {
+    margin-bottom: 1%;
+}
+
+.editDriverNameDiv {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.editDriverNameInput{
+    margin: 0 2%;
+    width: 45%;
+}
+
+.editDriverPhoneInput {
+    margin-left: 3%;
+    width: 45%;
+    margin-bottom: 5%;
+}
+
+.editDriverButtonsDiv{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.editDriverButton{
+    margin: 0 2%;
+}
+
+
+@media screen and (min-width: 415px) {
+    .editDriverPicture {
+        width: 35%;
+    }
+}

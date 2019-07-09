@@ -5,6 +5,8 @@ import {Link, Redirect} from 'react-router-dom'
 import {getDriver, editDriver} from '../../redux/reducers/drivers'
 import S3Bucket from '../S3Bucket/S3Bucket';
 
+import './editDriver.css'
+
 class EditDriver extends Component {
     constructor(props) {
         super(props)
@@ -56,30 +58,41 @@ class EditDriver extends Component {
     }
 
     render(){
-        console.log(this.props)
         return(
-            <div>
-                {this.props.user ?
-                <div>
+            <div className='outerEditDriverDiv'>
+                {/* {this.props.user ? */}
+                {this.props ?
+                <div className='innerEditDriverDiv'>
                     
-                    <img src={this.state.driver_img} />
+                    <h3 className='editDriverTitleText'>Edit Driver</h3>
+                    <div className='editDriverPictureDiv'>
+                        <img className='editDriverPicture' src={this.state.driver_img} />
+                        <S3Bucket  updateDriverPic={this.updateDriverPic} />
+                    </div>
                     
-                    <div>
+                    <div className='editDriverInfoDiv'>
+                        <p className='editDriverP'>Driver Name:</p>
+                        <div className='editDriverNameDiv'>
+                            <input 
+                            className='editDriverNameInput'
+                            type='text' 
+                            placeholder='First Name' 
+                            value={this.state.driver_first_name} 
+                            name='driver_first_name' 
+                            onChange={event => this.handleChange(event)} />
+                            
+                            <input 
+                            className='editDriverNameInput'
+                            type='text' 
+                            placeholder='Last Name' 
+                            value={this.state.driver_last_name} 
+                            name='driver_last_name' 
+                            onChange={event => this.handleChange(event)} />
+
+                        </div>
+                        <p className='editDriverP'>Driver Phone Number:</p>
                         <input 
-                        type='text' 
-                        placeholder='First Name' 
-                        value={this.state.driver_first_name} 
-                        name='driver_first_name' 
-                        onChange={event => this.handleChange(event)} />
-                        
-                        <input 
-                        type='text' 
-                        placeholder='Last Name' 
-                        value={this.state.driver_last_name} 
-                        name='driver_last_name' 
-                        onChange={event => this.handleChange(event)} />
-                        
-                        <input 
+                        className='editDriverPhoneInput'
                         type='text'
                         placeholder='Phone Number' 
                         value={this.state.driver_phone} 
@@ -93,10 +106,9 @@ class EditDriver extends Component {
                         name='driver_img' 
                         onChange={event => this.handleChange(event)} /> */}
 
-                        <S3Bucket updateDriverPic={this.updateDriverPic} />
-                        <div>
-                            <button onClick={ () => window.history.back()} >Back</button>
-                            <button onClick={() => this.handleEditDriver()} >Submit</button>
+                        <div className='editDriverButtonsDiv'>
+                            <button className='editDriverButton' onClick={ () => window.history.back()} >Back</button>
+                            <button className='editDriverButton' onClick={() => this.handleEditDriver()} >Submit</button>
                         </div>
                     </div>
 
