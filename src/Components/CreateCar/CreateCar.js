@@ -244,8 +244,7 @@ class CreateCar extends Component {
                         </div>
                     </div>
                         <div className='outerCreateCarTableDiv'>
-                            {/* {(this.props.user) ? */}
-                            {(this.props) ?
+                            {(this.props.user) ?
 
                                 <div className='createCarTableDiv'>
                                     <h3>Drivers</h3>

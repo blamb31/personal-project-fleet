@@ -1,10 +1,10 @@
 import React, {Component} from 'react'
 import { connect } from 'react-redux';
-import {Link} from 'react-router-dom'
+import {Redirect} from 'react-router-dom'
 
 import './login.css'
 
-import {login} from '../../redux/reducers/users'
+import {login, getUser} from '../../redux/reducers/users'
 
 class Login extends Component {
     constructor(props) {
@@ -13,6 +13,11 @@ class Login extends Component {
             username : '',
             password : ''
         }
+    }
+
+    componentDidMount = async () => {
+        await this.props.getUser() 
+
     }
 
     handleChange(event) {
@@ -36,8 +41,14 @@ class Login extends Component {
     }
 
     render() {
+        console.log(this.props)
         return(
             <div className='loginPage'>
+                {this.props.user ?
+
+                <Redirect to='/user/admin/api/cars' />
+
+                :
                 <div className='loginArea'>
                     <h1 id='loginWelcome'>Welcome! Please Login</h1>
                     <div className='loginInputs'>
@@ -51,6 +62,8 @@ class Login extends Component {
 
                 </div>
 
+                }
+
             </div>
         )
     }
@@ -62,4 +75,4 @@ let mapStateToProps = (state) =>{
     }
 }
 
-export default connect(mapStateToProps, {login})(Login)
+export default connect(mapStateToProps, {login, getUser})(Login)

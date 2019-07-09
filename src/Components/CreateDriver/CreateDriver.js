@@ -162,8 +162,7 @@ class Drivers extends Component {
                     </div>
                 </div>
                 <div className='outerTableDiv'>
-                    {/* {(this.props.user) ? */}
-                    {(this.props) ?
+                    {(this.props.user) ?
                         <div className='tableWrapper'>
                             <div className='tableDiv' >
                                 <h3 className='driversTableText'>Drivers In The Fleet</h3>
