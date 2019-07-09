@@ -92,7 +92,12 @@ class Cars extends Component {
                             <td>{Number(car.car_mileage) -Number(car.last_oil_change)}</td>
                             {/* <td>{`${car.car_city}, ${car.car_state}`}</td> */}
                             {/* <td>{car.driver_id}</td> */}
-                            <td onClick={() => this.props.history.push(`/user/admin/api/drivers/${car.driver_id}`)}>{`${car.driver_first_name} ${car.driver_last_name}`}</td>
+                            {car.driver_id ?
+                                <td onClick={() => this.props.history.push(`/user/admin/api/drivers/${car.driver_id}`)}>{`${car.driver_first_name} ${car.driver_last_name}`}</td>
+                            :
+                                <td >{`${car.driver_first_name} ${car.driver_last_name}`}</td>
+                                
+                            }
                             {/* <td><Link to={`/user/admin/api/cars/${car.car_id}`}>View Details</Link></td> */}
                         </tr>
                     )
@@ -107,7 +112,12 @@ class Cars extends Component {
                             <td>{Number(car.car_mileage) -Number(car.last_oil_change)}</td>
                             {/* <td>{`${car.car_city}, ${car.car_state}`}</td> */}
                             {/* <td>{car.driver_id}</td> */}
-                            <td onClick={() => this.props.history.push(`/user/admin/api/drivers/${car.driver_id}`)}>{`${car.driver_first_name} ${car.driver_last_name}`}</td>
+                            {car.driver_id ?
+                                <td onClick={() => this.props.history.push(`/user/admin/api/drivers/${car.driver_id}`)}>{`${car.driver_first_name} ${car.driver_last_name}`}</td>
+                            :
+                                <td >{`${car.driver_first_name} ${car.driver_last_name}`}</td>
+                                
+                            }                            
                             {/* <td><Link to={`/user/admin/api/cars/${car.car_id}`}>View Details</Link></td> */}
                         </tr>
                     )
