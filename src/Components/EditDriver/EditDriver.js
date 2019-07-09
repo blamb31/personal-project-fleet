@@ -60,8 +60,7 @@ class EditDriver extends Component {
     render(){
         return(
             <div className='outerEditDriverDiv'>
-                {/* {this.props.user ? */}
-                {this.props ?
+                {this.props.user ?
                 <div className='innerEditDriverDiv'>
                     
                     <h3 className='editDriverTitleText'>Edit Driver</h3>
