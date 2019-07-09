@@ -6,6 +6,9 @@ import {Redirect, Link} from 'react-router-dom'
 import {getDriversInfo, addDriver} from '../../redux/reducers/drivers'
 import S3Bucket from '../S3Bucket/S3Bucket';
 
+import emptyImage from '../Logo/emptyImage.jpg'
+import './createDriver.css'
+
 
 class Drivers extends Component {
     constructor(props) {
@@ -85,16 +88,16 @@ class Drivers extends Component {
             driver = listDriver.map((driver, index) => {
                 if(index % 2 === 0){
                     return(
-                        <tr style={{background:'white'}} key={index}>
-                            <td>{index + 1}</td>
+                        <tr style={{background:'#ebe461'}} key={index}>
+                            {/* <td>{index + 1}</td> */}
                             <td>{driver.driver_id}</td>
                             <td>{`${driver.driver_first_name} ${driver.driver_last_name}`}</td>
                         </tr>
                     )
                 }else{
                     return(
-                        <tr style={{background:'gray'}} key={index}>
-                            <td>{index + 1}</td>
+                        <tr style={{background:'#6067ed'}} key={index}>
+                            {/* <td>{index + 1}</td> */}
                             <td>{driver.driver_id}</td>
                             <td>{`${driver.driver_first_name} ${driver.driver_last_name}`}</td>
                         </tr>
@@ -103,56 +106,70 @@ class Drivers extends Component {
             })
         }
         return(
-            <div>
-                <div>
-                    <input 
-                    type='text' 
-                    placeholder='First Name' 
-                    value={this.state.driver_first_name} 
-                    name='driver_first_name' 
-                    onChange={event => this.handleChange(event)} />
-                    
-                    <input 
-                    type='text'
-                    placeholder='Last Name' 
-                    value={this.state.driver_last_name} 
-                    name='driver_last_name' 
-                    onChange={event => this.handleChange(event)} />
-                    
-                    <input 
-                    type='text'
-                    placeholder='Phone Number' 
-                    value={this.state.driver_phone} 
-                    name='driver_phone' 
-                    onChange={event => this.handleChange(event)} />
-                    {this.state.driver_img && 
-                    <div>
-                        <img src={this.state.driver_img} />
+            <div className='outerCreateDriverDiv'>
+                <div className='createDriverContentDiv'>
+                    <div className='newDriverImageOuterDiv'>
+                        {this.state.driver_img ? 
+                        <div className='newDriverImageDiv'>
+                            <img id='newDriverImage' src={this.state.car_img} />
+                        </div>
+
+                        :
+
+                        <div className='newDriverImageDiv'>
+                            <img id='newDriverImage' src={emptyImage} />
+                        </div>
+
+                        }
 
                     </div>
-
-                    }
-                    {/* <input 
-                    type='text'
-                    placeholder='Picture' 
-                    value={this.state.driver_img} 
-                    name='driver_img' 
-                    onChange={event => this.handleChange(event)} /> */}
                     <S3Bucket setDriverPic={this.setDriverPic}/>
-                    <div>
-                        <button onClick={this.handleAddDriver} >Add Driver</button>
+                    <div className='driverInfoText'>
+                        <p>Driver Info:</p>
+                    </div>
+                    <div className='newDriverInputsDiv'>
+                        
+                        <input 
+                        className='newDriverInput'
+                        type='text' 
+                        placeholder='First Name' 
+                        value={this.state.driver_first_name} 
+                        name='driver_first_name' 
+                        onChange={event => this.handleChange(event)} />
+                        
+                        <input 
+                        className='newDriverInput'
+                        type='text'
+                        placeholder='Last Name' 
+                        value={this.state.driver_last_name} 
+                        name='driver_last_name' 
+                        onChange={event => this.handleChange(event)} />
+                        
+                        <input 
+                        className='newDriverInput'
+                        type='text'
+                        placeholder='Phone Number' 
+                        value={this.state.driver_phone} 
+                        name='driver_phone' 
+                        onChange={event => this.handleChange(event)} />
+
+                    </div>
+                    
+                    <div className='addDriverButtons'>
+                        <button className='addNewDriverButton' onClick={this.handleAddDriver} >Add Driver</button>
                         {/* <button onClick={() => window.history.back()}>Cancel</button> */}
-                        <button onClick={() => window.history.back()}>Back To Drivers</button>
+                        <button className='addNewDriverButton' onClick={() => window.history.back()}>Back To Drivers</button>
                     </div>
                 </div>
-                <div>
-                    {(this.props.user) ?
-                        <div>
-                            <div style={{display: 'flex',flexDirection: 'column', justifyContent:'center'}}>
-                                <h3>Drivers In The Fleet</h3>
-                                <table>
-                                    <tr style={{background: 'gray'}}>
-                                        <th></th>
+                <div className='outerTableDiv'>
+                    {/* {(this.props.user) ? */}
+                    {(this.props) ?
+                        <div className='tableWrapper'>
+                            <div className='tableDiv' >
+                                <h3 className='driversTableText'>Drivers In The Fleet</h3>
+                                <table className='createDriverTable'>
+                                    <tr style={{background: '#6067ed'}}>
+                                        {/* <th></th> */}
                                         <th>Driver ID</th>
                                         <th>Driver Name</th>
                                     </tr>

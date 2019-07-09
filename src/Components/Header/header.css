@@ -106,6 +106,10 @@
     #logo{
         width: 100%;
     }
+
+    #loginWelcome {
+        font-size: 21px;
+    }
     
     .loggedInHeader{
         display: flex;

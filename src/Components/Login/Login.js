@@ -39,7 +39,7 @@ class Login extends Component {
         return(
             <div className='loginPage'>
                 <div className='loginArea'>
-                    <h1>Welcome! Please Login</h1>
+                    <h1 id='loginWelcome'>Welcome! Please Login</h1>
                     <div className='loginInputs'>
                         <input className='loginInput' value={this.state.username} name='username' onChange={event => this.handleChange(event)} type='text' placeholder='Username' />
                         <input className='loginInput' value={this.state.password} name='password' onChange={event => this.handleChange(event)} type='password' placeholder='Password' />

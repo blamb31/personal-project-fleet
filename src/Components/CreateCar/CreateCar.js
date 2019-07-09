@@ -132,119 +132,122 @@ class CreateCar extends Component {
         return (
             <div className='allAddCarWrapper'>
                 <div className='addCarContentWrapper'>
-                    <div className='newCarImageOuterDiv'>
-                        {this.state.car_img ? 
-                        <div className='newCarImageDiv'>
-                            <img src={this.state.car_img} />
+                    <div className='addCarInfoContentWrapper'>
+                        <div className='newCarImageOuterDiv'>
+                            {this.state.car_img ? 
+                            <div className='newCarImageDiv'>
+                                <img className='newCarPicture' src={this.state.car_img} />
+                            </div>
+
+                            :
+
+                            <div className='newCarImageDiv'>
+                                <img className='newCarPicture' src={emptyImage} />
+                            </div>
+
+                            }
+
                         </div>
-
-                        :
-
-                        <div>
-                            <img src={emptyImage} />
-                        </div>
-
-                        }
-
-                    </div>
-                    <div className='driverIdDiv'>
-                        <p>Driver ID:</p>
-                        <input className='newCarInfoInput'
-                        type='number' 
-                        placeholder='' 
-                        value={this.state.driver_id} 
-                        name='driver_id' 
-                        onChange={event => this.handleChange(event)} />
-                    </div>
-                    <div>
-                        <input className='newCarInfoInput'
-                        type='text' 
-                        placeholder='Car Make' 
-                        value={this.state.car_make} 
-                        name='car_make' 
-                        onChange={event => this.handleChange(event)} />
-                        
-                        <input className='newCarInfoInput'
-                        type='text'
-                        placeholder='Car Model' 
-                        value={this.state.car_model} 
-                        name='car_model' 
-                        onChange={event => this.handleChange(event)} />
-                        
-                        <input className='newCarInfoInput'
-                        type='text'
-                        placeholder='Car Year' 
-                        value={this.state.car_year} 
-                        name='car_year' 
-                        onChange={event => this.handleChange(event)} />
-                        
-                        <input className='newCarInfoInput'
-                        type='text'
-                        placeholder='Car Color' 
-                        value={this.state.car_color} 
-                        name='car_color' 
-                        onChange={event => this.handleChange(event)} />
-                        
-                        <input className='newCarInfoInput'
-                        type='text'
-                        placeholder='Car Mileage' 
-                        value={this.state.car_mileage} 
-                        name='car_mileage' 
-                        onChange={event => this.handleChange(event)} />
-                        
-                        {/* <input 
-                        type='text'
-                        placeholder='Car Image' 
-                        value={this.state.car_img} 
-                        name='car_img' 
-                        onChange={event => this.handleChange(event)} /> */}
-                    
-                        <input className='newCarInfoInput'
-                        type='text'
-                        placeholder='Car Address' 
-                        value={this.state.car_address} 
-                        name='car_address' 
-                        onChange={event => this.handleChange(event)} />
-                    
-                        <input className='newCarInfoInput'
-                        type='text'
-                        placeholder='Car Zip Code' 
-                        value={this.state.car_zip_code} 
-                        name='car_zip_code' 
-                        onChange={event => this.handleChange(event)} />
-                    
-                        <input className='newCarInfoInput'
-                        type='text'
-                        placeholder='Car City' 
-                        value={this.state.car_city} 
-                        name='car_city' 
-                        onChange={event => this.handleChange(event)} />
-                    
-                        <input className='newCarInfoInput'
-                        type='text'
-                        placeholder='Car State' 
-                        value={this.state.car_state} 
-                        name='car_state' 
-                        onChange={event => this.handleChange(event)} />
                         <div className='driverIdDiv'>
-                            <p>Mileage At Last Oil Change: </p>
+                            <p>Assigned Driver ID:</p>
                             <input className='newCarInfoInput'
-                            type='number'
+                            type='number' 
                             placeholder='' 
-                            value={this.state.last_oil_change} 
-                            name='last_oil_change' 
+                            value={this.state.driver_id} 
+                            name='driver_id' 
                             onChange={event => this.handleChange(event)} />
                         </div>
-                        <S3Bucket setCarPic={this.setCarPic} />
-                        <div className='addCancelButtons'>
-                            <button className='addDeleteButton' onClick={() => window.history.back()} >Cancel</button>
-                            <button className='addDeleteButton' onClick={this.handleAddCar}>Add New Car</button>
-                        </div>
                         <div>
+                            <input className='newCarInfoInput'
+                            type='text' 
+                            placeholder='Car Make' 
+                            value={this.state.car_make} 
+                            name='car_make' 
+                            onChange={event => this.handleChange(event)} />
+                            
+                            <input className='newCarInfoInput'
+                            type='text'
+                            placeholder='Car Model' 
+                            value={this.state.car_model} 
+                            name='car_model' 
+                            onChange={event => this.handleChange(event)} />
+                            
+                            <input className='newCarInfoInput'
+                            type='text'
+                            placeholder='Car Year' 
+                            value={this.state.car_year} 
+                            name='car_year' 
+                            onChange={event => this.handleChange(event)} />
+                            
+                            <input className='newCarInfoInput'
+                            type='text'
+                            placeholder='Car Color' 
+                            value={this.state.car_color} 
+                            name='car_color' 
+                            onChange={event => this.handleChange(event)} />
+                            
+                            <input className='newCarInfoInput'
+                            type='text'
+                            placeholder='Car Mileage' 
+                            value={this.state.car_mileage} 
+                            name='car_mileage' 
+                            onChange={event => this.handleChange(event)} />
+                            
+                            {/* <input 
+                            type='text'
+                            placeholder='Car Image' 
+                            value={this.state.car_img} 
+                            name='car_img' 
+                            onChange={event => this.handleChange(event)} /> */}
+                        
+                            <input className='newCarInfoInput'
+                            type='text'
+                            placeholder='Car Address' 
+                            value={this.state.car_address} 
+                            name='car_address' 
+                            onChange={event => this.handleChange(event)} />
+                        
+                            <input className='newCarInfoInput'
+                            type='text'
+                            placeholder='Car Zip Code' 
+                            value={this.state.car_zip_code} 
+                            name='car_zip_code' 
+                            onChange={event => this.handleChange(event)} />
+                        
+                            <input className='newCarInfoInput'
+                            type='text'
+                            placeholder='Car City' 
+                            value={this.state.car_city} 
+                            name='car_city' 
+                            onChange={event => this.handleChange(event)} />
+                        
+                            <input className='newCarInfoInput'
+                            type='text'
+                            placeholder='Car State' 
+                            value={this.state.car_state} 
+                            name='car_state' 
+                            onChange={event => this.handleChange(event)} />
+                            <div className='driverIdDiv'>
+                                <p>Mileage At Last Oil Change: </p>
+                                <input className='newCarInfoInput'
+                                type='number'
+                                placeholder='' 
+                                value={this.state.last_oil_change} 
+                                name='last_oil_change' 
+                                onChange={event => this.handleChange(event)} />
+                            </div>
+                            <S3Bucket setCarPic={this.setCarPic} />
+                            <div className='addCancelButtons'>
+                                <button className='addDeleteButton' onClick={() => window.history.back()} >Cancel</button>
+                                <button className='addDeleteButton' onClick={this.handleAddCar}>Add New Car</button>
+                            </div>
+                        </div>
+                    </div>
+                        <div className='outerCreateCarTableDiv'>
                             {/* {(this.props.user) ? */}
                             {(this.props) ?
 
-                                <div style={{display: 'flex',flexDirection: 'column', justifyContent:'center'}}>
+                                <div className='createCarTableDiv'>
                                     <h3>Drivers</h3>
                                     <table className='createCarTable'>
                                         <tr style={{background: '#6067ed'}}>
@@ -261,7 +264,6 @@ class CreateCar extends Component {
                                     <Redirect to='/' />
                                 }
                         </div>
-                    </div>
                 </div>
             </div>
         )

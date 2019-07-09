@@ -1,0 +1,87 @@
+.outerCreateDriverDiv {
+    width: 100%;
+    margin: 5% 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.createDriverContentDiv {
+    width: 90%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background: #ebe461;
+    padding: 5%;
+    border-radius: 7px;
+}
+
+.newDriverImageOuterDiv {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    margin-bottom: 5%;
+}
+
+.newDriverImageDiv {
+    width: 80%;
+    display: flex;
+    justify-content: center;
+}
+
+#newDriverImage {
+    width: 88%;
+}
+
+.driverInfoText {
+    width: 100%;
+    display: flex;
+    justify-content: flex-start;
+    margin-bottom: 2%;
+}
+
+.newDriverInputsDiv {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.newDriverInput{
+    width: 30%;
+    margin: 0 1%;
+}
+
+.addDriverButtons {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    margin: 5% 0;
+}
+
+.addNewDriverButton {
+    margin: 0 5%;
+}
+
+.outerTableDiv {
+    width: 90%;
+    display: flex;
+    justify-content: center;
+    margin: 5% 0;
+}
+
+.tableWrapper {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.tableDiv {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.createDriverTable {
+    width: 90%;
+}
