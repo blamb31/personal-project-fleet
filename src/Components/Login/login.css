@@ -45,12 +45,3 @@
     width: 33%;
 }
 
-@media screen and (min-width: 415px) {
-    .loginInput{
-        height: 35px;
-    }
-    .loginButton {
-        font-size: 1em;
-        
-    }
-}

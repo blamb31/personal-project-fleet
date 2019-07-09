@@ -5,6 +5,8 @@ import {Link, Redirect} from 'react-router-dom'
 import {getCar, editCar} from '../../redux/reducers/cars'
 import S3Bucket from '../S3Bucket/S3Bucket';
 
+import './editCar.css'
+
 class EditCar extends Component {
             
     constructor(props) {
@@ -81,23 +83,32 @@ class EditCar extends Component {
         
         
         return(
-            <div>
-                {this.props.user ?
-                <div>
-                    <img src={this.state.car_img} />
+            <div className='editCarOuterDiv'>
+                {/* {this.props.user ? */}
+                {this.props ?
+                <div className='editCarInnerDiv'>
+                    <h3 className='editCarTitleText'>Edit Car</h3>
+                    <img className='editCarImage' src={this.state.car_img} />
+                    <S3Bucket updateCarPic={this.updateCarPic} />
                                 
-                    <div>
-                        <div>
+                    <div className='editCarInputsDiv'>
+                        <div className='editCarDriverId'>
                             <p>Driver ID:</p>
                             <input 
+                            className='editCarInput'
                             type='number' 
                             placeholder='Driver ID' 
                             value={this.state.driver_id} 
                             name='driver_id' 
                             onChange={event => this.handleChange(event)} />
                         </div>
-                        <div>
+                        <div className='carInfoTitleDiv'>
+                            <p>Car Information: </p>
+
+                        </div>
+                        <div className='editCarInputs'>
                             <input 
+                            className='editCarInput'
                             type='text' 
                             placeholder='Car Make' 
                             value={this.state.car_make} 
@@ -105,6 +116,7 @@ class EditCar extends Component {
                             onChange={event => this.handleChange(event)} />
                             
                             <input 
+                            className='editCarInput'
                             type='text'
                             placeholder='Car Model' 
                             value={this.state.car_model} 
@@ -112,6 +124,7 @@ class EditCar extends Component {
                             onChange={event => this.handleChange(event)} />
                             
                             <input 
+                            className='editCarInput'
                             type='text'
                             placeholder='Car Year' 
                             value={this.state.car_year} 
@@ -119,6 +132,7 @@ class EditCar extends Component {
                             onChange={event => this.handleChange(event)} />
                             
                             <input 
+                            className='editCarInput'
                             type='text'
                             placeholder='Car Color' 
                             value={this.state.car_color} 
@@ -126,6 +140,7 @@ class EditCar extends Component {
                             onChange={event => this.handleChange(event)} />
                             
                             <input 
+                            className='editCarInput'
                             type='text'
                             placeholder='Car Mileage' 
                             value={this.state.car_mileage} 
@@ -140,6 +155,7 @@ class EditCar extends Component {
                             onChange={event => this.handleChange(event)} /> */}
                         
                             <input 
+                            className='editCarInput'
                             type='text'
                             placeholder='Car Address' 
                             value={this.state.car_address} 
@@ -147,6 +163,7 @@ class EditCar extends Component {
                             onChange={event => this.handleChange(event)} />
                         
                             <input 
+                            className='editCarInput'
                             type='text'
                             placeholder='Car Zip Code' 
                             value={this.state.car_zip_code} 
@@ -154,6 +171,7 @@ class EditCar extends Component {
                             onChange={event => this.handleChange(event)} />
                         
                             <input 
+                            className='editCarInput'
                             type='text'
                             placeholder='Car City' 
                             value={this.state.car_city} 
@@ -161,27 +179,28 @@ class EditCar extends Component {
                             onChange={event => this.handleChange(event)} />
                         
                             <input 
+                            className='editCarInput'
                             type='text'
                             placeholder='Car State' 
                             value={this.state.car_state} 
                             name='car_state' 
                             onChange={event => this.handleChange(event)} />
-                            <div>
-                                <p>Mileage At Last Oil Change: </p>
-                                <input 
-                                type='number'
-                                placeholder='Mileage At Last Oil Change' 
-                                value={this.state.last_oil_change} 
-                                name='last_oil_change' 
-                                onChange={event => this.handleChange(event)} />
-                            </div>
-                            <S3Bucket updateCarPic={this.updateCarPic} />
-                            <div>
-                                <button onClick={this.handleEditCar}>Save Changes</button>
-                                <button onClick={() => window.history.back()}>Cancel Changes</button>
-                            </div>
-
                         </div>
+                        <div className='editCraLastOilChangeMileage'>
+                            <p>Mileage At Last Oil Change: </p>
+                            <input 
+                            className='editCarInput'
+                            type='number'
+                            placeholder='Mileage At Last Oil Change' 
+                            value={this.state.last_oil_change} 
+                            name='last_oil_change' 
+                            onChange={event => this.handleChange(event)} />
+                        </div>
+                        <div className='editCarSaveCancelButtons'>
+                            <button className='editCarSaveCancelButton' onClick={this.handleEditCar}>Save Changes</button>
+                            <button className='editCarSaveCancelButton' onClick={() => window.history.back()}>Cancel Changes</button>
+                        </div>
+
                     </div>
                 </div>
 
