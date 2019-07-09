@@ -1,0 +1,54 @@
+.outerEditUserInfoDiv {
+    width:100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    flex-grow: 1;
+    background: #faf8d3;
+}
+
+.innerEditUserInfoDiv {
+    width:90%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 5% 0;
+    background: #ebe461;
+    border-radius: 7px;
+    padding: 5%;
+}
+
+.editUserInfoTitle {
+    margin-bottom: 5%;
+}
+
+.editUserImageDiv {
+    width:100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 5%;
+
+}
+
+.editUserInputFields {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+
+}
+
+.editUserInfoNameInputs {
+    display: flex;
+    justify-content: flex-start;
+    margin: .5% 1%;
+}
+
+.editUserInfoNameInput {
+    margin: 0 1%;
+}
+
+.saveUserEditInfoButton {
+    margin: 5% 0 ;
+}

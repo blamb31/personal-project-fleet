@@ -5,6 +5,7 @@ import {Redirect} from 'react-router-dom'
 import {getUser, editUser} from '../../redux/reducers/users'
 import S3Bucket from '../S3Bucket/S3Bucket'
 
+import './editUserInfo.css'
 
 class EditUserInfo extends Component{
     constructor(props){
@@ -63,53 +64,62 @@ class EditUserInfo extends Component{
     render() {
         let {user} = this.props
         return(
-            <div>
+            <div className='outerEditUserInfoDiv'>
                 {user ?
-                <div>
-                    Edit User Page
-                    <img src={this.state.admin_img}/>
-                    <div>
-                        <input 
-                        type='text' 
-                        placeholder='First Name' 
-                        value={this.state.admin_first_name} 
-                        name='admin_first_name' 
-                        onChange={event => this.handleChange(event)} />
-
-                        <input 
-                        type='text'
-                        placeholder='Last Name' 
-                        value={this.state.admin_last_name} 
-                        name='admin_last_name' 
-                        onChange={event => this.handleChange(event)} />
-
-                        <input 
-                        type='text'
-                        placeholder='Company Name' 
-                        value={this.state.admin_company_name} 
-                        name='admin_company_name' 
-                        onChange={event => this.handleChange(event)} />
-
-                        <input 
-                        type='text'
-                        placeholder='Phone Number' 
-                        value={this.state.admin_phone} 
-                        name='admin_phone' 
-                        onChange={event => this.handleChange(event)} />
-
-                        {/* <input 
-                        type='text'
-                        placeholder='Profile Picture URL' 
-                        value={this.state.admin_img} 
-                        name='admin_img' 
-                        onChange={event => this.handleChange(event)} /> */}
+                <div className='innerEditUserInfoDiv'>
+                    <h3 className='editUserInfoTitle'>Edit Admin Info</h3>
+                    <div className='editUserImageDiv'>
+                        <img className='editUserImage' src={this.state.admin_img}/>
                         <S3Bucket updateUserPic={this.updateUserPic} />
-                    </div>
 
-                    
-                    <div>
-                        <button onClick={() => this.handleEditUser()} >Save Changes</button>
                     </div>
+                    <div className='editUserInputFields'>
+                        <p>Name: </p>
+                        <div className='editUserInfoNameInputs'> 
+                            <input 
+                            className='editUserInfoNameInput'
+                            type='text' 
+                            placeholder='First Name' 
+                            value={this.state.admin_first_name} 
+                            name='admin_first_name' 
+                            onChange={event => this.handleChange(event)} />
+
+                            <input 
+                            className='editUserInfoNameInput'
+                            type='text'
+                            placeholder='Last Name' 
+                            value={this.state.admin_last_name} 
+                            name='admin_last_name' 
+                            onChange={event => this.handleChange(event)} />
+                        </div>
+                        <p>Company Name:</p>
+                        <div className='editUserInfoNameInputs'>
+
+                            <input 
+                            className='editUserInfoNameInput'
+                            type='text'
+                            placeholder='Company Name' 
+                            value={this.state.admin_company_name} 
+                            name='admin_company_name' 
+                            onChange={event => this.handleChange(event)} />
+                        </div>
+                        <p>Phone Number: </p>
+                        <div className='editUserInfoNameInputs'>
+
+                            <input 
+                            className='editUserInfoNameInput'
+                            type='text'
+                            placeholder='Phone Number' 
+                            value={this.state.admin_phone} 
+                            name='admin_phone' 
+                            onChange={event => this.handleChange(event)} />
+
+                        
+                        </div>
+
+                    </div>
+                    <button className='saveUserEditInfoButton' onClick={() => this.handleEditUser()} >Save Changes</button>
+                    
                 </div>
 
                 :
