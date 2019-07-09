@@ -1,0 +1,51 @@
+.allAddCarWrapper {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    margin: 5% 0;
+}
+
+.addCarContentWrapper {
+    width: 90%;
+    /* background: #ebe461; */
+    padding: 5%;
+    border-radius: 7px;
+}
+
+.driverIdDiv{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+}
+
+.newCarInfoInput {
+    width: 27%;
+    margin: 1% 3%;
+}
+
+.newCarImageOuterDiv{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.newCarImageDiv {
+    width: 30%;
+    display: flex;
+    justify-content: center;
+}
+
+.addCancelButtons {
+    display: flex;
+    justify-content: center;
+}
+
+.addDeleteButton {
+    margin: 0 3%;
+}
+
+.createCarTable {
+    width: 100%;
+}

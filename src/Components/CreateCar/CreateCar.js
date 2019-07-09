@@ -6,6 +6,10 @@ import {Redirect, Link} from 'react-router-dom'
 import {getCars, addCar} from '../../redux/reducers/cars'
 import {getDriversInfo} from '../../redux/reducers/drivers'
 import S3Bucket from '../S3Bucket/S3Bucket';
+import emptyImage from '../Logo/emptyImage.jpg'
+
+
+import './createCar.css'
 
 class CreateCar extends Component {
     constructor(props) {
@@ -110,62 +114,78 @@ class CreateCar extends Component {
             driver = listDriver.map((driver, index) => {
                 if(index % 2 === 0){
                     return(
-                        <tr style={{background:'white'}} key={index}>
+                        <tr style={{background:'#ebe461'}} key={index}>
                             <td>{driver.driver_id}</td>
-                            <td><Link to={`/user/admin/api/drivers/${driver.driver_id}`}>{`${driver.driver_first_name} ${driver.driver_last_name}`}</Link></td>
+                            <td onClick={() => this.props.history.push(`/user/admin/api/drivers/${driver.driver_id}`)}>{`${driver.driver_first_name} ${driver.driver_last_name}`}</td>
                         </tr>
                     )
                 }else{
                     return(
-                        <tr style={{background:'gray'}} key={index}>
+                        <tr style={{background:'#6067ed'}} key={index}>
                             <td>{driver.driver_id}</td>
-                            <td><Link to={`/user/admin/api/drivers/${driver.driver_id}`}>{`${driver.driver_first_name} ${driver.driver_last_name}`}</Link></td>
+                            <td onClick={() => this.props.history.push(`/user/admin/api/drivers/${driver.driver_id}`)}>{`${driver.driver_first_name} ${driver.driver_last_name}`}</td>
                         </tr>
                     )
                 }
             })
         }
         return (
-            <div>
-                    <div>
+            <div className='allAddCarWrapper'>
+                <div className='addCarContentWrapper'>
+                    <div className='newCarImageOuterDiv'>
+                        {this.state.car_img ? 
+                        <div className='newCarImageDiv'>
+                            <img src={this.state.car_img} />
+                        </div>
+
+                        :
+
+                        <div>
+                            <img src={emptyImage} />
+                        </div>
+
+                        }
+
+                    </div>
+                    <div className='driverIdDiv'>
                         <p>Driver ID:</p>
-                        <input 
+                        <input className='newCarInfoInput'
                         type='number' 
-                        placeholder='Driver ID' 
+                        placeholder='' 
                         value={this.state.driver_id} 
                         name='driver_id' 
                         onChange={event => this.handleChange(event)} />
                     </div>
                     <div>
-                        <input 
+                        <input className='newCarInfoInput'
                         type='text' 
                         placeholder='Car Make' 
                         value={this.state.car_make} 
                         name='car_make' 
                         onChange={event => this.handleChange(event)} />
                         
-                        <input 
+                        <input className='newCarInfoInput'
                         type='text'
                         placeholder='Car Model' 
                         value={this.state.car_model} 
                         name='car_model' 
                         onChange={event => this.handleChange(event)} />
                         
-                        <input 
+                        <input className='newCarInfoInput'
                         type='text'
                         placeholder='Car Year' 
                         value={this.state.car_year} 
                         name='car_year' 
                         onChange={event => this.handleChange(event)} />
                         
-                        <input 
+                        <input className='newCarInfoInput'
                         type='text'
                         placeholder='Car Color' 
                         value={this.state.car_color} 
                         name='car_color' 
                         onChange={event => this.handleChange(event)} />
                         
-                        <input 
+                        <input className='newCarInfoInput'
                         type='text'
                         placeholder='Car Mileage' 
                         value={this.state.car_mileage} 
@@ -179,72 +199,70 @@ class CreateCar extends Component {
                         name='car_img' 
                         onChange={event => this.handleChange(event)} /> */}
                     
-                        <input 
+                        <input className='newCarInfoInput'
                         type='text'
                         placeholder='Car Address' 
                         value={this.state.car_address} 
                         name='car_address' 
                         onChange={event => this.handleChange(event)} />
                     
-                        <input 
+                        <input className='newCarInfoInput'
                         type='text'
                         placeholder='Car Zip Code' 
                         value={this.state.car_zip_code} 
                         name='car_zip_code' 
                         onChange={event => this.handleChange(event)} />
                     
-                        <input 
+                        <input className='newCarInfoInput'
                         type='text'
                         placeholder='Car City' 
                         value={this.state.car_city} 
                         name='car_city' 
                         onChange={event => this.handleChange(event)} />
                     
-                        <input 
+                        <input className='newCarInfoInput'
                         type='text'
                         placeholder='Car State' 
                         value={this.state.car_state} 
                         name='car_state' 
                         onChange={event => this.handleChange(event)} />
-                        <div>
+                        <div className='driverIdDiv'>
                             <p>Mileage At Last Oil Change: </p>
-                            <input 
+                            <input className='newCarInfoInput'
                             type='number'
-                            placeholder='Mileage At Last Oil Change' 
+                            placeholder='' 
                             value={this.state.last_oil_change} 
                             name='last_oil_change' 
                             onChange={event => this.handleChange(event)} />
                         </div>
-                        {this.state.car_img && 
-                        <div>
-                            <img src={this.state.car_img} />
-                        </div>
-
-                        }
                         <S3Bucket setCarPic={this.setCarPic} />
-                        <div>
-                            <button onClick={this.handleAddCar}>Add New Car</button>
-                            <button onClick={() => window.history.back()} >Cancel</button>
+                        <div className='addCancelButtons'>
+                            <button className='addDeleteButton' onClick={() => window.history.back()} >Cancel</button>
+                            <button className='addDeleteButton' onClick={this.handleAddCar}>Add New Car</button>
                         </div>
-                        {(this.props.user) ?
-                            <div style={{display: 'flex',flexDirection: 'column', justifyContent:'center'}}>
-                                <h3>Drivers</h3>
-                                <table>
-                                    <tr style={{background: 'gray'}}>
-                                        <th>Driver ID</th>
-                                        <th>Driver Info</th>
-                                    </tr>
-                                    {driver}
-                
-                                </table>
-                
-                            </div>
-                            
-                            :
-                                <Redirect to='/' />
-                            }
-                    </div>
+                        <div>
+                            {/* {(this.props.user) ? */}
+                            {(this.props) ?
 
+                                <div style={{display: 'flex',flexDirection: 'column', justifyContent:'center'}}>
+                                    <h3>Drivers</h3>
+                                    <table className='createCarTable'>
+                                        <tr style={{background: '#6067ed'}}>
+                                            <th>Driver ID</th>
+                                            <th>Driver Info</th>
+                                        </tr>
+                                        {driver}
+                    
+                                    </table>
+                    
+                                </div>
+                            
+                                :
+                                    <Redirect to='/' />
+                                }
+                        </div>
+                    </div>
+                </div>
             </div>
         )
     }

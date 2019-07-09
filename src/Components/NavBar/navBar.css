@@ -9,5 +9,11 @@
 .navBarLinks {
     color: black;
     margin: 0 3%;
+    font-size: 14px;
 }
 
+@media screen and (min-width: 415px) {
+    .navBarLinks {
+        font-size: 20px;
+    }
+}

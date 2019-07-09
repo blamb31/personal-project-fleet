@@ -64,8 +64,7 @@ class Car extends Component {
         let {car} = this.props
         return(
             <div className='singleCarOuterDiv'>
-                {/* {this.props.user ? */}
-                {this.props ?
+                {this.props.user ?
                 
                     <div className='outerCarViewDiv'>
                         {this.props.car && 
