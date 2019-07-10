@@ -93,4 +93,8 @@
     #landingPlease{
         font-size: 16px;
     }
+    .lpButton{
+        font-size: 13px;
+        width: 80%;
+        }
 }
