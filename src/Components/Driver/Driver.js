@@ -24,7 +24,7 @@ class Driver extends Component {
 
     handleDeleteDriver = async (id) => {
         await this.props.deleteDriver(id)
-        this.props.history.push('/user/admin/api/cars')
+        this.props.history.push('/user/admin/api/drivers')
     }
 
     render(){
@@ -42,7 +42,7 @@ class Driver extends Component {
                         </div>
                     
                         <div className='driverDivButtons'>
-                            <button className='driverDivButton' onClick={ () => window.history.back()} >Back</button>
+                            <button className='driverDivButton' onClick={ () => this.props.history.push('/user/admin/api/drivers')} >Back</button>
                             <button className='driverDivButton' onClick={ () => this.props.history.push(`/user/admin/api/drivers/edit/${this.props.match.params.id}`)} >Edit</button>
                             <button className='driverDivButton' onClick={() => this.handleDeleteDriver(this.props.match.params.id)} >{`Delete ${driver.driver_first_name}`}</button>
                         </div>
