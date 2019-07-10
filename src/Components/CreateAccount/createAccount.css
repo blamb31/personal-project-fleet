@@ -107,6 +107,13 @@
         width: 63%;
         
     }
+    .welcomeCreate{
+        font-size: 16px;
+    }
+
+    .cAdminInputs {
+        width: 55%;
+    }
     
 }
 
